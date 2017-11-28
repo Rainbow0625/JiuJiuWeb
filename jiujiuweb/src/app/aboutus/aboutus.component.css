@@ -1,0 +1,12 @@
+.fixed-width {
+  width:1024px;
+  margin:0 auto;
+}
+.contact-wrap {
+  margin-top: 20px;
+  margin-left: 80px;
+}
+.contact-list {
+  margin-left: 57px;
+  font-size: 14px;
+}
