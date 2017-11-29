@@ -10,3 +10,9 @@
   margin-left: 57px;
   font-size: 14px;
 }
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
