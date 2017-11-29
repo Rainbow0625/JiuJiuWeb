@@ -3,17 +3,17 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
-import { UserComponent } from './user/user.component';
-import {RouterModule, Routes} from "@angular/router";
-import {FormsModule} from "@angular/forms";
-import { CarouselComponent } from './user/carousel/carousel.component';
-import { SidebarComponent } from './admin/sidebar/sidebar.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { UsercenterComponent } from './usercenter/usercenter.component';
+import { LoginComponent } from './HomePage/login/login.component';
+import { SignupComponent } from './HomePage/signup/signup.component';
+import { HomeComponent } from './HomePage/home/home.component';
+import { AdminComponent } from './AdminWebsite/admin/admin.component';
+import { UserComponent } from './UserWebsite/user/user.component';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import { CarouselComponent } from './UserWebsite/user/carousel/carousel.component';
+import { SidebarComponent } from './AdminWebsite/admin/sidebar/sidebar.component';
+import { AboutusComponent } from './HomePage/aboutus/aboutus.component';
+import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.component';
 
 
 const routeConfig: Routes = [
