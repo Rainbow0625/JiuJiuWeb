@@ -14,6 +14,8 @@ import { CarouselComponent } from './UserWebsite/user/carousel/carousel.componen
 import { SidebarComponent } from './AdminWebsite/admin/sidebar/sidebar.component';
 import { AboutusComponent } from './HomePage/aboutus/aboutus.component';
 import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.component';
+import { ProductComponent } from './UserWebsite/user/product/product.component';
+import { BannerHeadComponent } from './UserWebsite/user/banner-head/banner-head.component';
 
 
 const routeConfig: Routes = [
@@ -21,7 +23,8 @@ const routeConfig: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'user', component: UserComponent},
-  {path: 'about', component: AboutusComponent}
+  {path: 'about', component: AboutusComponent},
+  {path: 'usercenter', component: UsercenterComponent}
 ]
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ const routeConfig: Routes = [
     CarouselComponent,
     SidebarComponent,
     AboutusComponent,
-    UsercenterComponent
+    UsercenterComponent,
+    ProductComponent,
+    BannerHeadComponent
   ],
   imports: [
     BrowserModule,
