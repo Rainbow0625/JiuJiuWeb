@@ -1,0 +1,24 @@
+<div class='program-banner'>
+  <div class='tab-nav'>
+    <a *ngFor="let nav of navs;let i=index" (click)="navClick(nav.routerUrl)" class="navitem navitemall {{nav.routerUrl===curRoutePath?'active':''}}">
+      <i class='navicon {{nav.navIcon}}'></i>
+      <span class='navtext'>{{nav.navText}}</span>
+      <div class='navbot'></div>
+    </a>
+  </div>
+
+  <div class='MMM'></div>
+  <div class='program-banner-wrap'>
+    <div class='program-banner-absolute'>
+      <div class='program-banner-bk'>
+        <div class='svg-block image1'></div>
+        <div class='svg-diamond image2'></div>
+        <div class='svg-leaf image3'></div>
+        <div class='svg-small-circle'></div>
+        <div class='svg-big-circle'></div>
+        <div class='svg-triangle image4'></div>
+        <div class='svg-big-circle'></div>
+      </div>
+    </div>
+  </div>
+</div>
