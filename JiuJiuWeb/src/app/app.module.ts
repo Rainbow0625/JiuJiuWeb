@@ -14,6 +14,7 @@ import { CarouselComponent } from './UserWebsite/user/carousel/carousel.componen
 import { SidebarComponent } from './AdminWebsite/admin/sidebar/sidebar.component';
 import { AboutusComponent } from './HomePage/aboutus/aboutus.component';
 import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.component';
+import { TypeTreeComponent } from './AdminWebsite/admin/type-tree/type-tree.component';
 
 
 const routeConfig: Routes = [
@@ -22,6 +23,7 @@ const routeConfig: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'user', component: UserComponent},
   {path: 'about', component: AboutusComponent}
+  {path: 'typeTree', component: TypeTreeComponent}
 ]
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ const routeConfig: Routes = [
     CarouselComponent,
     SidebarComponent,
     AboutusComponent,
-    UsercenterComponent
+    UsercenterComponent,
+    TypeTreeComponent
   ],
   imports: [
     BrowserModule,
