@@ -9,7 +9,7 @@ import { HomeComponent } from './HomePage/home/home.component';
 import { AdminComponent } from './AdminWebsite/admin/admin.component';
 import { UserComponent } from './UserWebsite/user/user.component';
 import {RouterModule, Routes} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CarouselComponent } from './UserWebsite/user/carousel/carousel.component';
 import { SidebarComponent } from './AdminWebsite/admin/sidebar/sidebar.component';
 import { AboutusComponent } from './HomePage/aboutus/aboutus.component';
@@ -17,6 +17,10 @@ import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.compone
 import { TypeTreeComponent } from './AdminWebsite/admin/type-tree/type-tree.component';
 import {ProductComponent} from "./UserWebsite/user/product/product.component";
 import {BannerHeadComponent} from "./UserWebsite/user/banner-head/banner-head.component";
+import {HttpModule} from "@angular/http";
+import {ProductService} from "./shared/product.service";
+
+
 
 
 const routeConfig: Routes = [
@@ -27,7 +31,9 @@ const routeConfig: Routes = [
   {path: 'about', component: AboutusComponent},
   {path:'product',component: ProductComponent},
   {path:'usercenter',component:UsercenterComponent},
-  {path: 'typeTree', component: TypeTreeComponent}
+  {path: 'typeTree', component: TypeTreeComponent},
+  {path: 'admin',component:AdminComponent},
+  {path: 'product/:productId', component: ProductComponent}
 ]
 @NgModule({
   declarations: [
@@ -48,10 +54,12 @@ const routeConfig: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routeConfig)
+    RouterModule.forRoot(routeConfig),
+    ReactiveFormsModule,
+    HttpModule
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

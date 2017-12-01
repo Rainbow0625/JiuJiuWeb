@@ -2,3 +2,16 @@
   background: green;
   size: 100px;
 }
+.program-list .program-list-wrap {
+  display: inline-block;
+}
+.program-list {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 108px;
+  text-align: center;
+}
+.body-main {
+  min-height: 750px;
+}

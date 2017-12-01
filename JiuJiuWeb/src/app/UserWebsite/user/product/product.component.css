@@ -383,8 +383,8 @@ body {
   right: 24px;
 }
 .program-item .text {
-  float: left;
-  font-size: 13px;
+  float: right;
+  font-size: 20px;
   color: #93999f;
   line-height: 24px;
 }

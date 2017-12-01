@@ -1,9 +1,7 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
   <ul class="list-group">
-    <a   class="list-group-item">
-      <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard'}}
-    </a>
-    <a [routerLink]="['/typeTree']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+
+    <a [routerLink]="['/typeTree']" class="list-group-item">
       <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ '酒图'}}
     </a>
 

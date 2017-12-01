@@ -2,7 +2,11 @@
   <app-carousel></app-carousel>
 </div> -->
 
-<div>
-  <app-banner-head></app-banner-head>
-  <app-product></app-product>
+<div class='body-main'>
+  <app-banner-head (navChange)="navChange($event)"></app-banner-head>
+  <div class='program-list'>
+    <div class='program-list-wrap'>
+      <app-product [products]="productss"></app-product>
+    </div>
+  </div>
 </div>

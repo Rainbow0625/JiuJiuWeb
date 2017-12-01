@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./banner-head.component.css']
 })
 export class BannerHeadComponent implements OnInit, AfterContentInit {
+
   @Output()
   navChange = new EventEmitter();
 
@@ -20,17 +21,19 @@ export class BannerHeadComponent implements OnInit, AfterContentInit {
     this.navs = NAVS;
   }
 
-  navClick(path: string) {
-    this.curRoutePath = path || '/all';
-    this.navChange.emit(path.substr(1));
-  }
   ngAfterContentInit(): void {
-    if (location.pathname === '/') {
-      this.curRoutePath = '/all';
+    if (location.pathname === '/user') {
+      this.curRoutePath = '/baijiu';
     } else {
       this.curRoutePath = location.pathname;
     }
   }
+  navClick(path: string) {
+    this.curRoutePath = path || '/baijiu';
+    this.navChange.emit(path.substr(1));
+    console.log(path.substr(1));
+  }
+
 }
 export const NAVS: any = [
   {
@@ -51,7 +54,7 @@ export const NAVS: any = [
 
   },
   {
-    "routerUrl": "/react",
+    "routerUrl": "/pijiu",
     "navIcon": "java",
     "navText": "啤酒",
 
