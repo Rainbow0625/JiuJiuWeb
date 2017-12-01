@@ -15,6 +15,8 @@ import { SidebarComponent } from './AdminWebsite/admin/sidebar/sidebar.component
 import { AboutusComponent } from './HomePage/aboutus/aboutus.component';
 import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.component';
 import { TypeTreeComponent } from './AdminWebsite/admin/type-tree/type-tree.component';
+import {ProductComponent} from "./UserWebsite/user/product/product.component";
+import {BannerHeadComponent} from "./UserWebsite/user/banner-head/banner-head.component";
 
 
 const routeConfig: Routes = [
@@ -22,7 +24,9 @@ const routeConfig: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'user', component: UserComponent},
-  {path: 'about', component: AboutusComponent}
+  {path: 'about', component: AboutusComponent},
+  {path:'product',component: ProductComponent},
+  {path:'usercenter',component:UsercenterComponent},
   {path: 'typeTree', component: TypeTreeComponent}
 ]
 @NgModule({
@@ -37,7 +41,9 @@ const routeConfig: Routes = [
     SidebarComponent,
     AboutusComponent,
     UsercenterComponent,
-    TypeTreeComponent
+    TypeTreeComponent,
+    BannerHeadComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

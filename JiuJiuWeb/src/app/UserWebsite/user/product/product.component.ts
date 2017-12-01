@@ -9,7 +9,7 @@ import {Component, Injectable, OnInit} from '@angular/core';
 export class ProductComponent implements OnInit {
   public products: Product[] = [
     new Product("茅台", "甘甜", "中酸","半干型""高泡酒","45-50","浓香","","","","100","","","合格",""),
-    new Product("五粮液", "甘甜", "中酸","半干型""高泡酒","45-50","浓香","","","","100","","","不合格",""),
+    new Product("五粮液", "甘甜", "中酸","半干型""高泡酒","45-50","浓香","","","","100","","","不合格","")
   ];
   constructor() { }
   ngOnInit() {
