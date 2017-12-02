@@ -29,8 +29,8 @@ const routeConfig: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'user', component: UserComponent},
   {path: 'about', component: AboutusComponent},
-  {path:'product',component: ProductComponent},
-  {path:'usercenter',component:UsercenterComponent},
+  {path: 'product',component: ProductComponent},
+  {path: 'usercenter',component:UsercenterComponent},
   {path: 'typeTree', component: TypeTreeComponent},
   {path: 'admin',component:AdminComponent},
   {path: 'product/:productId', component: ProductComponent}
