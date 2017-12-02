@@ -33,6 +33,7 @@ export class UserComponent implements OnInit {
     return Array<Product>().filter(item => {
       return item.type.includes(type);
     })
+
   }
 
 }

@@ -1,6 +1,6 @@
 <div class='program-banner'>
   <div class='tab-nav'>
-    <a *ngFor="let nav of navs;let i=index" (click)="navClick(nav.routerUrl)"  class="navitem navitemall {{nav.routerUrl===curRoutePath?'active':''}}">
+    <a *ngFor="let nav of navs;let i = index;" href="javascript:void(0)" (click)="navClick(nav.routerUrl)"  class="navitem navitemall {{nav.routerUrl===curRoutePath?'active':''}}">
       <i class='navicon {{nav.navIcon}}'></i>
       <span class='navtext'>{{nav.navText}}</span>
       <div class='navbot'></div>
