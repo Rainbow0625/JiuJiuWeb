@@ -36,6 +36,5 @@ export class Product {
     public reason: string,// 不合格原因
     public des: string) {
 
-
   }
 }
