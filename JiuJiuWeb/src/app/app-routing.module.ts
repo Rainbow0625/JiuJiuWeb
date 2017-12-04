@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {UsercenterComponent} from "./UserWebsite/usercenter/usercenter.component";
 
 /*
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routeConfig: Routes = [
   {path: '', loadChildren: './HomePage/home/home.module#HomeModule'},
   {path: 'admin', loadChildren: './AdminWebsite/admin/admin.module#AdminModule'},
   {path: 'user', loadChildren: './UserWebsite/user/user.module#UserModule'},
-
+  {path:'usercenter', component:UsercenterComponent}
   /*
   {path: 'about', component: AboutusComponent},
   {path: 'product', component: ProductComponent},
