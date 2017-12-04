@@ -9,9 +9,6 @@ export class UsermessageService {
   getUsermessage(): usermessage[] {
    return this.users;
   }
-
-
-
 }
 export class usermessage {
   constructor(

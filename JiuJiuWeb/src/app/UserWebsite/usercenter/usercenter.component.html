@@ -1,10 +1,228 @@
-<div>
-  <form id="upfile" name="upform" enctype="multipart/form-data" method="post" action="">
-    <label for="upfile">上传文件：</label>
-    <input type="file" name="upfile" id="fileField" />
-    <input type="text" name="username" />
-    <input type="password" name="password" />
-    <input type="submit" name="submit" value="上传"/>
+<html>
+<head>
+<script language="javascript">
+  function showDay(){
+    var y = document.getElementById("year").value;
+    var m = document.getElementById("month").value;
+    switch(m){
+      case "1":
+      case "3":
+      case "5":
+      case "7":
+      case "8":
+      case "10":
+      case "12":
+        day = 31;
+        break;
+      case "4":
+      case "6":
+      case "9":
+      case "11":
+        day = 30;
+        break;
+      case "2":
+        if(y%4==0&&y0!=0||y%400==0){
+          day = 29;
+        } else {
+          day = 28;
+        }
+    }
+    str = "<select>";
+    for(a=1;a<=day;a++){
+      str += "<option>"+a+"</option>";
+    }
+    str += "</select>";
+    document.getElementById("d").innerHTML = str;
 
-  </form>
+  }
+</script>
+</head>
+
+<div>
+  <link rel="stylesheet" href="../assets/base.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/common-less(1).css" type="text/css" />
+  <link rel="stylesheet" href="../assets/moco.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/common-less.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/profile-less.css" type="text/css" />
+  <div id="main">
+
+    <div class="page-settings" style="margin-top: 50px">
+      <div class="top">
+        <div class="w960 mauto top_title">
+          <p>个人设置</p>
+        </div>
+      </div>
+      <div class="setting pb10">
+        <div class="nav-tabs pa">
+          <h1 class="baseinfo fl active">基本信息</h1>
+          <div class="cb"></div>
+        </div>
+        <div class="contentBox">
+          <div class="formBox">
+            <div id="setting-profile" class="setting-wrap setting-profile">
+
+              <div class="wlfg-wrap clearfix ">
+                <label class="label-name">头像：</label>
+                <div class="rlf-group">
+                  <img class="fl avator-img" id="js-portrait" src="http://img.mukewang.com/58492fe600012e8e01800180-200-200.jpg" data-portrait="58492fe600012e8e01800180" width="180" height="180">
+                  <div class="fl ml20 pr">
+                    <div><input type="button" hidefocus="true" value="换一换" class="js-avator-try avator-try"></div>
+                    <div id="avator-btns" class="avator-btn-inner">
+
+
+
+                      <div class="avator-btn-wrap">
+                        <form target="uploadtarget" action="postpic" method="post" enctype="multipart/form-data">
+                          <a href="javascript:void(0)" hidefocus="true" class="avator-btn-fake">上传头像</a>
+                          <input class="hide" type="file" title="上传头像" name="fileField" id="upload" accept="image/*">
+                          <input class="hide" type="hidden" name="type" value="1">
+                        </form>
+                        <iframe src="about:blank" id="uploadtarget" name="uploadtarget" frameborder="0" style="display:none;"></iframe>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cb"></div>
+                  <p class="rlf-tip-wrap errorHint color-red" ></p>
+                </div>
+              </div>
+
+              <form id="profile" >
+
+                <div class="wlfg-wrap clearfix">
+                  <label class="label-name" for="nick" >昵称：</label>
+                  <div class="rlf-group">
+                    <input type="text" name="nickname" id="nick"  autocomplete="off"  data-validate="require-nick"  class="moco-form-control" value="Sequin_YF" placeholder="请输入昵称."/>
+                    <p class="rlf-tip-wrap errorHint color-red" ></p>
+                  </div>
+                </div>
+
+                <div class="wlfg-wrap clearfix">
+                  <label class="label-name" for="nick" >电子邮件：</label>
+                  <div class="rlf-group">
+                    <input type="text" name="email" id="email"  autocomplete="off"  data-validate="require-nick"  class="moco-form-control" value="12345@qq.com" placeholder="请输入邮箱."/>
+                    <p class="rlf-tip-wrap errorHint color-red" ></p>
+                  </div>
+                </div>
+
+                <div class="wlfg-wrap clearfix">
+                  <label class="label-name" for="nick">出生年月：</label>
+                  <div class="rlf-group" onload="showDay()">
+                    <select id="year" onchange="showDay()">
+                      <script language="javascript">
+                        //获得当前系统时间;
+                        var now = new Date();
+                        var year = now.getFullYear();
+
+                        //用一个方法循环输出年份;
+                        for (i = year - 100; i <= year; i++) {
+                          if (i == year - 20) {
+                            document.write("<option selected value=" + i + ">" + i + "</option>");
+                          } else {
+                            document.write("<option value=" + i + ">" + i + "</option>");
+                          }
+                        }
+                      </script>
+                    </select>
+                    <select id="month" onchange="showDay()">
+                      <script language="javascript">
+                        var now = new Date();
+                        var month = now.getMonth();
+                        for (j = 1; j <= 12; j++) {
+                          document.write("<option value=" + j + ">" + j + "</option>");
+                        }
+                      </script>
+                    </select>
+                    <span id="d"></span>
+
+                    <p class="rlf-tip-wrap errorHint color-red"></p>
+                  </div>
+
+                  <label class="label-name" for="province-select">城市：</label>
+                  <div class="rlf-group profile-address">
+                    <select id="province-select" class='moco-form-control' hidefocus="true">
+                      <option value="0">选择省份</option>
+                      <option value="1">北京</option>
+                      <option value="2">天津</option>
+                      <option value="3">河北</option>
+                      <option value="4">山西</option>
+                      <option value="5">内蒙古</option>
+                      <option value="6">辽宁</option>
+                      <option value="7">吉林</option>
+                      <option value="8">黑龙江</option>
+                      <option value="9">上海</option>
+                      <option value="10">江苏</option>
+                      <option value="11">浙江</option>
+                      <option value="12">安徽</option>
+                      <option value="13">福建</option>
+                      <option value="14">江西</option>
+                      <option value="15">山东</option>
+                      <option value="16">河南</option>
+                      <option value="17">湖北</option>
+                      <option value="18">湖南</option>
+                      <option value="19">广东</option>
+                      <option value="20">海南</option>
+                      <option value="21">广西</option>
+                      <option value="22">甘肃</option>
+                      <option value="23">陕西</option>
+                      <option value="24">新疆</option>
+                      <option value="25">青海</option>
+                      <option value="26">宁夏</option>
+                      <option value="27">重庆</option>
+                      <option value="28">四川</option>
+                      <option value="29">贵州</option>
+                      <option value="30">云南</option>
+                      <option value="31">西藏</option>
+                      <option value="32">台湾</option>
+                      <option value="33">澳门</option>
+                      <option value="34">香港</option>
+                      <option value="100">其他</option>
+                    </select>
+                    <select class='moco-form-control' id="city-select" hidefocus="true">
+                      <option value="0">选择城市</option>
+                    </select>
+                    <select class='moco-form-control mr0' id="area-select" hidefocus="true">
+                      <option value="0">选择区县</option>
+                    </select>
+                    <div class="cb"></div>
+                    <p class="rlf-tip-wrap errorHint color-red"></p>
+                  </div>
+
+                  <label class="label-name h16 lh16">性别：</label>
+                  <div class="rlf-group rlf-radio-group">
+                    <label class="lh16"><input type="radio" hidefocus="true" value="0" name="sex">保密</label>
+                    <label class="lh16"><input type="radio" hidefocus="true" value="1" name="sex">男</label>
+                    <label class="lh16"><input type="radio" hidefocus="true" value="2" checked="checked"
+                                               name="sex">女</label>
+                    <p class="rlf-tip-wrap errorHint color-red"></p>
+                  </div>
+                </div>
+
+                <div class="wlfg-wrap clearfix">
+                  <label class="label-name" for="aboutme">个性签名：</label>
+                  <div class="rlf-group">
+                    <div class="pr">
+                      <textarea name="aboutme"  id="aboutme"  rows="5" class="noresize js-sign moco-form-control"></textarea>
+                      <p class="numCanInput js-numCanInput ">还可以输入128个字符</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wlfg-wrap clearfix">
+                  <label class="label-name" for="profile-submit"></label>
+                  <div class="rlf-group">
+                    <a id="profile-submit"  hidefocus="true"  aria-role="button" class="rlf-btn-green btn-block profile-btn" [routerLink]="['/user']">保存</a>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
+
+</html>

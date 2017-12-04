@@ -1,4 +1,35 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
- <app-home></app-home>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['']">酒酒网</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav pull-right">
+        <li><a [routerLink]="['']">酒库</a></li>
+        <li><a [routerLink]="['/about']">关于我们</a></li>
+        <li><a [routerLink]="['/login']">登录</a></li>
+        <li><a [routerLink]="['/signup']">注册</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container main-container">
+  <router-outlet></router-outlet>
 </div>
+
+<nav class="navbar-static-bottom">
+<div class="container ">
+  <footer >
+    <hr>
+    <p align="center" style="margin-top: 20px;color:#878B91;">Copyright &copy;奥特曼打小怪兽
+    </p>
+  </footer>
+</div>
+</nav>
