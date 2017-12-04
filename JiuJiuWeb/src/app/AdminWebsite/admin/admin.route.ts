@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import {AdminComponent} from "./admin.component";
 import {TypeTreeComponent} from "./type-tree/type-tree.component";
-import {SidebarComponent} from "./sidebar/sidebar.component";
+import {NgModule} from "@angular/core";
 
 export const adminRoutes=[
   {
@@ -9,7 +9,7 @@ export const adminRoutes=[
     component:AdminComponent,
     children:[
       {
-      path:'/typeTree',
+      path:'typeTree',
       component:TypeTreeComponent,
       /*
       redirectTo: 'home',
@@ -20,3 +20,9 @@ export const adminRoutes=[
     ]
   }
 ];
+
+@NgModule({
+  imports: [RouterModule.forChild(adminRoutes)],
+  exports: [RouterModule]
+})
+export class AdminRoutingModule {}

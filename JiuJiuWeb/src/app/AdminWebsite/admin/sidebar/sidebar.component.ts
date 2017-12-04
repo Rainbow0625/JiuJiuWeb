@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   isActive: boolean = false;
-  constructor() { }
+  // showMenu: string = '';
+  constructor() {
+    this.isActive = !this.isActive;
+  }
 
   ngOnInit() {
   }

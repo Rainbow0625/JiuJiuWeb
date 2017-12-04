@@ -22,6 +22,9 @@ import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.compone
 import { TypeTreeComponent } from './AdminWebsite/admin/type-tree/type-tree.component';
 import {ProductComponent} from './UserWebsite/user/product/product.component';
 import {BannerHeadComponent} from './UserWebsite/user/banner-head/banner-head.component';
+import {UserModule} from "./UserWebsite/user/user.module";
+import {AdminModule} from "./AdminWebsite/admin/admin.module";
+import {HomeModule} from "./HomePage/home/home.module";
 
 
 @NgModule({
@@ -45,9 +48,10 @@ import {BannerHeadComponent} from './UserWebsite/user/banner-head/banner-head.co
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-
+    AppRoutingModule,
+    UserModule,
+    AdminModule,
   ],
   exports: [RouterModule],
   providers: [ProductService],

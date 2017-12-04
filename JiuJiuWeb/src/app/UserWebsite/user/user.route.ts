@@ -1,6 +1,7 @@
 import { RouterModule } from '@angular/router';
 import {UserComponent} from "./user.component";
 import {UsercenterComponent} from "../usercenter/usercenter.component";
+import {NgModule} from "@angular/core";
 
 export const userRoutes=[
   {
@@ -8,7 +9,7 @@ export const userRoutes=[
     component:UserComponent,
     children:[
       {
-        path:'/usercenter',
+        path:'usercenter',
         component:UsercenterComponent,
         /*
         redirectTo: 'home',
@@ -19,3 +20,9 @@ export const userRoutes=[
     ]
   }
 ];
+
+@NgModule({
+  imports: [RouterModule.forChild(userRoutes)],
+  exports: [RouterModule]
+})
+export class UserRoutingModule {}
