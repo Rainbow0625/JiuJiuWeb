@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {UsercenterComponent} from "./UserWebsite/usercenter/usercenter.component";
+import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 
 /*
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routeConfig: Routes = [
   {path: '', loadChildren: './HomePage/home/home.module#HomeModule'},
   {path: 'admin', loadChildren: './AdminWebsite/admin/admin.module#AdminModule'},
   {path: 'user', loadChildren: './UserWebsite/user/user.module#UserModule'},
-  {path:'usercenter', component:UsercenterComponent}
+  {path:'usercenter', component:UsercenterComponent},
+  {path:'**', component:NotFoundPageComponent}
   /*
   {path: 'about', component: AboutusComponent},
   {path: 'product', component: ProductComponent},

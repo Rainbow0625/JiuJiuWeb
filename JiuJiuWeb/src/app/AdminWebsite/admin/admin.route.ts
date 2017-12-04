@@ -1,27 +1,25 @@
 import { RouterModule } from '@angular/router';
 import {AdminComponent} from "./admin.component";
-import {TypeTreeComponent} from "./type-tree/type-tree.component";
+import {TypeTreeComponent} from "./right/type-tree/type-tree.component";
 import {NgModule} from "@angular/core";
-import {GraperyComponent} from "./grapery/grapery.component";
+import {GraperyComponent} from "./right/grapery/grapery.component";
+import {AdminRightComponent} from "./right/admin-right/admin-right.component";
 
 export const adminRoutes=[
   {
     path:'',
     component:AdminComponent,
-    children:[
-      {
+    children:[{
+      // 默认显示的页面！怎么默认？
+      path:'adminHome',
+      component:AdminRightComponent,
+    },{
       path:'typeTree',
       component:TypeTreeComponent,
-      /*
-      redirectTo: 'home',
-      pathMatch: 'full',
-      loadChildren:'../post/post.module#PostModule'*/
     },{
-        path:'grapery',
-        component:GraperyComponent,
-      }
-
-    ]
+      path:'grapery',
+      component:GraperyComponent,
+    }]
   }
 ];
 

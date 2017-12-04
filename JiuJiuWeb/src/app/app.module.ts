@@ -19,17 +19,19 @@ import { CarouselComponent } from './UserWebsite/user/carousel/carousel.componen
 import { SidebarComponent } from './AdminWebsite/admin/sidebar/sidebar.component';
 import { AboutusComponent } from './HomePage/aboutus/aboutus.component';
 import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.component';
-import { TypeTreeComponent } from './AdminWebsite/admin/type-tree/type-tree.component';
+import { TypeTreeComponent } from './AdminWebsite/admin/right/type-tree/type-tree.component';
 import {ProductComponent} from './UserWebsite/user/product/product.component';
 import {BannerHeadComponent} from './UserWebsite/user/banner-head/banner-head.component';
 import {UserModule} from "./UserWebsite/user/user.module";
 import {AdminModule} from "./AdminWebsite/admin/admin.module";
 import {HomeModule} from "./HomePage/home/home.module";
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundPageComponent,
     /*
     AdminComponent,
     UserComponent,

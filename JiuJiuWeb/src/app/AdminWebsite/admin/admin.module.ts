@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {adminRoutes, AdminRoutingModule} from "./admin.route";
 import {SidebarComponent} from "./sidebar/sidebar.component";
-import {TypeTreeComponent} from "./type-tree/type-tree.component";
 import {AdminComponent} from "./admin.component";
-import {GraperyComponent} from "./grapery/grapery.component";
+import { AdminRightComponent } from './right/admin-right/admin-right.component';
+import {TypeTreeComponent} from "./right/type-tree/type-tree.component";
+import {GraperyComponent} from "./right/grapery/grapery.component";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {GraperyComponent} from "./grapery/grapery.component";
   declarations: [
     AdminComponent,
     SidebarComponent,
+    AdminRightComponent,
     TypeTreeComponent,
     GraperyComponent,
   ],
