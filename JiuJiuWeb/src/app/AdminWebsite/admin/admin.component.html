@@ -1,4 +1,32 @@
-<p>
-  <app-sidebar></app-sidebar>
-  admin page works!
-</p>
+<div class="container">
+  <div class="row">
+    <app-sidebar></app-sidebar>
+
+    <div class="row carousel-container col-lg-12 pull-right">
+      <div class="carousel slide " data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <img class="slide-image img-responsive" src="assets/images/lunbo1.jpeg" alt=""/>
+          </div>
+          <div class="item">
+            <img class="slide-image img-responsive" src="assets/images/lunbo2.jpeg" alt=""/>
+          </div>
+          <div class="item">
+            <img class="slide-image img-responsive" src="assets/images/lunbo3.jpeg" alt=""/>
+          </div>
+        </div>
+        <a class="left carousel-control" href="javascript:$('.carousel').carousel('prev')">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="javascript:$('.carousel').carousel('next')">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

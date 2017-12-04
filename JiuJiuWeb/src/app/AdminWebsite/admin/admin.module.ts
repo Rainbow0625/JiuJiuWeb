@@ -5,6 +5,7 @@ import {adminRoutes, AdminRoutingModule} from "./admin.route";
 import {SidebarComponent} from "./sidebar/sidebar.component";
 import {TypeTreeComponent} from "./type-tree/type-tree.component";
 import {AdminComponent} from "./admin.component";
+import {GraperyComponent} from "./grapery/grapery.component";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {AdminComponent} from "./admin.component";
     AdminComponent,
     SidebarComponent,
     TypeTreeComponent,
+    GraperyComponent,
   ],
   providers: [],
 })

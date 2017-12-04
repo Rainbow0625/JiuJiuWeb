@@ -2,6 +2,7 @@ import { RouterModule } from '@angular/router';
 import {AdminComponent} from "./admin.component";
 import {TypeTreeComponent} from "./type-tree/type-tree.component";
 import {NgModule} from "@angular/core";
+import {GraperyComponent} from "./grapery/grapery.component";
 
 export const adminRoutes=[
   {
@@ -15,7 +16,10 @@ export const adminRoutes=[
       redirectTo: 'home',
       pathMatch: 'full',
       loadChildren:'../post/post.module#PostModule'*/
-    }
+    },{
+        path:'grapery',
+        component:GraperyComponent,
+      }
 
     ]
   }

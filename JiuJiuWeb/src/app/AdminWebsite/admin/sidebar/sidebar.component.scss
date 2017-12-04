@@ -5,7 +5,8 @@ $topnav-background-color: #222;
   z-index: 1000;
   top: 56px;
   left: 235px;
-  width: 235px;
+  width: 150px;
+  margin-top:-7px;
   margin-left: -235px;
   border: none;
   border-radius: 0;
@@ -25,10 +26,11 @@ a.list-group-item {
   background: $topnav-background-color;
   border: 0;
   border-radius: 0;
-  color: #999;
+  color: #999;   //文本颜色
   text-decoration: none;
+  font-size: 15px; //字体大小
 .fa {
-  margin-right: 10px;
+  margin-right: 35px; //文字位置
 }
 }
 a:hover {
@@ -50,7 +52,7 @@ a.router-link-active {
   height: 50px;
   margin-bottom: 0;
 a {
-  color: #999;
+  color: #ff9e99;
   text-decoration: none;
   font-weight: 400;
   background: $topnav-background-color;
