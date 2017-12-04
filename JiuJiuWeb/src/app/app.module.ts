@@ -51,7 +51,7 @@ import {HomeModule} from "./HomePage/home/home.module";
     BrowserAnimationsModule,
     AppRoutingModule,
     UserModule,
-    AdminModule,
+    AdminModule
   ],
   exports: [RouterModule],
   providers: [ProductService],

@@ -7,17 +7,11 @@ export const userRoutes=[
   {
     path:'',
     component:UserComponent,
-    children:[
-      {
-        path:'usercenter',
-        component:UsercenterComponent,
+
         /*
         redirectTo: 'home',
         pathMatch: 'full',
         loadChildren:'../post/post.module#PostModule'*/
-      }
-
-    ]
   }
 ];
 
