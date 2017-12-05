@@ -49,7 +49,6 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     UserModule,

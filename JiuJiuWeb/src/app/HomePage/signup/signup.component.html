@@ -3,22 +3,33 @@
   <div class="col-md-4 col-md-offset-4 " style=" margin-top:50px;">
     <img class="user-avatar" src="assets/images/logo.jpg" width="150px" />
     <h1>酒酒网</h1>
-    <form role="form">
+    <form [formGroup]="formModel" (submit)="onSubmit()">
       <div class="form-content">
         <div class="form-group">
-          <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+          <input type="text" formControlName="username" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+        </div>
+        <div [hidden]="formModel.get('username').valid||formModel.get('username').untouched">
+          <div [hidden]="!formModel.hasError('required','username')">用户名是必填项</div>
+          <div [hidden]="!formModel.hasError('minlength','username')">用户名最小长度是6</div>
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+          <input type="text" formControlName="email" class="form-control input-underline input-lg" id="" placeholder="Email">
+        </div>
+        <div [hidden]="formModel.get('email').valid||formModel.get('email').untouched">
+          <div [hidden]="!formModel.hasError('email','email')">请输入正确的邮箱</div>
+        </div>
+        <div formGroupName="passwordsGroup">
+          <div class="form-group">
+            <input type="password" formControlName="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+          </div>
+          <div [hidden]="!formModel.hasError('minlength',['passwordsGroup','password' ]) ">密码最小长度是6</div>
+          <div class="form-group">
+             <input type="password" formControlName="pconfirm" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+          </div>
+          <div [hidden]="!formModel.hasError('equal','passwordsGroup')">密码与确认密码不一致</div>
         </div>
 
-        <div class="form-group">
-          <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
-        </div>
       </div>
       <a class="btn rounded-btn" [routerLink]="['/usercenter']"> Register </a>&nbsp;
       <a class="btn rounded-btn" [routerLink]="['/admin']" > Log in </a>
