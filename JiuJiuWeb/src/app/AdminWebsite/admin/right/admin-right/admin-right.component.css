@@ -4,7 +4,8 @@
 
 .carousel-container {
   margin-top: -19px;
-  margin-right: -55px;
+  margin-right: -70px;
+  width:100%;
 }
 .img-responsive {
   display: block;
