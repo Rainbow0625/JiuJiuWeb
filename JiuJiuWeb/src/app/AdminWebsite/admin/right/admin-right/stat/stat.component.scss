@@ -2,7 +2,6 @@
   width: 200px;
   margin: 0 auto;
   border-radius: 10px;
-  margin-right: -350px;
 
 
   .name {
@@ -13,12 +12,13 @@
     text-align: center;
   }
   .interest {
-    color: #1da427;
+    color: #ffffff;
     font-size: 70px;
     font-weight: bold;
     padding: 0px;
     margin-bottom: 3px;
     text-align: center;
+    text-shadow: 0 0 10px gray;
 
     .percent {
       font-size: 31px;
