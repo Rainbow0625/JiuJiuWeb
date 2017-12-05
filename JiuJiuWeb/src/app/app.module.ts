@@ -26,6 +26,7 @@ import {UserModule} from "./UserWebsite/user/user.module";
 import {AdminModule} from "./AdminWebsite/admin/admin.module";
 import {HomeModule} from "./HomePage/home/home.module";
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -53,7 +54,9 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     BrowserAnimationsModule,
     AppRoutingModule,
     UserModule,
-    AdminModule
+    AdminModule,
+    HomeModule,
+    NgbModule.forRoot(),
   ],
   exports: [RouterModule],
   providers: [ProductService],

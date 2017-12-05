@@ -13,6 +13,7 @@ export const homeRoutes=[
     children:[{
       path:'',
       redirectTo: 'page',
+      pathMatch: 'full',
       /*
       redirectTo: 'home',
       pathMatch: 'full',
