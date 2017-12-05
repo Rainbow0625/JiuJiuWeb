@@ -50,7 +50,6 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     UserModule,
