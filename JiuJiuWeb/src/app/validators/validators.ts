@@ -2,7 +2,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {Observable} from "rxjs";
 
 export function emailValidator(control:FormControl): any {
-  var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+  var myreg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
   let valid = myreg.test(control.value);
   console.log("email校验结果："+valid);
   return valid ? null : {email: true};
