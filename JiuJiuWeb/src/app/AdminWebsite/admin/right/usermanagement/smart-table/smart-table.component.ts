@@ -1,5 +1,5 @@
 import {LocalDataSource, ViewCell} from 'ng2-smart-table';
-import {SmartTableService} from "../smart-table.service";
+import {SmartTableService} from "../usermanagement.service";
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
@@ -16,7 +16,7 @@ export class ButtonViewComponent implements ViewCell, OnInit {
   @Output() save: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
-    this.value = '头像';
+    this.value = '选择';
     // this.renderValue = this.value.toString().toUpperCase();
   }
 
@@ -36,8 +36,6 @@ export class ButtonViewComponent implements ViewCell, OnInit {
   `],
 })
 export class SmartTableComponent {
-
-  public currentRow:string;
   public source: LocalDataSource = new LocalDataSource();
 
   settings = {
@@ -63,28 +61,28 @@ export class SmartTableComponent {
         title: 'ID',
         type: 'number',
       },
-      firstName: {
-        title: 'First Name',
+      nickName: {
+        title: '昵称',
         type: 'string',
       },
-      lastName: {
-        title: 'Last Name',
+      gender: {
+        title: '性别',
         type: 'string',
       },
-      username: {
-        title: 'Username',
+      birthplace: {
+        title: '出生地点',
+        type: 'string',
+      },
+      birthday: {
+        title: '出生日期',
         type: 'string',
       },
       email: {
         title: 'E-mail',
-        type: 'string',
-      },
-      age: {
-        title: 'Age',
         type: 'number',
       },
       image: {
-        title: 'image',
+        title: '',
         type: 'custom',
         editable: false,
         renderComponent: ButtonViewComponent,
@@ -120,7 +118,7 @@ export class SmartTableComponent {
     if (window.confirm('Are you sure you want to create it?')) {
       event.confirm.resolve();
       this.source = event.source;
-      this.source.prepend(event.data);
+      this.source.add(event.newData);
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
