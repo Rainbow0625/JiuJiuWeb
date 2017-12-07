@@ -1,6 +1,5 @@
 
 <div>
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+  <ng2-smart-table [settings]="settings" [source]="source" (editConfirm)="onEditConfirm($event)" (createConfirm)="onCreateConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
-
 </div>

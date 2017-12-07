@@ -1,6 +1,6 @@
 import {LocalDataSource, ViewCell} from 'ng2-smart-table';
 import {SmartTableService} from "../smart-table.service";
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-button-view',
@@ -8,15 +8,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     <button class="btn btn-info" [routerLink]="['./image']">{{ value }}</button>
   `,
 })
+
 export class ButtonViewComponent implements ViewCell, OnInit {
   // renderValue: string;
-
   @Input() value: string | number;
   @Input() rowData: any;
-
   @Output() save: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
+    this.value = '头像';
     // this.renderValue = this.value.toString().toUpperCase();
   }
 
@@ -37,16 +37,22 @@ export class ButtonViewComponent implements ViewCell, OnInit {
 })
 export class SmartTableComponent {
 
+  public currentRow:string;
+  public source: LocalDataSource = new LocalDataSource();
+
   settings = {
+    mode:'inline',
     add: {
       addButtonContent: '添加',
       createButtonContent: '新建',
       cancelButtonContent: '取消',
+      confirmCreate: true,
     },
     edit: {
       editButtonContent: '编辑',
       saveButtonContent: '保存',
       cancelButtonContent: '取消',
+      confirmSave: true,
     },
     delete: {
       deleteButtonContent: '删除',
@@ -77,9 +83,10 @@ export class SmartTableComponent {
         title: 'Age',
         type: 'number',
       },
-      image:{
+      image: {
         title: 'image',
         type: 'custom',
+        editable: false,
         renderComponent: ButtonViewComponent,
         onComponentInitFunction(instance) {
           instance.save.subscribe(row => {
@@ -90,16 +97,43 @@ export class SmartTableComponent {
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
 
   constructor(private service: SmartTableService) {
     const data = this.service.getData();
     this.source.load(data);
   }
 
+  // delete
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
+    if (window.confirm('Are you sure you want to delete it?')) {
       event.confirm.resolve();
+      this.source = event.source;
+      this.source.remove(event.data);
+      console.log(this.source.getAll());
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+// create
+  onCreateConfirm(event): void {
+    if (window.confirm('Are you sure you want to create it?')) {
+      event.confirm.resolve();
+      this.source = event.source;
+      this.source.prepend(event.data);
+      console.log(this.source.getAll());
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  // edit
+  onEditConfirm(event): void {
+    if (window.confirm('Are you sure you want to update it?')) {
+      event.confirm.resolve();
+      this.source = event.source;
+      this.source.update(event.data, event.newData);
+      console.log(this.source.getAll());
     } else {
       event.confirm.reject();
     }
