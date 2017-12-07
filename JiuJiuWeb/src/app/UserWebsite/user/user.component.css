@@ -15,3 +15,51 @@
 .body-main {
   min-height: 750px;
 }
+.xnews .pic {
+  width: 230px;
+  height: 200px;
+  overflow: hidden;
+  float: left;
+}
+.xnews .dec {
+  float: right;
+  width: 500px;
+  overflow: hidden;
+  color: #8c8c8c;
+  font-size: 12px;
+  line-height: 22px;
+}
+.xnews .time {
+  font-size: 12px;
+  color: #bbb;
+  padding-top: 10px;
+}
+.xnews {
+  width: 750px;
+  border-bottom: 1px solid #5e5e5e;
+  clear: both;
+  overflow: hidden;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+.overall .left {
+  float: left;
+  width: 750px;
+  height: auto;
+  overflow: hidden;
+}
+.overall {
+  width: 1080px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.overall .right {
+   width: 300px;
+   float: right;
+   overflow: hidden;
+ }
+.scrap .spread .writor{font-size:12px;padding-right:30px; color:#ccc;font-family:"微软雅黑";float:left}
+.scrap .spread .writor a{ color:#ccc;padding: 0 5px;}
+.biaoqian{width:960px;overflow:hidden;padding:15px 0;clear:both;}
+.biaoqian a{height: 24px;line-height: 24px;display: inline-block;margin-right: 7px;color: #999;}
+.biaoqian .spn{height: 24px;line-height: 24px;display: inline-block;margin-right: 7px;color: #333;}

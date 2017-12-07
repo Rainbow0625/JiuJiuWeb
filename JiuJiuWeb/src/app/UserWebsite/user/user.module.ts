@@ -4,11 +4,10 @@ import { RouterModule } from '@angular/router';
 import {UserComponent} from "./user.component";
 import {userRoutes, UserRoutingModule} from "./user.route";
 import {UsercenterComponent} from "../usercenter/usercenter.component";
-import {BannerHeadComponent} from "./banner-head/banner-head.component";
 import {ProductComponent} from "./product/product.component";
-import {ProductService} from "../../shared/product.service";
-import {UsermessageService} from "../../shared/usermessage.service";
 import {CommonModule} from "@angular/common";
+import {RightComponent} from "./right/right.component";
+import {ArticleService} from "../../shared/article.service";
 
 @NgModule({
   imports: [
@@ -20,9 +19,9 @@ import {CommonModule} from "@angular/common";
   declarations: [
     UserComponent,
     UsercenterComponent,
-    BannerHeadComponent,
     ProductComponent,
+    RightComponent
   ],
-  providers: [ProductService,UsermessageService],
+  providers: [ArticleService],
 })
 export class UserModule { }
