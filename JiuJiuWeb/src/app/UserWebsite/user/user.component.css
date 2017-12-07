@@ -21,6 +21,7 @@
   overflow: hidden;
   float: left;
 }
+.xnews .pic img{max-width:230px;width: expression(width>230?"230px":true);border:0px;}
 .xnews .dec {
   float: right;
   width: 500px;
