@@ -15,6 +15,12 @@ import {SmartTableService} from "./right/usermanagement/usermanagement.service";
 import { AdminmanagementComponent } from './right/adminmanagement/adminmanagement.component';
 import { AdmintableComponent} from "./right/adminmanagement/admintable/admintable.component";
 import {AdminmanagementService} from "./right/adminmanagement/adminmanagement.service";
+import { CategorymanagementComponent} from './right/categorymanagement/categorymanagement.component';
+import { CatetableComponent } from './right/categorymanagement/catetable/catetable.component';
+import {CategoryManagementService} from "./right/categorymanagement/categorymanagement.service";
+import { ArticlemanagementComponent } from './right/articlemanagement/articlemanagement.component';
+import { ArticletableComponent } from './right/articlemanagement/articletable/articletable.component';
+import {ArticlemanagementService} from "./right/articlemanagement/articlemanagement.service";
 
 @NgModule({
   imports: [
@@ -36,9 +42,13 @@ import {AdminmanagementService} from "./right/adminmanagement/adminmanagement.se
     SmartTableComponent,
     ButtonViewComponent,
     AdminmanagementComponent,
-    AdmintableComponent
+    AdmintableComponent,
+    CategorymanagementComponent,
+    CatetableComponent,
+    ArticlemanagementComponent,
+    ArticletableComponent
   ],
   entryComponents: [ButtonViewComponent],
-  providers: [SmartTableService,AdminmanagementService],
+  providers: [SmartTableService,AdminmanagementService,CategoryManagementService,ArticlemanagementService],
 })
 export class AdminModule { }

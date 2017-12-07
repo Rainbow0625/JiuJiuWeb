@@ -1,17 +1,17 @@
+import { Component, OnInit } from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
-import {Component} from '@angular/core';
-import {AdminmanagementService} from "../adminmanagement.service";
+import {CategoryManagementService} from "../categorymanagement.service";
 
 @Component({
-  selector: 'app-admin-table',
-  templateUrl: './admintable.component.html',
+  selector: 'app-cate-table',
+  templateUrl: './catetable.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
     }
   `],
 })
-export class AdmintableComponent {
+export class CatetableComponent implements OnInit {
 
   public source: LocalDataSource = new LocalDataSource();
 
@@ -34,23 +34,24 @@ export class AdmintableComponent {
       confirmDelete: true,
     },
     columns: {
-        id: {
+      id: {
         title: 'ID',
         type: 'string',
       },
-        name: {
-        title: '管理员名称',
+      categoryName: {
+        title: '栏目名称',
         type: 'string',
       }
     },
   };
 
-
-  constructor(private service: AdminmanagementService) {
+  constructor(private service: CategoryManagementService) {
     const data = this.service.getData();
     this.source.load(data);
   }
 
+  ngOnInit() {
+  }
   // delete
   onDeleteConfirm(event): void {
     if (window.confirm('您确定删除该管理员权限吗?')) {
@@ -86,4 +87,5 @@ export class AdmintableComponent {
       event.confirm.reject();
     }
   }
+
 }
