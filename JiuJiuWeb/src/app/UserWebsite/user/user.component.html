@@ -1,13 +1,31 @@
 <!--<div class="row carousel-container">
   <app-carousel></app-carousel>
 </div> -->
-
-<div class='body-main'>
-  <app-banner-head (navChange)="navChange($event)"></app-banner-head>
-  <div class='program-list'>
-    <div class='program-list-wrap'>
-      <app-product [products]="productss"></app-product>
+<div class="overall">
+  <div class="right">
+    <app-right></app-right>
+  </div>
+    <div class="left" *ngFor="let item of articles">
+    <div class="xnews">
+      <div class="pic">
+        <a href="">
+          <img alt="{{item.pic}}" src=" ">
+        </a>
+      </div>
+      <div class="dec">
+        <h3>
+          <a href="">{{item.title}}</a>
+        </h3>
+        <p>{{item.author}}</p>
+        <p class="time">发布时间：{{item.time}}</p>
+        <p>{{item.desc}}</p>
+       <div style="font-size: medium">{{item.content}}</div>
+        <p>标签：{{item.keywords}}</p>
+      </div>
     </div>
   </div>
+
+
 </div>
+
 

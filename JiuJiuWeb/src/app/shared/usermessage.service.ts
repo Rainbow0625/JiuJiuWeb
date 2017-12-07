@@ -20,7 +20,6 @@ export class usermessage {
     public password: string,
     public email: string
   ){
-
   }
 
 

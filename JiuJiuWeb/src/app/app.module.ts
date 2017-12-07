@@ -20,7 +20,6 @@ import { AboutusComponent } from './HomePage/aboutus/aboutus.component';
 import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.component';
 import { TypeTreeComponent } from './AdminWebsite/admin/right/type-tree/type-tree.component';
 import {ProductComponent} from './UserWebsite/user/product/product.component';
-import {BannerHeadComponent} from './UserWebsite/user/banner-head/banner-head.component';
 import {UserModule} from "./UserWebsite/user/user.module";
 import {AdminModule} from "./AdminWebsite/admin/admin.module";
 import {HomeModule} from "./HomePage/home/home.module";
@@ -31,7 +30,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
     /*
     AdminComponent,
     UserComponent,
