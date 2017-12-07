@@ -1,0 +1,16 @@
+<div *ngFor="let item of projects" class='program-item' style="margin-top: 20px">
+    <div class='program-list-head'>
+      <div style="font-size: large;text-align:center;line-height:100px">{{item.title}}</div>
+    </div>
+    <div class='program-list-cont'>
+      <div class='program-list-tit'>{{item.desc}}</div>
+
+
+      <div class='program-list-bot'>
+        <a class='git'[routerLink]="['/login']">查看详情</a>
+      </div>
+    </div>
+
+  <div class='c-line'></div>
+  <div class='d-line'></div>
+</div>

@@ -1,0 +1,55 @@
+.slide-image{
+  width:100%;
+}
+.product-container {
+  width: 200px;
+  margin: 0 auto;
+  border-radius: 10px;
+
+
+  .name {
+    border-bottom: 1px ;
+    border-color: gray;
+    font-size: 20px;
+    padding: 2px;
+    text-align: center;
+  }
+  .interest {
+    color: #ffffff;
+    font-size: 70px;
+    font-weight: bold;
+    padding: 0px;
+    margin-bottom: 3px;
+    text-align: center;
+    text-shadow: 0 0 10px gray;
+
+    .percent {
+      font-size: 31px;
+      text-align: center;
+    }
+  }
+  .intro {
+    padding: 5px;
+    text-align: center;
+  }
+  .details {
+    padding: 3px;
+    font-size: 17px;
+    color: white;
+    background: #303030;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+  }
+}
+
+.warning
+{background: #fffa7e;}
+
+.primary
+{background: #69cbf8;}
+
+.success
+{background: #d4f896;}
+
+.danger
+{background: #e8a3a6;}
