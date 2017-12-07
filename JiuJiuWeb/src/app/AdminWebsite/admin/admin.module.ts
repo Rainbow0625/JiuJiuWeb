@@ -9,6 +9,9 @@ import {TypeTreeComponent} from "./right/type-tree/type-tree.component";
 import {GraperyComponent} from "./right/grapery/grapery.component";
 import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import {StatComponent} from "./right/admin-right/stat/stat.component";
+import {Ng2SmartTableModule} from "ng2-smart-table";
+import {ButtonViewComponent, SmartTableComponent} from "./right/grapery/smart-table/smart-table.component";
+import {SmartTableService} from "./right/grapery/smart-table.service";
 
 @NgModule({
   imports: [
@@ -17,6 +20,7 @@ import {StatComponent} from "./right/admin-right/stat/stat.component";
     NgbAlertModule.forRoot(),
     RouterModule.forChild(adminRoutes),
     AdminRoutingModule,
+    Ng2SmartTableModule,
   ],
   exports: [],
   declarations: [
@@ -24,9 +28,12 @@ import {StatComponent} from "./right/admin-right/stat/stat.component";
     SidebarComponent,
     AdminRightComponent,
     TypeTreeComponent,
-    GraperyComponent,
     StatComponent,
+    GraperyComponent,
+    SmartTableComponent,
+    ButtonViewComponent
   ],
-  providers: [],
+  entryComponents: [ButtonViewComponent],
+  providers: [SmartTableService],
 })
 export class AdminModule { }

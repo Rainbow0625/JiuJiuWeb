@@ -1,10 +1,33 @@
-import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-
-import { SmartTableService } from '../../../@core/data/smart-table.service';
+import {LocalDataSource, ViewCell} from 'ng2-smart-table';
+import {SmartTableService} from "../smart-table.service";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'ngx-smart-table',
+  selector: 'app-button-view',
+  template: `
+    <button class="btn btn-info" [routerLink]="['./image']">{{ value }}</button>
+  `,
+})
+export class ButtonViewComponent implements ViewCell, OnInit {
+  // renderValue: string;
+
+  @Input() value: string | number;
+  @Input() rowData: any;
+
+  @Output() save: EventEmitter<any> = new EventEmitter();
+
+  ngOnInit() {
+    // this.renderValue = this.value.toString().toUpperCase();
+  }
+
+  onClick() {
+    this.save.emit(this.rowData);
+  }
+}
+
+
+@Component({
+  selector: 'app-smart-table',
   templateUrl: './smart-table.component.html',
   styles: [`
     nb-card {
@@ -54,6 +77,16 @@ export class SmartTableComponent {
         title: 'Age',
         type: 'number',
       },
+      image:{
+        title: 'image',
+        type: 'custom',
+        renderComponent: ButtonViewComponent,
+        onComponentInitFunction(instance) {
+          instance.save.subscribe(row => {
+            alert(`${row.name} saved!`);
+          });
+        }
+      }
     },
   };
 
