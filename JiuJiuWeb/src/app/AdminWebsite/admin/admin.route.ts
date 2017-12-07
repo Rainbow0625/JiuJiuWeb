@@ -2,8 +2,9 @@ import { RouterModule } from '@angular/router';
 import {AdminComponent} from "./admin.component";
 import {TypeTreeComponent} from "./right/type-tree/type-tree.component";
 import {NgModule} from "@angular/core";
-import {GraperyComponent} from "./right/grapery/grapery.component";
 import {AdminRightComponent} from "./right/admin-right/admin-right.component";
+import {UsermanagementComponent} from "./right/usermanagement/usermanagement.component";
+import {AdminmanagementComponent} from "./right/adminmanagement/adminmanagement.component";
 
 export const adminRoutes=[
   {path:'', component:AdminComponent,
@@ -15,8 +16,11 @@ export const adminRoutes=[
         path:'typeTree',
         component:TypeTreeComponent,
       },{
-        path:'grapery',
-        component:GraperyComponent,
+        path:'usermanagement',
+        component:UsermanagementComponent,
+      },{
+        path:'adminmanagement',
+        component:AdminmanagementComponent,
       }]
   }
 ];

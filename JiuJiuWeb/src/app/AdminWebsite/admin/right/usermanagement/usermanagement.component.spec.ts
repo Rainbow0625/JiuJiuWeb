@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraperyComponent } from './grapery.component';
+import { UsermanagementComponent } from './usermanagement.component';
 
 describe('SidebarComponent', () => {
-  let component: GraperyComponent;
-  let fixture: ComponentFixture<GraperyComponent>;
+  let component: UsermanagementComponent;
+  let fixture: ComponentFixture<UsermanagementComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GraperyComponent ]
+      declarations: [ UsermanagementComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraperyComponent);
+    fixture = TestBed.createComponent(UsermanagementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
