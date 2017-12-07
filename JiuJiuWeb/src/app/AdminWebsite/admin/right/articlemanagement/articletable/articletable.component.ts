@@ -1,59 +1,73 @@
-import {LocalDataSource} from 'ng2-smart-table';
-import {Component} from '@angular/core';
-import {AdminmanagementService} from "../adminmanagement.service";
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {LocalDataSource, ViewCell} from 'ng2-smart-table';
+import {ArticlemanagementService} from "../articlemanagement.service";
 
 @Component({
-  selector: 'app-admin-table',
-  templateUrl: './admintable.component.html',
+  selector: 'app-article-table',
+  templateUrl: './articletable.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
     }
   `],
 })
-export class AdmintableComponent {
 
+export class ArticletableComponent implements OnInit {
   public source: LocalDataSource = new LocalDataSource();
 
   settings = {
     mode:'inline',
     add: {
-      addButtonContent: '添加',
-      createButtonContent: '新建',
-      cancelButtonContent: '取消',
-      confirmCreate: true,
+      addButtonContent: '',
+      createButtonContent: '',
+      cancelButtonContent: '',
     },
     edit: {
-      editButtonContent: '编辑',
-      saveButtonContent: '保存',
-      cancelButtonContent: '取消',
-      confirmSave: true,
+      editButtonContent: '',
+      saveButtonContent: '',
+      cancelButtonContent: '',
     },
     delete: {
       deleteButtonContent: '删除',
       confirmDelete: true,
     },
     columns: {
-        id: {
+      id: {
         title: 'ID',
         type: 'string',
       },
-        name: {
-        title: '管理员名称',
+      title: {
+        title: '文章标题',
         type: 'string',
-      }
+      },
+      author: {
+        title: '文章作者',
+        type: 'string',
+      },
+      isRecommended: {
+        title: '是否推荐',
+        type: 'string',
+      },
+      image: {
+        title: '缩略图',
+        //  html!!
+        type: 'html',
+      },
+      category: {
+        title: '所属栏目',
+        type: 'string',
+      },
     },
   };
 
-
-  constructor(private service: AdminmanagementService) {
+  constructor(private service: ArticlemanagementService) {
     const data = this.service.getData();
     this.source.load(data);
   }
 
   // delete
   onDeleteConfirm(event): void {
-    if (window.confirm('您确定删除该管理员权限吗?')) {
+    if (window.confirm('Are you sure you want to delete it?')) {
       event.confirm.resolve();
       this.source = event.source;
       this.source.remove(event.data);
@@ -65,7 +79,7 @@ export class AdmintableComponent {
 
 // create
   onCreateConfirm(event): void {
-    if (window.confirm('您确定创建该管理员用户吗？')) {
+    if (window.confirm('Are you sure you want to create it?')) {
       event.confirm.resolve();
       this.source = event.source;
       this.source.add(event.newData);
@@ -77,7 +91,7 @@ export class AdmintableComponent {
 
   // edit
   onEditConfirm(event): void {
-    if (window.confirm('您确定修改该管理员的信息吗？')) {
+    if (window.confirm('Are you sure you want to update it?')) {
       event.confirm.resolve();
       this.source = event.source;
       this.source.update(event.data, event.newData);
@@ -86,4 +100,7 @@ export class AdmintableComponent {
       event.confirm.reject();
     }
   }
+  ngOnInit() {
+  }
+
 }
