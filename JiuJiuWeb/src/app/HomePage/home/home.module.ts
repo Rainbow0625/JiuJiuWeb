@@ -8,6 +8,7 @@ import {homeRoutes, HomeRoutingModule} from "./home.routes";
 import {PageComponent} from "../page/page.component";
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BlockComponent} from "../block/block.component";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    AboutusComponent
+    AboutusComponent,
+    BlockComponent
   ],
   providers: [],
 })

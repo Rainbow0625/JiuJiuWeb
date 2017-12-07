@@ -15,7 +15,6 @@ import { AdminComponent } from './AdminWebsite/admin/admin.component';
 import { UserComponent } from './UserWebsite/user/user.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { CarouselComponent } from './UserWebsite/user/carousel/carousel.component';
 import { SidebarComponent } from './AdminWebsite/admin/sidebar/sidebar.component';
 import { AboutusComponent } from './HomePage/aboutus/aboutus.component';
 import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.component';
@@ -32,7 +31,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundPageComponent,
+    NotFoundPageComponent
     /*
     AdminComponent,
     UserComponent,
