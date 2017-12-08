@@ -8,6 +8,7 @@ import {ProductComponent} from "./product/product.component";
 import {CommonModule} from "@angular/common";
 import {RightComponent} from "./right/right.component";
 import {ArticleService} from "../../shared/article.service";
+import {CateService} from "../../shared/cate.service";
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import {ArticleService} from "../../shared/article.service";
     ProductComponent,
     RightComponent
   ],
-  providers: [ArticleService],
+  providers: [ArticleService,CateService],
 })
 export class UserModule { }

@@ -1,7 +1,15 @@
 <!--<div class="row carousel-container">
   <app-carousel></app-carousel>
 </div> -->
-<div class="overall">
+<div>
+  <ul class="listbox">
+    <a>
+    <li *ngFor="let item of cates" (click)=onclick() [ngStyle]="{cour:isclick}">{{item.name}} </li>
+    </a>
+  </ul>
+</div>
+
+<div class="overall" style="margin-top: 30px">
   <div class="right">
     <app-right></app-right>
   </div>

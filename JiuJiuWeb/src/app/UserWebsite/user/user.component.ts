@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 import {Article, ArticleService} from "../../shared/article.service";
+import {Cate, CateService} from "../../shared/cate.service";
 
 @Component({
   selector: 'app-user',
@@ -10,12 +11,16 @@ import {Article, ArticleService} from "../../shared/article.service";
 })
 export class UserComponent implements OnInit {
 
+  isclick: boolean =false;
   articles:Article[];
-  constructor(public router: Router,public articleService: ArticleService) { }
+  constructor(public router: Router,public articleService: ArticleService,public cateService: CateService) { }
+  cates: Cate[];
 
   ngOnInit() {
     this.articles= this.articleService.getArticle();
-    console.log("dddd");
+     this.cates=this.cateService.getCate();
   }
-
+  onclick() {
+    this.isclick=true;
+  }
 }

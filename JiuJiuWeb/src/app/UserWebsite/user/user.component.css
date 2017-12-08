@@ -51,7 +51,7 @@
 }
 .overall {
   width: 1080px;
-  margin: 0px auto;
+  margin-top: 20px;
   overflow: hidden;
 }
 .overall .right {
@@ -64,3 +64,33 @@
 .biaoqian{width:960px;overflow:hidden;padding:15px 0;clear:both;}
 .biaoqian a{height: 24px;line-height: 24px;display: inline-block;margin-right: 7px;color: #999;}
 .biaoqian .spn{height: 24px;line-height: 24px;display: inline-block;margin-right: 7px;color: #333;}
+
+*{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.listbox{
+  width:720px;
+  height: 50px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 3px #333;
+}
+.listbox li{
+  width: 100px;
+  float: left;
+  height: 30px;
+  line-height: 35px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 30px;
+  color: #ff6464;
+  font-family: '楷体';
+  border-radius:15px;
+}
+.listbox li .cour{
+  background: skyblue;
+  color:#fff;
+  text-shadow:2px 1px 1px #333;
+}

@@ -8,11 +8,9 @@
           <div class="hm-t-header">热门点击</div>
           <div class="hm-t-body">
             <ul class="hm-t-list hm-t-list-img">
-
-              <li class="hm-t-item hm-t-item-img"><a data-pos="3" title="1" target="_blank"
-                                                     href=""
+              <li *ngFor="let item of hot" class="hm-t-item hm-t-item-img"><a target="_blank"
                                                      class="hm-t-img-title"
-                                                     style="visibility: visible;"><span>vo.title</span></a>
+                                                     style="visibility: visible;"><span>{{item.title}}</span></a>
               </li>
 
             </ul>
@@ -31,10 +29,9 @@
           <div class="hm-t-body">
             <ul class="hm-t-list hm-t-list-img">
 
-              <li class="hm-t-item hm-t-item-img"><a data-pos="3" title="vo.title" target="_blank"
-                                                     href=""
+              <li *ngFor="let item of reading" class="hm-t-item hm-t-item-img"><a target="_blank"
                                                      class="hm-t-img-title"
-                                                     style="visibility: visible;"><span>vo.title</span></a>
+                                                     style="visibility: visible;"><span>{{item.title}}</span></a>
               </li>
 
             </ul>
