@@ -1,7 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component,OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
-import {Article, ArticleService} from "../../shared/article.service";
+import {Article, ArticleService, Hotclick, Reading} from "../../shared/article.service";
+import {Cate, CateService} from "../../shared/cate.service";
+import {FormControl} from "@angular/forms";
+import 'rxjs/Rx'
 
 @Component({
   selector: 'app-user',
@@ -10,12 +13,25 @@ import {Article, ArticleService} from "../../shared/article.service";
 })
 export class UserComponent implements OnInit {
 
+  isclick: boolean =false;
   articles:Article[];
-  constructor(public router: Router,public articleService: ArticleService) { }
+  hot: Hotclick[];
+  cates: Cate[];
+  reading: Reading[];
+  private keyword: string;
+  private titleFilter: FormControl= new FormControl();
+  constructor(public router: Router,public articleService: ArticleService,public cateService: CateService) {
+    this.titleFilter.valueChanges.debounceTime(500).subscribe(
+      value => this.keyword = value);
+  }
 
   ngOnInit() {
     this.articles= this.articleService.getArticle();
-    console.log("dddd");
+    this.cates=this.cateService.getCate();
+    this.hot= this.articleService.getHotclick();
+    this.reading=this.articleService.getHotReading();
   }
-
+  onclick() {
+    this.isclick=true;
+  }
 }
