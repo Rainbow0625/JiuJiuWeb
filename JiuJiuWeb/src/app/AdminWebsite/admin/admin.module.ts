@@ -14,18 +14,18 @@ import {ButtonViewComponent, SmartTableComponent} from "./right/usermanagement/s
 import {SmartTableService} from "./right/usermanagement/usermanagement.service";
 import { AdminmanagementComponent } from './right/adminmanagement/adminmanagement.component';
 import { AdmintableComponent} from "./right/adminmanagement/admintable/admintable.component";
-import {AdminmanagementService} from "./right/adminmanagement/adminmanagement.service";
 import { CategorymanagementComponent} from './right/categorymanagement/categorymanagement.component';
 import { CatetableComponent } from './right/categorymanagement/catetable/catetable.component';
-import {CategoryManagementService} from "./right/categorymanagement/categorymanagement.service";
 import { ArticlemanagementComponent } from './right/articlemanagement/articlemanagement.component';
 import { ArticletableComponent } from './right/articlemanagement/articletable/articletable.component';
-import {ArticlemanagementService} from "./right/articlemanagement/articlemanagement.service";
 import {AddArticleComponent} from "./right/add-article/add-article.component";
 import {CKEditorModule} from "ng2-ckeditor";
 import {CkeditorComponent} from "./right/add-article/ckeditor/ckeditor.component";
 import {FormsModule} from "@angular/forms";
 import {ImageUploadModule} from "angular2-image-upload";
+import {AdminService} from "../../shared/admin.service";
+import {ArticleService} from "../../shared/article.service";
+import {CateService} from "../../shared/cate.service";
 
 @NgModule({
   imports: [
@@ -59,6 +59,6 @@ import {ImageUploadModule} from "angular2-image-upload";
     CkeditorComponent
   ],
   entryComponents: [ButtonViewComponent],
-  providers: [SmartTableService,AdminmanagementService,CategoryManagementService,ArticlemanagementService],
+  providers: [SmartTableService,AdminService,CateService,ArticleService],
 })
 export class AdminModule { }

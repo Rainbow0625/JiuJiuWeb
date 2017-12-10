@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
-import {CategoryManagementService} from "../categorymanagement.service";
+import {CateService} from "../../../../../shared/cate.service";
 
 @Component({
   selector: 'app-cate-table',
@@ -38,15 +38,19 @@ export class CatetableComponent implements OnInit {
         title: 'ID',
         type: 'string',
       },
-      categoryName: {
+      name: {
         title: '栏目名称',
+        type: 'string',
+      },
+      desc: {
+        title: '描述',
         type: 'string',
       }
     },
   };
 
-  constructor(private service: CategoryManagementService) {
-    const data = this.service.getData();
+  constructor(private service: CateService) {
+    const data = this.service.getCate();
     this.source.load(data);
   }
 

@@ -1,6 +1,6 @@
 import {LocalDataSource} from 'ng2-smart-table';
 import {Component} from '@angular/core';
-import {AdminmanagementService} from "../adminmanagement.service";
+import {AdminService} from "../../../../../shared/admin.service";
 
 @Component({
   selector: 'app-admin-table',
@@ -46,7 +46,7 @@ export class AdmintableComponent {
   };
 
 
-  constructor(private service: AdminmanagementService) {
+  constructor(private service: AdminService) {
     const data = this.service.getData();
     this.source.load(data);
   }

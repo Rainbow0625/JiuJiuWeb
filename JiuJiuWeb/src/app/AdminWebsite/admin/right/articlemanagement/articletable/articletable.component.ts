@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {LocalDataSource, ViewCell} from 'ng2-smart-table';
-import {ArticlemanagementService} from "../articlemanagement.service";
+import {ArticleService} from "../../../../../shared/article.service";
 
 @Component({
   selector: 'app-article-table',
@@ -48,7 +48,7 @@ export class ArticletableComponent implements OnInit {
         title: '是否推荐',
         type: 'string',
       },
-      image: {
+      pic: {
         title: '缩略图',
         //  html!!
         type: 'html',
@@ -60,8 +60,8 @@ export class ArticletableComponent implements OnInit {
     },
   };
 
-  constructor(private service: ArticlemanagementService) {
-    const data = this.service.getData();
+  constructor(private service: ArticleService) {
+    const data = this.service.getArticle();
     this.source.load(data);
   }
 
