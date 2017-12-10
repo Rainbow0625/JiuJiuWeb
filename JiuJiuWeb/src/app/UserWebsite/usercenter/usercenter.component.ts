@@ -7,11 +7,25 @@ import {Route, Router} from "@angular/router";
   styleUrls: ['./usercenter.component.css']
 })
 export class UsercenterComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  file: Array<Object>;
+  constructor(private router:Router) {
+    this.file = [];
+  }
 
   ngOnInit() {
   }
-
+  imageUploaded(event) {
+    console.log(event);
+    this.file.push(event.file);
+    console.log(this.file);
+  }
+  imageRemoved(event) {
+    console.log(event);
+    let index = this.file.indexOf(event.file);
+    if( index > -1) {
+      this.file.splice(index, 1);
+    }
+    console.log(this.file);
+  }
 
 }

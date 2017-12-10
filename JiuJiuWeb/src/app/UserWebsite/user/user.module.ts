@@ -9,6 +9,7 @@ import {ArticleService} from "../../shared/article.service";
 import {CateService} from "../../shared/cate.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FilterPipe } from './filter.pipe';
+import {ImageUploadModule} from "angular2-image-upload";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { FilterPipe } from './filter.pipe';
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    ImageUploadModule.forRoot(),
   ],
   exports: [],
   declarations: [

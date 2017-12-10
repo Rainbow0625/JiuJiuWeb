@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class CateService {
+  // private cateUrl ="api/cates";
   private cate: Cate[]=[
     new Cate("美食","这里有最好吃的美食"),
     new Cate("运动","跑步，游泳，秀肌肉"),
@@ -10,8 +13,16 @@ export class CateService {
     new Cate("交友","你是不是还缺一个女朋友？"),
     new Cate("娱乐","吃喝玩乐，应有尽有，只有你想不到没有你看不到"),
     new Cate("就业","月薪十万不是梦"),
-  ]
-  constructor() { }
+  ];
+  constructor(/*private http: HttpClient,
+              private messageService: MessageService*/) { }
+ /* private log(message: string) {
+    this.messageService.add('CateService: ' + message);
+  }
+
+  getCate (): Observable<Cate[]> {
+    return this.http.get<Cate[]>(this.cateUrl)
+  }*/
   getCate(): Cate[] {
      return this.cate;
   }

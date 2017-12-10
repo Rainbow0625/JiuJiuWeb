@@ -23,27 +23,34 @@
 
               <div class="wlfg-wrap clearfix ">
                 <label class="label-name">头像：</label>
-                <div class="rlf-group">
+                <!--<div class="rlf-group">
                   <img class="fl avator-img" id="js-portrait" src="http://img.mukewang.com/58492fe600012e8e01800180-200-200.jpg" data-portrait="58492fe600012e8e01800180" width="180" height="180">
                   <div class="fl ml20 pr">
                     <div><input type="button" hidefocus="true" value="换一换" class="js-avator-try avator-try"></div>
                     <div id="avator-btns" class="avator-btn-inner">
+-->
 
 
-
-                      <div class="avator-btn-wrap">
+                     <!-- <div class="avator-btn-wrap">
                         <form target="uploadtarget" action="postpic" method="post" enctype="multipart/form-data">
                           <a href="javascript:void(0)" hidefocus="true" class="avator-btn-fake">上传头像</a>
                           <input class="hide" type="file" title="上传头像" name="fileField" id="upload" accept="image/*">
                           <input class="hide" type="hidden" name="type" value="1">
                         </form>
                         <iframe src="about:blank" id="uploadtarget" name="uploadtarget" frameborder="0" style="display:none;"></iframe>
-                      </div>
-                    </div>
+                      </div>-->
+                <div style="margin-top: 50px;margin-bottom: 20px">
+                  <image-upload [buttonCaption]="'选择图片'"
+                                [dropBoxMessage]="'拖动图片到这里'"
+                                (onFileUploadFinish)="imageUploaded($event)"
+                                (onRemove)="imageRemoved($event)"></image-upload>
+                </div>
+
+                   <!-- </div>
                   </div>
                   <div class="cb"></div>
                   <p class="rlf-tip-wrap errorHint color-red" ></p>
-                </div>
+                </div>-->
               </div>
 
               <form id="profile" >
@@ -158,3 +165,8 @@
   </div>
 
 </div>
+
+<div>
+
+</div>
+
