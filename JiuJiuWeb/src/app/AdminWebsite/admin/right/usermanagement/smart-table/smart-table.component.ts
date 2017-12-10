@@ -1,6 +1,6 @@
 import {LocalDataSource, ViewCell} from 'ng2-smart-table';
-import {SmartTableService} from "../usermanagement.service";
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {UsermessageService} from "../../../../../shared/usermessage.service";
 
 @Component({
   selector: 'app-button-view',
@@ -57,11 +57,11 @@ export class SmartTableComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
+      user_id: {
         title: 'ID',
         type: 'number',
       },
-      nickName: {
+      username: {
         title: '昵称',
         type: 'string',
       },
@@ -69,19 +69,19 @@ export class SmartTableComponent {
         title: '性别',
         type: 'string',
       },
-      birthplace: {
+      native_place: {
         title: '出生地点',
         type: 'string',
       },
-      birthday: {
+      birth: {
         title: '出生日期',
         type: 'string',
       },
       email: {
         title: 'E-mail',
-        type: 'number',
+        type: 'string',
       },
-      image: {
+      head_pic: {
         title: '',
         type: 'custom',
         editable: false,
@@ -96,8 +96,8 @@ export class SmartTableComponent {
   };
 
 
-  constructor(private service: SmartTableService) {
-    const data = this.service.getData();
+  constructor(private service: UsermessageService) {
+    const data = this.service.getUsermessage();
     this.source.load(data);
   }
 

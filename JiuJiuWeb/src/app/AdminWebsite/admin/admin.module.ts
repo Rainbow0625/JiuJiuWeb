@@ -11,7 +11,6 @@ import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import {StatComponent} from "./right/admin-right/stat/stat.component";
 import {Ng2SmartTableModule} from "ng2-smart-table";
 import {ButtonViewComponent, SmartTableComponent} from "./right/usermanagement/smart-table/smart-table.component";
-import {SmartTableService} from "./right/usermanagement/usermanagement.service";
 import { AdminmanagementComponent } from './right/adminmanagement/adminmanagement.component';
 import { AdmintableComponent} from "./right/adminmanagement/admintable/admintable.component";
 import { CategorymanagementComponent} from './right/categorymanagement/categorymanagement.component';
@@ -26,6 +25,7 @@ import {ImageUploadModule} from "angular2-image-upload";
 import {AdminService} from "../../shared/admin.service";
 import {ArticleService} from "../../shared/article.service";
 import {CateService} from "../../shared/cate.service";
+import {UsermessageService} from "../../shared/usermessage.service";
 
 @NgModule({
   imports: [
@@ -59,6 +59,6 @@ import {CateService} from "../../shared/cate.service";
     CkeditorComponent
   ],
   entryComponents: [ButtonViewComponent],
-  providers: [SmartTableService,AdminService,CateService,ArticleService],
+  providers: [UsermessageService,AdminService,CateService,ArticleService],
 })
 export class AdminModule { }

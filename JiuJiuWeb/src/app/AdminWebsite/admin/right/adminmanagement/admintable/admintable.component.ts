@@ -38,7 +38,7 @@ export class AdmintableComponent {
         title: 'ID',
         type: 'string',
       },
-        name: {
+      username: {
         title: '管理员名称',
         type: 'string',
       }
