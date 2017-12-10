@@ -1,5 +1,4 @@
 <div>
-
   <div id="main">
 
     <div class="page-settings" style="margin-top: 5px">
@@ -13,18 +12,73 @@
           <div class="formBox">
 
             <div id="setting-profile" class="setting-wrap setting-profile">
-
-              <image-upload [buttonCaption]="'选择图片'"
-                            [dropBoxMessage]="'拖动到此区域'"
-                            [clearButtonCaption]="'删除'"
-                            (onFileUploadFinish)="imageUploaded($event)"
-                            (onRemove)="imageRemoved($event)">
-              </image-upload>
-
-              <hr>
-              <app-ckeditor></app-ckeditor>
-
-
+              <form class="form-horizontal" role="form" #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="title" class="col-lg-2 col-md-2 control-label" style="margin-left:-30px;">文章标题</label>
+                  <div class=" col-lg-6 col-md-6">
+                    <input type="text" name="title" class="form-control"
+                           id="title" placeholder="请输入标题" required
+                           [(ngModel)]="data.title"   #title="ngModel">
+                    <span style="color:red">*</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="author" class="col-lg-2 col-md-2 control-label" style="margin-left:-30px;">文章作者</label>
+                  <div class="col-lg-6 col-md-6">
+                    <input type="text" name="author" [(ngModel)]="data.author"
+                           class="form-control" id="author" placeholder="请输入作者">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="keywords" class="col-lg-2 col-md-2 control-label" style="margin-left:-30px;">关键字</label>
+                  <div class="col-lg-6 col-md-6">
+                    <input type="text" name="keywords" [(ngModel)]="data.keywords" class="form-control" id="keywords" placeholder="请输入关键字，以空格间隔">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="desc" class="col-lg-2 col-md-2 control-label" style="margin-left:-30px;">文章描述</label>
+                  <div class="col-lg-9 col-md-9">
+                    <textarea class="form-control" [(ngModel)]="data.desc" name="desc" rows="2" id="desc"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="category" class="col-lg-2 col-md-2 control-label" style="margin-left:-30px;">所属栏目</label>
+                  <div class="col-lg-2 col-md-2">
+                    <select class="form-control" [(ngModel)]="data.category" name="category" id="cate">
+                      <!--需要从数据库查！！！-->
+                      <option>美食</option>
+                      <option>运动</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group" >
+                  <label for="toggle-button" class="col-lg-2 col-md-2 control-label" style="margin-left:-30px;" >是否推荐</label>
+                  <div class="toggle-button-wrapper" >
+                    <input type="checkbox" id="toggle-button" name="switch">
+                    <label for="toggle-button" class="button-label"  style="margin-left:30px;">
+                      <span class="circle"></span>
+                      <span class="text on">ON</span>
+                      <span class="text off">OFF</span>
+                    </label>
+                  </div>
+                </div>
+                <hr>
+                <image-upload [buttonCaption]="'选择图片'"
+                              [dropBoxMessage]="'拖动到此区域'"
+                              [clearButtonCaption]="'删除'"
+                              (onFileUploadFinish)="imageUploaded($event)"
+                              (onRemove)="imageRemoved($event)"
+                               >
+                </image-upload>
+                <hr>
+                <app-ckeditor></app-ckeditor>
+                <hr>
+                <div class="form-group">
+                  <div style="text-align:center;">
+                    <button class="btn btn-success" type="submit" style="width: 10%;height: 5%;">添加</button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -34,3 +88,69 @@
 
   </div>
 </div>
+<style type="text/css">
+  #toggle-button {
+    display: none;
+  }
+
+  .button-label {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    background-color: #ccc;
+    box-shadow: #ccc 0px 0px 0px 2px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  .button-label .text {
+    line-height: 30px;
+    font-size: 11px;
+    text-shadow: 0 0 2px #ddd;
+  }
+
+  .on {
+    color: #fff;
+    display: none;
+    text-indent: 10px;
+  }
+
+  .off {
+    color: #fff;
+    display: inline-block;
+    text-indent: 34px;
+  }
+
+  .button-label .circle {
+    left: 0;
+    transition: all 0.3s;
+  }
+
+  #toggle-button:checked + label.button-label .circle {
+    left: 50px;
+  }
+
+  #toggle-button:checked + label.button-label .on {
+    display: inline-block;
+  }
+
+  #toggle-button:checked + label.button-label .off {
+    display: none;
+  }
+
+  #toggle-button:checked + label.button-label {
+    background-color: #3dcb9a;
+  }
+
+</style>

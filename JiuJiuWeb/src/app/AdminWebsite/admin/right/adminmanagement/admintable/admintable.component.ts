@@ -1,6 +1,6 @@
 import {LocalDataSource} from 'ng2-smart-table';
 import {Component} from '@angular/core';
-import {AdminService} from "../../../../../shared/admin.service";
+import {Admin, AdminService} from "../../../../../shared/admin.service";
 
 @Component({
   selector: 'app-admin-table',
@@ -14,6 +14,7 @@ import {AdminService} from "../../../../../shared/admin.service";
 export class AdmintableComponent {
 
   public source: LocalDataSource = new LocalDataSource();
+  public currentData:Admin;
 
   settings = {
     mode:'inline',
@@ -36,7 +37,7 @@ export class AdmintableComponent {
     columns: {
         id: {
         title: 'ID',
-        type: 'string',
+        type: 'number',
       },
       username: {
         title: '管理员名称',
@@ -45,10 +46,8 @@ export class AdmintableComponent {
     },
   };
 
-
   constructor(private service: AdminService) {
-    const data = this.service.getData();
-    this.source.load(data);
+    this.source.load(this.service.getData());
   }
 
   // delete
@@ -56,20 +55,24 @@ export class AdmintableComponent {
     if (window.confirm('您确定删除该管理员权限吗?')) {
       event.confirm.resolve();
       this.source = event.source;
-      this.source.remove(event.data);
+      // this.source.remove(event.data);
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
     }
   }
 
-// create
+  // create
   onCreateConfirm(event): void {
     if (window.confirm('您确定创建该管理员用户吗？')) {
       event.confirm.resolve();
-      this.source = event.source;
-      this.source.add(event.newData);
-      console.log(this.source.getAll());
+      // this.source = event.source;
+      this.currentData = event.newData;
+      const admin = new Admin(Number(this.currentData.id),this.currentData.username,"");
+      if(this.service.addAdmin(admin) === true) {
+        this.source.add(admin);
+        console.log(this.source.getAll());
+      }
     } else {
       event.confirm.reject();
     }
@@ -80,7 +83,7 @@ export class AdmintableComponent {
     if (window.confirm('您确定修改该管理员的信息吗？')) {
       event.confirm.resolve();
       this.source = event.source;
-      this.source.update(event.data, event.newData);
+      // this.source.update(event.data, event.newData);
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();

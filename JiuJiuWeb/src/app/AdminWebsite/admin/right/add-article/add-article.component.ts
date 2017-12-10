@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Article, ArticleService} from "../../../../shared/article.service";
 
 @Component({
   selector: 'app-add-article',
@@ -7,11 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddArticleComponent implements OnInit {
   file: Array<Object>;
-  constructor() {
+  submitted = false;
+
+  constructor(private service: ArticleService) {
     this.file=[];
   }
-
+  private data = new Article();
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.submitted = true;
+  }
+
+  addArticle():void {
+    this.service.addArticle(this.data);
   }
 
   imageUploaded(event) {
@@ -21,11 +32,10 @@ export class AddArticleComponent implements OnInit {
   }
   imageRemoved(event) {
     console.log(event);
-    let index = this.file.indexOf(event.file);
+    const index = this.file.indexOf(event.file);
     if( index > -1) {
       this.file.splice(index, 1);
     }
     console.log(this.file);
   }
-
 }

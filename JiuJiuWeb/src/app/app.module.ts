@@ -14,6 +14,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClientModule} from "@angular/common/http";
 import {ImageUploadModule} from "angular2-image-upload";
+import {HttpRequestService} from "./shared/httpRequest.service";
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import {ImageUploadModule} from "angular2-image-upload";
     ImageUploadModule.forRoot(),
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [HttpRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

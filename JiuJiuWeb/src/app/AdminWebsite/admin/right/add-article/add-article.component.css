@@ -145,7 +145,7 @@
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .1);
   width: 960px;
-  height: 980px;
+  height: 1300px;
   margin: -40px auto auto;
   overflow: hidden
 }
@@ -591,10 +591,6 @@ input, select, textarea {
   font-family: "微软雅黑" !important
 }
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, input, button, textarea, p, blockquote, th, td, form {
-  margin: 0;
-  padding: 0
-}
 
 .xubox_shade, .xubox_layer {
   position: fixed;
