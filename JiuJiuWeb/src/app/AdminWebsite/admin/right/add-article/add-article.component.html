@@ -14,7 +14,9 @@
 
             <div id="setting-profile" class="setting-wrap setting-profile">
 
-              <!--<image-upload [headers]="myHeaders"></image-upload>-->
+              <image-upload [buttonCaption]="'选择图片'"
+                              [dropBoxMessage]="'拖动到此区域'"
+                              [clearButtonCaption]="'删除'"></image-upload>
 
               <hr>
               <app-ckeditor></app-ckeditor>

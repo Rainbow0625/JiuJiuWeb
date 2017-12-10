@@ -42,6 +42,7 @@
                 <div style="margin-top: 50px;margin-bottom: 20px">
                   <image-upload [buttonCaption]="'选择图片'"
                                 [dropBoxMessage]="'拖动图片到这里'"
+                                [clearButtonCaption]="'删除'"
                                 (onFileUploadFinish)="imageUploaded($event)"
                                 (onRemove)="imageRemoved($event)"></image-upload>
                 </div>
