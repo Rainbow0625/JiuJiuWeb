@@ -10,7 +10,7 @@ import {UsermanagementComponent} from "./right/usermanagement/usermanagement.com
 import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import {StatComponent} from "./right/admin-right/stat/stat.component";
 import {Ng2SmartTableModule} from "ng2-smart-table";
-import {ButtonViewComponent, SmartTableComponent} from "./right/usermanagement/smart-table/smart-table.component";
+import { SmartTableComponent} from "./right/usermanagement/smart-table/smart-table.component";
 import { AdminmanagementComponent } from './right/adminmanagement/adminmanagement.component';
 import { AdmintableComponent} from "./right/adminmanagement/admintable/admintable.component";
 import { CategorymanagementComponent} from './right/categorymanagement/categorymanagement.component';
@@ -48,7 +48,6 @@ import {UsermessageService} from "../../shared/usermessage.service";
     StatComponent,
     UsermanagementComponent,
     SmartTableComponent,
-    ButtonViewComponent,
     AdminmanagementComponent,
     AdmintableComponent,
     CategorymanagementComponent,
@@ -58,7 +57,7 @@ import {UsermessageService} from "../../shared/usermessage.service";
     AddArticleComponent,
     CkeditorComponent
   ],
-  entryComponents: [ButtonViewComponent],
+  entryComponents: [],
   providers: [UsermessageService,AdminService,CateService,ArticleService],
 })
 export class AdminModule { }

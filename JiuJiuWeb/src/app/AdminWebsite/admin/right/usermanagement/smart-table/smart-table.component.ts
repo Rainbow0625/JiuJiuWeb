@@ -3,30 +3,6 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {UsermessageService} from "../../../../../shared/usermessage.service";
 
 @Component({
-  selector: 'app-button-view',
-  template: `
-    <button class="btn btn-info" [routerLink]="['./image']">{{ value }}</button>
-  `,
-})
-
-export class ButtonViewComponent implements ViewCell, OnInit {
-  // renderValue: string;
-  @Input() value: string | number;
-  @Input() rowData: any;
-  @Output() save: EventEmitter<any> = new EventEmitter();
-
-  ngOnInit() {
-    this.value = '选择';
-    // this.renderValue = this.value.toString().toUpperCase();
-  }
-
-  onClick() {
-    this.save.emit(this.rowData);
-  }
-}
-
-
-@Component({
   selector: 'app-smart-table',
   templateUrl: './smart-table.component.html',
   styles: [`
@@ -81,17 +57,6 @@ export class SmartTableComponent {
         title: 'E-mail',
         type: 'string',
       },
-      head_pic: {
-        title: '',
-        type: 'custom',
-        editable: false,
-        renderComponent: ButtonViewComponent,
-        onComponentInitFunction(instance) {
-          instance.save.subscribe(row => {
-            alert(`${row.name} saved!`);
-          });
-        }
-      }
     },
   };
 
