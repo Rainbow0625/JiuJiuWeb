@@ -7,6 +7,7 @@ import {UsermanagementComponent} from "./right/usermanagement/usermanagement.com
 import {AdminmanagementComponent} from "./right/adminmanagement/adminmanagement.component";
 import {CategorymanagementComponent} from "./right/categorymanagement/categorymanagement.component";
 import {ArticlemanagementComponent} from "./right/articlemanagement/articlemanagement.component";
+import {AddArticleComponent} from "./right/add-article/add-article.component";
 
 export const adminRoutes=[
   {path:'', component:AdminComponent,
@@ -29,6 +30,9 @@ export const adminRoutes=[
       },{
         path:'articlemanagement',
         component:ArticlemanagementComponent,
+      },{
+        path:'addArticle',
+        component:AddArticleComponent,
       }]
   }
 ];

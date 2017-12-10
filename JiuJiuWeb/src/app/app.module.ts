@@ -4,8 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import {HttpModule} from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
-
+import {CKEditorModule} from 'ng2-ckeditor';
 import { AppComponent } from './app.component';
+<<<<<<< HEAD
 
 
 import { LoginComponent } from './HomePage/login/login.component';
@@ -19,6 +20,11 @@ import { SidebarComponent } from './AdminWebsite/admin/sidebar/sidebar.component
 import { AboutusComponent } from './HomePage/aboutus/aboutus.component';
 import { UsercenterComponent } from './UserWebsite/usercenter/usercenter.component';
 import { TypeTreeComponent } from './AdminWebsite/admin/right/type-tree/type-tree.component';
+=======
+import {ProductService} from './shared/product.service';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+>>>>>>> ae259a172b54fbd554daafb1d4f60efe0f13591c
 import {UserModule} from "./UserWebsite/user/user.module";
 import {AdminModule} from "./AdminWebsite/admin/admin.module";
 import {HomeModule} from "./HomePage/home/home.module";
@@ -45,6 +51,7 @@ import {ImageUploadModule} from "angular2-image-upload";
     */
   ],
   imports: [
+    CKEditorModule,
     BrowserModule,
     CommonModule,
     FormsModule,
@@ -54,7 +61,11 @@ import {ImageUploadModule} from "angular2-image-upload";
     UserModule,
     AdminModule,
     HomeModule,
+<<<<<<< HEAD
     HttpClientModule,
+=======
+    FormsModule,
+>>>>>>> ae259a172b54fbd554daafb1d4f60efe0f13591c
     NgbModule.forRoot(),
     ImageUploadModule.forRoot(),
   ],

@@ -21,6 +21,11 @@ import {CategoryManagementService} from "./right/categorymanagement/categorymana
 import { ArticlemanagementComponent } from './right/articlemanagement/articlemanagement.component';
 import { ArticletableComponent } from './right/articlemanagement/articletable/articletable.component';
 import {ArticlemanagementService} from "./right/articlemanagement/articlemanagement.service";
+import {AddArticleComponent} from "./right/add-article/add-article.component";
+import {CKEditorModule} from "ng2-ckeditor";
+import {CkeditorComponent} from "./right/add-article/ckeditor/ckeditor.component";
+import {FormsModule} from "@angular/forms";
+import {ImageUploadModule} from "angular2-image-upload";
 
 @NgModule({
   imports: [
@@ -30,6 +35,9 @@ import {ArticlemanagementService} from "./right/articlemanagement/articlemanagem
     RouterModule.forChild(adminRoutes),
     AdminRoutingModule,
     Ng2SmartTableModule,
+    CKEditorModule,
+    FormsModule,
+    ImageUploadModule,
   ],
   exports: [],
   declarations: [
@@ -46,7 +54,9 @@ import {ArticlemanagementService} from "./right/articlemanagement/articlemanagem
     CategorymanagementComponent,
     CatetableComponent,
     ArticlemanagementComponent,
-    ArticletableComponent
+    ArticletableComponent,
+    AddArticleComponent,
+    CkeditorComponent
   ],
   entryComponents: [ButtonViewComponent],
   providers: [SmartTableService,AdminmanagementService,CategoryManagementService,ArticlemanagementService],

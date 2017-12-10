@@ -8,7 +8,7 @@ export class ArticlemanagementService {
     title: '梅园餐厅',
     author: '小卿',
     isRecommended:'已推荐',
-    image: '<button class="btn btn-info" >增加</button>',
+    image: '',
     category: '美食',
   },{
     id: 2,
