@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-article.component.css']
 })
 export class AddArticleComponent implements OnInit {
-
+  myHeaders: { [name: string]: any } = {
+    'Authorization': 'MyToken',
+    'Another Header': 'AnotherValue'
+  };
   constructor() { }
 
   ngOnInit() {

@@ -25,6 +25,7 @@ import {AddArticleComponent} from "./right/add-article/add-article.component";
 import {CKEditorModule} from "ng2-ckeditor";
 import {CkeditorComponent} from "./right/add-article/ckeditor/ckeditor.component";
 import {FormsModule} from "@angular/forms";
+import {ImageUploadModule} from "angular2-image-upload";
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import {FormsModule} from "@angular/forms";
     Ng2SmartTableModule,
     CKEditorModule,
     FormsModule,
+    ImageUploadModule,
   ],
   exports: [],
   declarations: [
