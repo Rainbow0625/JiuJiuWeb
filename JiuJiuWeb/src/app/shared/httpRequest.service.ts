@@ -6,6 +6,7 @@ import {Article} from "./article.service";
 import 'rxjs/add/operator/map';
 import {Http} from "@angular/http";
 import {of} from "rxjs/observable/of";
+import {Usermessage} from "./usermessage.service";
 
 
 @Injectable()
@@ -35,6 +36,13 @@ export class HttpRequestService {
       {
         headers: new HttpHeaders().set('ArticleClass', 'application/json'),
         // 可设置参数  params: new HttpParams().set('id', '3'),
+      });
+  }
+  updateUser(user:Usermessage):Observable<any> {
+    return this.http.put(url,user,
+      {
+        headers: new HttpHeaders({'Content-Type':'application/json'}),
+        withCredentials:true
       });
   }
   /*searchArticle(term:string):Observable<Article[]> {
