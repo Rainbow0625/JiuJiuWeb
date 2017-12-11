@@ -35,8 +35,9 @@ export class AdminService {
   }
 
   addAdmin(admin:Admin):boolean {
-    this.httpService.addAdmin(admin).subscribe(newadmin => {
-      this.admins.push(newadmin);});
+    this.httpService.addAdmin(admin).subscribe(
+      newadmin => {this.admins.push(newadmin);}
+      );
     console.log(this.admins);
     return true;
   }
