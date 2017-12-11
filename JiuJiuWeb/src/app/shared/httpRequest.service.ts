@@ -7,11 +7,15 @@ import 'rxjs/add/operator/map';
 import {Http} from "@angular/http";
 import {Cate} from "./cate.service";
 import {Usermessage} from "./usermessage.service";
+import {of} from "rxjs/observable/of";
+
+
 
 @Injectable()
 export class HttpRequestService {
 
   constructor(private http: HttpClient,private https:Http) { }
+  url;
 
   /*ADMIN */
   loadAdmins():Observable<Admin[]> {
@@ -72,9 +76,26 @@ export class HttpRequestService {
         withCredentials:true
       });
   }
-  searchArticle(term:string):Observable<Article[]> {
-    return this.https.get(`api/articles/?keyword=${term}`)
+  updateUser(user:Usermessage):Observable<any> {
+    return this.http.put(this.url,user,
+      {
+        headers: new HttpHeaders({'Content-Type':'application/json'}),
+        withCredentials:true
+      });
+  }
+  /*searchArticle(term:string):Observable<Article[]> {
+    if(!term.trim()) {
+      return of([]);
+    }
+    return this.https.get(`URL?name=${term}`)
       .map(response => response.json().data as Article[]);
+  }*/
+  searchArticle(term: string): Observable<Article[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Article[]>(`api/heroes/?name=${term}`);
   }
 
 
@@ -125,6 +146,7 @@ export class HttpRequestService {
       }
     );
   }
+  /*
   updateUser(user:Usermessage):Observable<any> {
     return this.http.post<Usermessage>(
       'http://localhost:80/.......', user,
@@ -134,6 +156,7 @@ export class HttpRequestService {
       }
     );
   }
+  */
   deleteUser(user:Usermessage):Observable<any> {
     return this.http.post<Usermessage>(
       'http://localhost:80/.......', user,

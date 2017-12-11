@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Route, Router} from "@angular/router";
-
+import {HttpRequestService} from "../../shared/httpRequest.service";
+import {Usermessage} from "../../shared/usermessage.service";
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-usercenter',
   templateUrl: './usercenter.component.html',
@@ -8,10 +10,10 @@ import {Route, Router} from "@angular/router";
 })
 export class UsercenterComponent implements OnInit {
   file: Array<Object>;
-  constructor(private router:Router) {
+  constructor(private router:Router,private httprequestservice:HttpRequestService,private location:Location) {
     this.file = [];
   }
-
+  @Input() user: Usermessage;
   ngOnInit() {
   }
   imageUploaded(event) {
@@ -27,5 +29,10 @@ export class UsercenterComponent implements OnInit {
     }
     console.log(this.file);
   }
-
+  goBack():void {
+    this.location.back();
+  }
+  save():void {
+    this.httprequestservice.updateUser(this.user).subscribe(()=>this.goBack());
+  }
 }

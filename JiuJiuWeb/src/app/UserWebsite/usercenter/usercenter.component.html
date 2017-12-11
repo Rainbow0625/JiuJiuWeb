@@ -140,7 +140,7 @@
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name" for="profile-submit"></label>
                   <div class="rlf-group">
-                    <button type="submit" id="profile-submit"  hidefocus="true"  class="rlf-btn-green btn-block profile-btn" [routerLink]="['/user']">保存</button>
+                    <button type="submit" (click)="save()" id="profile-submit"  hidefocus="true"  class="rlf-btn-green btn-block profile-btn" [routerLink]="['/user']">保存</button>
                   </div>
                 </div>
               </form>
