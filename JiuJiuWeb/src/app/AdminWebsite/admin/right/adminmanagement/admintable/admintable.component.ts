@@ -69,10 +69,10 @@ export class AdmintableComponent {
       // this.source = event.source;
       this.currentData = event.newData;
       const admin = new Admin(Number(this.currentData.id),this.currentData.username,"");
-      if(this.service.addAdmin(admin) === true) {
-        this.source.add(admin);
-        console.log(this.source.getAll());
-      }
+      this.service.addAdmin(admin).subscribe(
+        a => {console.log(a);this.source.add(<Admin>a);}
+      )
+      console.log(this.source.getAll());
     } else {
       event.confirm.reject();
     }

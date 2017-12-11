@@ -16,12 +16,15 @@ export class HttpRequestService {
   }
 
   addAdmin(admin:Admin):Observable<Admin> {
+    // const testa = JSON.parse(admin.toString());
+    // console.log(testa);
     return this.http.post<Admin>(
-      'http://localhost:8000/test/test', JSON.stringify(admin),
+      'http://localhost:80/thinkphp/public/index.php/index/index', admin,
       {
-        headers: new HttpHeaders().set('AdminClass', 'application/json'),
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
         // 可设置参数  params: new HttpParams().set('id', '3'),
-    });
+        withCredentials:true
+      });
   }
 
   addArticle(article:Article):Observable<Article> {

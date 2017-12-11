@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpErrorResponse} from "@angular/common/http";
 import {HttpRequestService} from "./httpRequest.service";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class AdminService {
@@ -9,6 +10,7 @@ export class AdminService {
     new Admin (1,"小峰",""),
     new Admin (2,"小卿",""),
   ];
+
 
   // private admins:Admin[];
   constructor(private httpService: HttpRequestService) { }
@@ -34,12 +36,8 @@ export class AdminService {
     return this.admins;
   }
 
-  addAdmin(admin:Admin):boolean {
-    this.httpService.addAdmin(admin).subscribe(
-      newadmin => {this.admins.push(newadmin);}
-      );
-    console.log(this.admins);
-    return true;
+  addAdmin(admin:Admin):Observable<Admin> {
+    return this.httpService.addAdmin(admin);
   }
 }
 
