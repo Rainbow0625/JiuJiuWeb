@@ -5,6 +5,8 @@ import {Observable} from "rxjs/Observable";
 import {Article} from "./article.service";
 import 'rxjs/add/operator/map';
 import {Http} from "@angular/http";
+import {of} from "rxjs/observable/of";
+
 
 @Injectable()
 export class HttpRequestService {
@@ -35,8 +37,18 @@ export class HttpRequestService {
         // 可设置参数  params: new HttpParams().set('id', '3'),
       });
   }
-  searchArticle(term:string):Observable<Article[]> {
-    return this.https.get(`api/articles/?keyword=${term}`)
+  /*searchArticle(term:string):Observable<Article[]> {
+    if(!term.trim()) {
+      return of([]);
+    }
+    return this.https.get(`URL?name=${term}`)
       .map(response => response.json().data as Article[]);
+  }*/
+  searchArticle(term: string): Observable<Article[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Article[]>(`api/heroes/?name=${term}`);
   }
 }
