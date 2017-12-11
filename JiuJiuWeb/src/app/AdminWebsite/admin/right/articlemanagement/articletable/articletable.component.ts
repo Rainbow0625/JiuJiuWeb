@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {LocalDataSource, ViewCell} from 'ng2-smart-table';
-import {ArticleService} from "../../../../../shared/article.service";
+import {Article, ArticleService} from "../../../../../shared/article.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-article-table',
@@ -61,28 +62,36 @@ export class ArticletableComponent implements OnInit {
   };
 
   constructor(private service: ArticleService) {
-    const data = this.service.getArticle();
-    this.source.load(data);
+  }
+
+  ngOnInit() {
+    this.service.getArticle().subscribe(
+      data => { this.source.load(data); },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An load-article error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+        }
+      }
+    );
   }
 
   // delete
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete it?')) {
+    if (window.confirm('您确定删除该用户吗?')) {
       event.confirm.resolve();
-      this.source = event.source;
-      this.source.remove(event.data);
-      console.log(this.source.getAll());
-    } else {
-      event.confirm.reject();
-    }
-  }
-
-// create
-  onCreateConfirm(event): void {
-    if (window.confirm('Are you sure you want to create it?')) {
-      event.confirm.resolve();
-      this.source = event.source;
-      this.source.add(event.newData);
+      const article = new Article();
+      article.setArticleId(event.data.id); // only id not null
+      this.service.deleteArticle(article).subscribe(
+        a => {
+          console.log(a);
+          this.source.remove(event.data);
+        }
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
@@ -91,16 +100,21 @@ export class ArticletableComponent implements OnInit {
 
   // edit
   onEditConfirm(event): void {
-    if (window.confirm('Are you sure you want to update it?')) {
+    if (window.confirm('您确定修改该用户信息吗?')) {
       event.confirm.resolve();
-      this.source = event.source;
-      this.source.update(event.data, event.newData);
+      const article = new Article();
+      article.setArticleId(event.newData.id); // only id not null
+      this.service.updateArticle(article).subscribe(
+        a => {
+          console.log(a);
+          this.source.update(event.data, event.newData);
+        }
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
     }
   }
-  ngOnInit() {
-  }
+
 
 }

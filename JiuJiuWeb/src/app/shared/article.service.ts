@@ -1,15 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpRequestService} from "./httpRequest.service";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class ArticleService {
-  public article:Article;
-  private articles:Article[]=[
-    // this.article.setArticle(1,"梅园","小峰","已推荐","梅园有很多好吃的","美食","我特别喜欢梅园，名字好听离宿舍还近，哈哈哈", "1.jpg",7,1,"2017-12-9","美食"),
-    // new Article (2,"兰园","小卿","未推荐","不错不错","娱乐","兰园的鸡腿可还吃了，甜甜的。", "2.jpg",7,1,"2017-9-8","美食"),
-    // new Article (3,"菊园","小卿","已推荐","菊园价格实惠","美食","我觉得菊园不错", "3.jpg",7,1,"2017-9-8","美食")
-  ];
-
   private hotclick: Hotclick[]=[
       new Hotclick("梅园"),
   ];
@@ -19,9 +13,20 @@ export class ArticleService {
 
   constructor(private httpService: HttpRequestService) { }
 
-  getArticle(): Article[] {
-    return this.articles;
+  // Article
+  getArticle(): Observable<Article[]> {
+    return this.httpService.loadArticle();
   }
+  updateArticle(article:Article):Observable<any> {
+    return this.httpService.updateArticle(article);
+  }
+  deleteArticle(article:Article):Observable<any> {
+    return this.httpService.deleteArticle(article);
+  }
+  addArticle(article:Article):Observable<any> {
+    return this.httpService.addArticle(article);
+  }
+
   getHotclick(): Hotclick[] {
     return this.hotclick;
   }
@@ -29,10 +34,7 @@ export class ArticleService {
     return this.hotReading;
   }
 
-  addArticle(article:Article) {
-    this.httpService.addArticle(article).subscribe( acticle => this.articles.push(acticle));
-    console.log(this.articles);
-  }
+
 }
 export class Article {
   public id: number;
@@ -68,6 +70,9 @@ export class Article {
     return arti;
   }
 
+  setArticleId(id:number) {
+    this.id = id;
+  }
 }
 export class Hotclick {
   constructor(

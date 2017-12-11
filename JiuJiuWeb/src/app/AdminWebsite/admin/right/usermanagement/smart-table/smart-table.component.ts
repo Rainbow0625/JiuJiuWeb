@@ -57,6 +57,10 @@ export class SmartTableComponent {
         title: 'E-mail',
         type: 'string',
       },
+      password: {
+      title: '密码',
+      type: 'string',
+      }
     },
   };
 

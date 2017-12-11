@@ -13,7 +13,9 @@ export class AddArticleComponent implements OnInit {
   constructor(private service: ArticleService) {
     this.file=[];
   }
-  private data = new Article();
+
+  private data = new Article();  // xiu gai!!
+
   ngOnInit() {
   }
 
@@ -22,7 +24,7 @@ export class AddArticleComponent implements OnInit {
   }
 
   addArticle():void {
-    this.service.addArticle(this.data);
+    this.service.addArticle(this.data).subscribe();
   }
 
   imageUploaded(event) {

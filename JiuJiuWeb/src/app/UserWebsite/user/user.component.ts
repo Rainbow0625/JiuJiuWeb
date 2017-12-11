@@ -34,7 +34,9 @@ export class UserComponent implements OnInit {
     this.searchTerms.next(term);
   }
   ngOnInit() {
-    this.articles= this.articleService.getArticle();
+    this.articleService.getArticle().subscribe(
+      data => {this.articles = data;}
+    );
     this.cates=this.cateService.getCate();
     this.hot= this.articleService.getHotclick();
     this.reading=this.articleService.getHotReading();

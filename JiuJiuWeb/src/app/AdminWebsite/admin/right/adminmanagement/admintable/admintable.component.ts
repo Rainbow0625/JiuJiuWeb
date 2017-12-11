@@ -1,6 +1,7 @@
 import {LocalDataSource} from 'ng2-smart-table';
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Admin, AdminService} from "../../../../../shared/admin.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-admin-table',
@@ -11,7 +12,8 @@ import {Admin, AdminService} from "../../../../../shared/admin.service";
     }
   `],
 })
-export class AdmintableComponent {
+export class AdmintableComponent implements OnInit{
+
 
   public source: LocalDataSource = new LocalDataSource();
   public currentData:Admin;
@@ -39,23 +41,45 @@ export class AdmintableComponent {
         title: 'ID',
         type: 'number',
       },
-      username: {
+        username: {
         title: '管理员名称',
+        type: 'string',
+      },
+        password: {
+        title: '密码',
         type: 'string',
       }
     },
   };
 
-  constructor(private service: AdminService) {
-    this.source.load(this.service.getData());
+  constructor(private service: AdminService) {}
+
+  ngOnInit(): void {
+    this.service.getAdmins().subscribe(
+      data => { this.source.load(data); },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An ADD-USER error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+        }
+      });
   }
 
   // delete
   onDeleteConfirm(event): void {
     if (window.confirm('您确定删除该管理员权限吗?')) {
       event.confirm.resolve();
-      this.source = event.source;
-      // this.source.remove(event.data);
+      const admin = new Admin(Number(event.data.id),event.data.username,event.data.password);
+      this.service.deleteAdmin(admin).subscribe(
+        a => {
+          console.log(a);
+          this.source.remove(event.data);
+        }
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
@@ -66,12 +90,13 @@ export class AdmintableComponent {
   onCreateConfirm(event): void {
     if (window.confirm('您确定创建该管理员用户吗？')) {
       event.confirm.resolve();
-      // this.source = event.source;
       this.currentData = event.newData;
       const admin = new Admin(Number(this.currentData.id),this.currentData.username,"");
       this.service.addAdmin(admin).subscribe(
-        a => {console.log(a);this.source.add(<Admin>a);}
-      )
+        a => {
+          console.log(a);
+          this.source.add(admin);}
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
@@ -82,8 +107,13 @@ export class AdmintableComponent {
   onEditConfirm(event): void {
     if (window.confirm('您确定修改该管理员的信息吗？')) {
       event.confirm.resolve();
-      this.source = event.source;
-      // this.source.update(event.data, event.newData);
+      this.currentData = event.newData;
+      const admin = new Admin(Number(this.currentData.id),this.currentData.username,event.data.password);
+      this.service.updateAdmin(admin).subscribe(
+        (a) => {
+          console.log(a);
+          this.source.update(event.data, event.newData);}
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
