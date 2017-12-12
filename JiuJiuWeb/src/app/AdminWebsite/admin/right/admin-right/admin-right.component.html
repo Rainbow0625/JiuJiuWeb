@@ -1,4 +1,4 @@
-<div >
+<div>
   <!-- 轮播图 -->
 
   <div class="row carousel-container  ">
@@ -30,27 +30,28 @@
 
   <hr>
   <div>
-  <h2 style="text-align:center" class="text-muted">{{adminName}},
-    <small>欢迎进入管理系统!</small>
-  </h2>
-</div>
-  <div class="row">
-    <div class="col-xl-3 col-lg-3 ">
-      <app-stat [name]="'酒库'"  [count]="88"  [color]="'primary'"></app-stat>
-    </div>
-    <div class="col-xl-3 col-lg-3">
-      <app-stat [name]="'酒友'"  [count]="66" [color]="'warning'"></app-stat>
-    </div>
-    <div class="col-xl-3 col-lg-3">
-      <app-stat [name]="'评论'" [count]="123" [color]="'success'"></app-stat>
-    </div>
-    <div class="col-xl-3 col-lg-3">
-      <app-stat [name]="'管理员'"  [count]="4" [color]="'danger'"></app-stat>
-    </div>
+    <h2 style="text-align:center" class="text-muted">{{adminName}},
+      <small>欢迎进入管理系统!</small>
+    </h2>
   </div>
   <hr/>
   <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}
   </ngb-alert>
   <hr/>
+  <div class="row">
+    <div class="col-xl-3 col-lg-3 ">
+      <app-stat [name]="'管理员'" [count]="88" [title]="'顾客就是上帝'" ></app-stat>
+    </div>
+    <div class="col-xl-3 col-lg-3">
+      <app-stat [name]="'用户'" [count]="66" [title]="'吃喝玩乐学，样样不误'"></app-stat>
+    </div>
+    <div class="col-xl-3 col-lg-3">
+      <app-stat [name]="'栏目'" [count]="123" [title]="'想要的应有尽有'"></app-stat>
+    </div>
+    <div class="col-xl-3 col-lg-3">
+      <app-stat [name]="'文章'" [count]="4" [title]="'行云流水，等你来写'"></app-stat>
+    </div>
+  </div>
+<hr/>
 
 </div>
