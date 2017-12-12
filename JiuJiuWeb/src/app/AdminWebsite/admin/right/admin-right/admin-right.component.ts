@@ -14,12 +14,12 @@ export class AdminRightComponent implements OnInit {
     this.alerts.push(
       {
         id: 1,
-        type: 'success',
+        type: 'warning',
         message: `距离"奥特曼打小怪兽"公司上市倒计时：100天！`
       },
       {
         id: 2,
-        type: 'info',
+        type: 'success',
         message: `距离公司"圣诞节"放假倒计时：7天！`
       }
     );
