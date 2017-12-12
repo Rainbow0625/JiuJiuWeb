@@ -11,7 +11,7 @@ import {UserModule} from "./UserWebsite/user/user.module";
 import {AdminModule} from "./AdminWebsite/admin/admin.module";
 import {HomeModule} from "./HomePage/home/home.module";
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbDropdownModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClientModule} from "@angular/common/http";
 import {ImageUploadModule} from "angular2-image-upload";
 import {HttpRequestService} from "./shared/httpRequest.service";
@@ -38,6 +38,7 @@ import {AuthGuardService} from "./shared/auth-guard.service";
     HttpClientModule,
     NgbModule.forRoot(),
     ImageUploadModule.forRoot(),
+    NgbDropdownModule.forRoot()
   ],
   exports: [RouterModule],
   providers: [HttpRequestService,AuthService,AuthGuardService],
