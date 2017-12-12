@@ -11,10 +11,21 @@
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav pull-right">
-        <li><a [routerLink]="['/usercenter']">首页</a></li>
-        <li><a  [routerLink]="['/about']">关于我们</a></li>
-        <li><a [routerLink]="['/login']">登录</a></li>
-        <li><a  [routerLink]="['/signup']">注册</a></li>
+        <li><a [routerLink]="['/page']">首页</a></li>
+        <li><a  [routerLink]="['/aboutus']">关于我们</a></li>
+        <li><a *ngIf="check()" [routerLink]="['/login']">登录</a></li>
+        <li *ngIf="!check()">
+          <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button ngbDropdownToggle>欢迎您</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" ngbDropdownToggle>
+              <a class="dropdown-item" [routerLink]="['/usercenter']">个人中心</a>
+              <a class="dropdown-item" [routerLink]="['/login']">退出登录</a>
+            </div>
+          </div>
+          </div>
+        </li>
+        <li><a *ngIf="check()" [routerLink]="['/signup']">注册</a></li>
       </ul>
     </div>
   </div>
@@ -22,6 +33,19 @@
 
 <div class="container main-container">
   <router-outlet></router-outlet>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button class="dropdown-item">Action - 1</button>
+        <button class="dropdown-item">Another Action</button>
+        <button class="dropdown-item">Something else is here</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <nav class="navbar-static-bottom">

@@ -13,4 +13,11 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
   }
+  check():boolean {
+    if(localStorage.getItem('userId')!=null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
