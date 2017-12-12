@@ -17,6 +17,10 @@ import {ImageUploadModule} from "angular2-image-upload";
 import {HttpRequestService} from "./shared/httpRequest.service";
 import {AuthService} from "./shared/auth.service";
 import {AuthGuardService} from "./shared/auth-guard.service";
+import {UsermessageService} from "./shared/usermessage.service";
+import {AdminService} from "./shared/admin.service";
+import {CateService} from "./shared/cate.service";
+import {ArticleService} from "./shared/article.service";
 
 
 @NgModule({
@@ -41,7 +45,7 @@ import {AuthGuardService} from "./shared/auth-guard.service";
     NgbDropdownModule.forRoot()
   ],
   exports: [RouterModule],
-  providers: [HttpRequestService,AuthService,AuthGuardService],
+  providers: [HttpRequestService,AuthService,AuthGuardService,UsermessageService,AdminService,CateService,ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

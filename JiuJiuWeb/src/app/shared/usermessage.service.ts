@@ -35,7 +35,7 @@ export class Usermessage {
     public native_place: string,
     public birth: string,
     public email: string,
-    public head_pic:Array<Object>,
+    public head_pic:string,
   ) {
   }
 

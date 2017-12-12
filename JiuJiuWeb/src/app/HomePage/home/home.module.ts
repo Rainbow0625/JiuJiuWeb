@@ -9,6 +9,7 @@ import {PageComponent} from "../page/page.component";
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BlockComponent} from "../block/block.component";
+import {UsermessageService} from "../../shared/usermessage.service";
 
 
 @NgModule({
@@ -28,6 +29,6 @@ import {BlockComponent} from "../block/block.component";
     AboutusComponent,
     BlockComponent
   ],
-  providers: [],
+  providers: [UsermessageService],
 })
 export class HomeModule { }

@@ -31,7 +31,7 @@ export class UsercenterComponent implements OnInit {
   }
   save(formValue:any):void {
     const user = new Usermessage(0,formValue.username,formValue.password,formValue.gender,
-      formValue.native_place,formValue.birth,formValue.email,null);
+      formValue.native_place,formValue.birth,formValue.email,'');
     this.userservice.updatesermessage(user).subscribe(
       a => {
         console.log(a);
