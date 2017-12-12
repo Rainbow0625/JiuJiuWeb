@@ -9,20 +9,22 @@ import {Router} from "@angular/router";
 })
 export class AppComponent implements OnInit{
   title = 'app';
+  username = "";
   constructor(private router: Router) {
   }
 
   ngOnInit() {
   }
   check():boolean {
-    if(localStorage.getItem('userId')!=null) {
+    if(localStorage.getItem('username')!=null) {
+      this.username = localStorage.getItem('username');
       return false;
     } else {
       return true;
     }
   }
   exit() {
-    localStorage.removeItem('userId');
+    localStorage.removeItem('username');
     this.router.navigate(['/login']);
   }
 }

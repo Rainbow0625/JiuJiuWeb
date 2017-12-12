@@ -1,45 +1,55 @@
 import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
-import {Auth, BackNewsCode, User} from "../HomePage/login/Auth";
+import {Auth, User} from "../HomePage/login/Auth";
+import {Usermessage} from "./usermessage.service";
 
 @Injectable()
 export class AuthService {
 
   constructor(private http: Http) { }
-  public loginWithCredentials(username: string, password: string): Promise<Auth> {
-    return this.findUserBySSM(username,password)
-      .then(user => {
-        let auth = new Auth();
+  public loginWithCredentials(username: string, password: string,checkadmin: string): Promise<Auth> {
+    const user = new User();
+    user.username = username;
+    user.password = password;
+    return this.findUserBySSM(user,checkadmin)
+      .then(data => {
+        const auth = new Auth();
         localStorage.removeItem('userId');  // 移除掉上一个用户
         // 存储用户要访问的url
-        let redirectUrl = (localStorage.getItem('redirectUrl') === null)?
+        const redirectUrl = (localStorage.getItem('redirectUrl') === null)?
           '/': localStorage.getItem('redirectUrl');
+        console.log(redirectUrl);
         auth.redirectUrl = redirectUrl;
         // 判断错误
-        if (null === user) {
-          auth.hasError = true;
-          auth.errMsg = '用户不存在';
-        } else if (password === user.password) {
-          auth.user = Object.assign({}, user);
+        console.log(data.flag);
+        if(data.flag===1) {
           auth.hasError = false;
-          localStorage.setItem('userId',user.id);
-        } else {
+          localStorage.setItem('username',username);
+        } else if(data.flag===2) {
           auth.hasError = true;
           auth.errMsg = '密码不匹配';
-        }
+        } else {
+          auth.hasError = true;
+          auth.errMsg = '用户不存在';}
         return auth;
   });
   }
-  private findUserBySSM(username: string,password:string): Promise<any> {
-    const url = `/yang-test/angular/login/${username}/${password}/`;
-    return this.http.get(url)
+  private findUserBySSM(user:User,checkadmin:string): Promise<any> {
+    let url="";
+    if(Number(checkadmin)===1) {
+      url = `http://localhost:80/project_blog/public/index.php/admin/login/index`;
+    } else {
+      url = `http://localhost:80/project_blog/public/index.php/index/login/index`;
+    }
+    return this.http.post(url,user,{withCredentials:true})
       .toPromise()
       .then(res => {
-        let status:number = res.status;// SSM框架返回的状态
+        const status:number = res.status;// SSM框架返回的状态
         if(status === 200) { // 服务端正确执行
-          let users= res.json() as User[];
-          return (users.length>0)?users[0]:null;
+          console.log(res.toString());
+          return res.json();
         }
-      });
+      })
+      ;
   }
 }

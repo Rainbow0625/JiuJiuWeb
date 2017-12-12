@@ -5,6 +5,7 @@
       <h1>酒酒网</h1>
       <form #formRef="ngForm" role="form" (ngSubmit)="onSubmit(formRef.value)">
         <div class="form-content">
+
           <div class="form-group">
             <input type="text" ngModel name="username" class="form-control input-underline input-lg" placeholder="Username">
           </div>
@@ -13,7 +14,13 @@
           </div>
         </div>
         <div *ngIf="auth?.hasError">{{auth.errMsg}}</div>
-
+        <div class="form-group">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ngModel name="checkadmin" value="1">管理员
+            </label>
+          </div>
+        </div>
         <button class="btn rounded-btn" type="submit" > Log in </button>
 
         <a class="btn rounded-btn" [routerLink]="['/signup']" >Register</a>

@@ -16,7 +16,7 @@
         <li><a *ngIf="check()" [routerLink]="['/login']">登录</a></li>
         <li *ngIf="!check()" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            欢迎您！
+            欢迎您,{{username}}!
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">

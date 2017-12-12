@@ -74,13 +74,7 @@ export class HttpRequestService {
         withCredentials:true
       });
   }
-  updateUser(user:Usermessage):Observable<any> {
-    return this.http.put(this.url,user,
-      {
-        headers: new HttpHeaders({'Content-Type':'application/json'}),
-        withCredentials:true
-      });
-  }
+
   /*searchArticle(term:string):Observable<Article[]> {
     if(!term.trim()) {
       return of([]);
@@ -155,6 +149,13 @@ export class HttpRequestService {
     );
   }
   */
+  updateUser(user:Usermessage):Observable<any> {
+    return this.http.put(this.url,user,
+      {
+        headers: new HttpHeaders({'Content-Type':'application/json'}),
+        withCredentials:true
+      });
+  }
   deleteUser(user:Usermessage):Observable<any> {
     return this.http.post<Usermessage>(
       'http://localhost:80/.......', user,

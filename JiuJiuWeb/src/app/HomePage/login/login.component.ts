@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   username = '';
   password = '';
+  checkadmin='';
   auth: Auth;
   constructor(public router: Router,public authservice: AuthService) { }
 
@@ -21,16 +22,11 @@ export class LoginComponent implements OnInit {
   onSubmit(formValue:any) {
    // localStorage.setItem('isLoggedin', 'true');
     this.authservice
-      .loginWithCredentials(formValue.username, formValue.password)
+      .loginWithCredentials(formValue.username, formValue.password,formValue.checkadmin)
       .then(auth => {
-        let redirectUrl = (auth.redirectUrl === null)? '/': auth.redirectUrl;
+        const redirectUrl = (auth.redirectUrl === null)? '/': auth.redirectUrl;
         if(!auth.hasError) {
-          if(1) {
-            this.router.navigate(['/user']);
-          }else if(2) {
-            this.router.navigate(['/admin']);
-          }
-         // this.router.navigate([redirectUrl]);
+          this.router.navigate([redirectUrl]);
           localStorage.removeItem('redirectUrl');
         } else {
           this.auth = Object.assign({}, auth);
