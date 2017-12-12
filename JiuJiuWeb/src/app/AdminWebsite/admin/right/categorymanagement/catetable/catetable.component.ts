@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
-import {CateService} from "../../../../../shared/cate.service";
+import {Cate, CateService} from "../../../../../shared/cate.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-cate-table',
@@ -16,7 +17,7 @@ export class CatetableComponent implements OnInit {
   public source: LocalDataSource = new LocalDataSource();
 
   settings = {
-    mode:'inline',
+    mode: 'inline',
     add: {
       addButtonContent: '添加',
       createButtonContent: '新建',
@@ -50,18 +51,39 @@ export class CatetableComponent implements OnInit {
   };
 
   constructor(private service: CateService) {
-    const data = this.service.getCate();
-    this.source.load(data);
+
   }
 
   ngOnInit() {
+    this.service.getCate().subscribe(
+      data => {
+        this.source.load(data);
+        console.log(data);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An ADD-USER error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+        }
+      }
+    );
   }
+
   // delete
   onDeleteConfirm(event): void {
-    if (window.confirm('您确定删除该管理员权限吗?')) {
+    if (window.confirm('您确定删除该栏目吗?')) {
       event.confirm.resolve();
-      this.source = event.source;
-      this.source.remove(event.data);
+      const cate = new Cate(Number(event.data.id), event.data.name, event.data.desc);
+      this.service.deleteCate(cate).subscribe(
+        a => {
+          console.log(a);
+          this.source.remove(event.data);
+        }
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
@@ -70,10 +92,15 @@ export class CatetableComponent implements OnInit {
 
 // create
   onCreateConfirm(event): void {
-    if (window.confirm('您确定创建该管理员用户吗？')) {
+    if (window.confirm('您确定创建该栏目吗？')) {
       event.confirm.resolve();
-      this.source = event.source;
-      this.source.add(event.newData);
+      const cate = new Cate(Number(event.newData.id), event.newData.name, event.newData.desc);
+      this.service.addCate(cate).subscribe(
+        a => {
+          console.log(a);
+          this.source.add(event.newData);
+        }
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
@@ -82,10 +109,15 @@ export class CatetableComponent implements OnInit {
 
   // edit
   onEditConfirm(event): void {
-    if (window.confirm('您确定修改该管理员的信息吗？')) {
+    if (window.confirm('您确定修改该栏目的相关信息吗？')) {
       event.confirm.resolve();
-      this.source = event.source;
-      this.source.update(event.data, event.newData);
+      const cate = new Cate(Number(event.newData.id), event.newData.name, event.newData.desc);
+      this.service.updateCate(cate).subscribe(
+        a => {
+          console.log(a);
+          this.source.update(event.data, event.newData);
+        }
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
