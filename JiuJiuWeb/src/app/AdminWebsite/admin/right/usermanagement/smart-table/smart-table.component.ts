@@ -37,6 +37,7 @@ export class SmartTableComponent implements OnInit{
       user_id: {
         title: 'ID',
         type: 'number',
+        editable: false,
       },
       username: {
         title: '昵称',

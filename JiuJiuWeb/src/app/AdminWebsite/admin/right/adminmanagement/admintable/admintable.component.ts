@@ -40,6 +40,7 @@ export class AdmintableComponent implements OnInit{
         id: {
         title: 'ID',
         type: 'number',
+        editable: false,
       },
         username: {
         title: '管理员名称',
