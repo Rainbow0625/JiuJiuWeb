@@ -15,18 +15,12 @@ export class AdminRightComponent implements OnInit {
       {
         id: 1,
         type: 'success',
-        message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
+        message: `距离"奥特曼打小怪兽"公司上市倒计时：100天！`
       },
       {
         id: 2,
-        type: 'warning',
-        message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
+        type: 'info',
+        message: `距离公司"圣诞节"放假倒计时：7天！`
       }
     );
   }

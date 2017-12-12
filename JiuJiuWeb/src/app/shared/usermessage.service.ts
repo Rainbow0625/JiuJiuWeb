@@ -1,14 +1,30 @@
 import { Injectable } from '@angular/core';
+import {HttpRequestService} from "./httpRequest.service";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class UsermessageService {
+
+  /*
  private users: Usermessage[]=[
    new Usermessage(1,"Summer","1234","male","香港","1994-08-09","37737@qq.com",new Array<Object>()),
  ];
-  constructor() {}
-  getUsermessage(): Usermessage[] {
-   return this.users;
+ */
+
+  constructor(private httpService:HttpRequestService) {}
+  getUsermessage(): Observable<Usermessage[]> {
+   return this.httpService.loadUser();
   }
+  addUsermessage(user:Usermessage):Observable<any> {
+    return this.httpService.addUser(user);
+  }
+  updatesermessage(user:Usermessage):Observable<any> {
+    return this.httpService.updateUser(user);
+  }
+  deleteUsermessage(user:Usermessage):Observable<any> {
+    return this.httpService.deleteUser(user);
+  }
+
 }
 export class Usermessage {
   constructor(

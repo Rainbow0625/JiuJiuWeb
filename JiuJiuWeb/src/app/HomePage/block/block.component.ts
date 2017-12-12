@@ -15,7 +15,12 @@ export class BlockComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cates=this.cateService.getCate();
+    this.cateService.getCate().subscribe(
+      data => {
+        console.log(data);
+        this.cates = data;
+      }
+    );
   }
 
 }

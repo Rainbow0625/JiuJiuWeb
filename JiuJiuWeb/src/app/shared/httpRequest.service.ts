@@ -9,8 +9,6 @@ import {Cate} from "./cate.service";
 import {Usermessage} from "./usermessage.service";
 import {of} from "rxjs/observable/of";
 
-
-
 @Injectable()
 export class HttpRequestService {
 

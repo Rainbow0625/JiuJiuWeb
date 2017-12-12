@@ -1,6 +1,7 @@
 import {LocalDataSource, ViewCell} from 'ng2-smart-table';
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {UsermessageService} from "../../../../../shared/usermessage.service";
+import {Usermessage, UsermessageService} from "../../../../../shared/usermessage.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-smart-table',
@@ -11,7 +12,7 @@ import {UsermessageService} from "../../../../../shared/usermessage.service";
     }
   `],
 })
-export class SmartTableComponent {
+export class SmartTableComponent implements OnInit{
   public source: LocalDataSource = new LocalDataSource();
 
   settings = {
@@ -66,15 +67,35 @@ export class SmartTableComponent {
 
 
   constructor(private service: UsermessageService) {
-    const data = this.service.getUsermessage();
-    this.source.load(data);
+
+  }
+
+  ngOnInit(): void {
+    this.service.getUsermessage().subscribe(
+      data => {
+        this.source.load(data);
+        console.log(data);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An ADD-USER error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+        }
+      }
+    );
   }
 
   // delete
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete it?')) {
+    if (window.confirm('你确定要删除该用户吗?')) {
       event.confirm.resolve();
-      this.source = event.source;
+      const usermessage = new Usermessage(event.data.user_id,event.data.username,event.data.password,event.data.gender,
+        event.data.native_place,event.data.birth,event.data.email,event.data.head_pic);
+      this.service.deleteUsermessage(usermessage);
       this.source.remove(event.data);
       console.log(this.source.getAll());
     } else {
@@ -84,10 +105,16 @@ export class SmartTableComponent {
 
 // create
   onCreateConfirm(event): void {
-    if (window.confirm('Are you sure you want to create it?')) {
+    if (window.confirm('你确定要新增该用户吗?')) {
       event.confirm.resolve();
-      this.source = event.source;
-      this.source.add(event.newData);
+      const usermessage = new Usermessage(event.newData.user_id,event.newData.username,event.newData.password,event.newData.gender,
+        event.newData.native_place,event.newData.birth,event.newData.email,event.newData.head_pic);
+      this.service.addUsermessage(usermessage).subscribe(
+        a => {
+          this.source.add(event.newData);
+          console.log(a);
+        }
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
@@ -96,10 +123,16 @@ export class SmartTableComponent {
 
   // edit
   onEditConfirm(event): void {
-    if (window.confirm('Are you sure you want to update it?')) {
+    if (window.confirm('你确定要修改该用户的个人信息吗?')) {
       event.confirm.resolve();
-      this.source = event.source;
-      this.source.update(event.data, event.newData);
+      const usermessage = new Usermessage(event.newData.user_id,event.newData.username,event.newData.password,event.newData.gender,
+        event.newData.native_place,event.newData.birth,event.newData.email,event.newData.head_pic);
+      this.service.updatesermessage(usermessage).subscribe(
+        a => {
+          this.source.update(event.data, event.newData);
+          console.log(a);
+        }
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
