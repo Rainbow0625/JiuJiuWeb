@@ -24,11 +24,24 @@ export class SignupComponent implements OnInit {
     });
   }
   onSubmit() {
-    const user = new Usermessage(0,this.formModel.get('username').value,this.formModel.get('password').value,
-      '','','',this.formModel.get('email').value,null);
+    alert("#########");
+    console.log(this.formModel.get('username').value);
+    alert("#########");
+    console.log(this.formModel.get(['passwordsGroup','password']).value);
+    alert("#########");
+    console.log(this.formModel.get('email').value);
+    alert("#########");
+    const user = new Usermessage(0,this.formModel.get('username').value,this.formModel.get(['passwordsGroup','password']).value,
+      '','','',this.formModel.get('email').value,'');
+    alert("#########");
     this.userService.addUsermessage(user).subscribe(
-      a => {
-        console.log(a);
+      data => {
+        console.log(data.flag);
+        if(data.flag===0) {
+          alert("添加用戶失敗！");
+        }else {
+          this.router.navigate(['/usercenter']);
+        }
         localStorage.setItem('username',this.formModel.get('username').value);
       }
     );

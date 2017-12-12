@@ -6,7 +6,7 @@
     <form [formGroup]="formModel" (submit)="onSubmit()">
       <div class="form-content">
         <div class="form-group">
-          <input type="text" formControlName="username" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+          <input type="text" formControlName="username" class="form-control input-underline input-lg"  placeholder="Full Name">
         </div>
         <div [hidden]="formModel.get('username').valid||formModel.get('username').untouched">
           <div [hidden]="!formModel.hasError('required','username')">用户名是必填项</div>
@@ -14,18 +14,18 @@
         </div>
 
         <div class="form-group">
-          <input type="text" formControlName="email" class="form-control input-underline input-lg" id="" placeholder="Email">
+          <input type="text" formControlName="email" class="form-control input-underline input-lg" placeholder="Email">
         </div>
         <div [hidden]="formModel.get('email').valid||formModel.get('email').untouched">
           <div [hidden]="!formModel.hasError('email','email')">请输入正确的邮箱</div>
         </div>
         <div formGroupName="passwordsGroup">
           <div class="form-group">
-            <input type="password" formControlName="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+            <input type="password" formControlName="password" class="form-control input-underline input-lg" placeholder="Password">
           </div>
           <div [hidden]="!formModel.hasError('minlength',['passwordsGroup','password' ]) ">密码最小长度是6</div>
           <div class="form-group">
-             <input type="password" formControlName="pconfirm" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+             <input type="password" formControlName="pconfirm" class="form-control input-underline input-lg" placeholder="Repeat Password">
           </div>
           <div [hidden]="!formModel.hasError('equal','passwordsGroup')">密码与确认密码不一致</div>
         </div>

@@ -130,7 +130,7 @@ export class HttpRequestService {
   }
   addUser(user:Usermessage):Observable<any> {
     return this.http.post<Usermessage>(
-      'http://localhost:80/thinkphp/public/index.php/index/index', user,
+      'http://localhost:80/project_blog/public/index.php/index/register/add', user,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         // 可设置参数  params: new HttpParams().set('id', '3'),
