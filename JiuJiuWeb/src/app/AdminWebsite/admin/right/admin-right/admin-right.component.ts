@@ -19,7 +19,7 @@ export class AdminRightComponent implements OnInit {
       },
       {
         id: 2,
-        type: 'warning',
+        type: 'info',
         message: `距离公司"圣诞节"放假倒计时：7天！`
       }
     );
