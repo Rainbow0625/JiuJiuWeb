@@ -15,6 +15,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClientModule} from "@angular/common/http";
 import {ImageUploadModule} from "angular2-image-upload";
 import {HttpRequestService} from "./shared/httpRequest.service";
+import {AuthService} from "./shared/auth.service";
+import {AuthGuardService} from "./shared/auth-guard.service";
 
 
 @NgModule({
@@ -38,7 +40,7 @@ import {HttpRequestService} from "./shared/httpRequest.service";
     ImageUploadModule.forRoot(),
   ],
   exports: [RouterModule],
-  providers: [HttpRequestService],
+  providers: [HttpRequestService,AuthService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

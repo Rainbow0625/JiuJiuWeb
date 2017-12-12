@@ -3,16 +3,18 @@
     <div class="col-md-4 col-md-offset-4 " style=" margin-top:50px;">
       <img src="assets/images/logo.jpg" width="150px" class="user-avatar" />
       <h1>酒酒网</h1>
-      <form role="form">
+      <form #formRef="ngForm" role="form" (ngSubmit)="onSubmit(formRef.value)">
         <div class="form-content">
           <div class="form-group">
-            <input type="text" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="Email">
+            <input type="text" ngModel name="username" class="form-control input-underline input-lg" placeholder="Username">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+            <input type="password" ngModel name="password" class="form-control input-underline input-lg"  placeholder="Password">
           </div>
         </div>
-        <a class="btn rounded-btn" routerLink='/admin' (click)="onLoggedin()" > Log in </a>
+        <div *ngIf="auth?.hasError">{{auth.errMsg}}</div>
+
+        <button class="btn rounded-btn" type="submit" > Log in </button>
 
         <a class="btn rounded-btn" [routerLink]="['/signup']" >Register</a>
       </form>
