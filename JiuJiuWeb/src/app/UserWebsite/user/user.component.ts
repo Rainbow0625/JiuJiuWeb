@@ -37,7 +37,12 @@ export class UserComponent implements OnInit {
     this.articleService.getArticle().subscribe(
       data => {this.articles = data;}
     );
-    this.cates=this.cateService.getCate();
+    this.cateService.getCate().subscribe(
+      data => {
+        this.cates = data;
+        console.log(data);
+      }
+    );
     this.hot= this.articleService.getHotclick();
     this.reading=this.articleService.getHotReading();
     //
