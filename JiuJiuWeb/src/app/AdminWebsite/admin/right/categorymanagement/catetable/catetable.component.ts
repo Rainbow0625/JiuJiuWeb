@@ -80,7 +80,11 @@ export class CatetableComponent implements OnInit {
       const cate = new Cate(Number(event.data.id), event.data.name, event.data.desc);
       this.service.deleteCate(cate).subscribe(
         a => {
-          console.log(a);
+          if(a.flag===0) {
+            alert("刪除栏目失敗！");
+          }else {
+            alert("刪除栏目成功！");
+          }
           this.source.remove(event.data);
         }
       );
@@ -97,7 +101,11 @@ export class CatetableComponent implements OnInit {
       const cate = new Cate(Number(event.newData.id), event.newData.name, event.newData.desc);
       this.service.addCate(cate).subscribe(
         a => {
-          console.log(a);
+          if(a.flag===0) {
+            alert("新增栏目失敗！");
+          }else {
+            alert("新增栏目成功！");
+          }
           this.source.add(event.newData);
         }
       );
@@ -114,7 +122,11 @@ export class CatetableComponent implements OnInit {
       const cate = new Cate(Number(event.newData.id), event.newData.name, event.newData.desc);
       this.service.updateCate(cate).subscribe(
         a => {
-          console.log(a);
+          if(a.flag===0) {
+            alert("修改栏目失敗！");
+          }else {
+            alert("修改栏目成功！");
+          }
           this.source.update(event.data, event.newData);
         }
       );

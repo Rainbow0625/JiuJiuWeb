@@ -96,8 +96,16 @@ export class SmartTableComponent implements OnInit{
       event.confirm.resolve();
       const usermessage = new Usermessage(event.data.user_id,event.data.username,event.data.password,event.data.gender,
         event.data.native_place,event.data.birth,event.data.email,event.data.head_pic);
-      this.service.deleteUsermessage(usermessage);
-      this.source.remove(event.data);
+      this.service.deleteUsermessage(usermessage).subscribe(
+        a => {
+          if(a.flag===0) {
+            alert("刪除用戶失敗！");
+          }else {
+            alert("刪除用戶成功！");
+          }
+          this.source.remove(event.data);
+        }
+      );
       console.log(this.source.getAll());
     } else {
       event.confirm.reject();
@@ -112,8 +120,12 @@ export class SmartTableComponent implements OnInit{
         event.newData.native_place,event.newData.birth,event.newData.email,event.newData.head_pic);
       this.service.addUsermessage(usermessage).subscribe(
         a => {
+          if(a.flag===0) {
+            alert("新增用戶失敗！");
+          }else {
+            alert("新增用戶成功！");
+          }
           this.source.add(event.newData);
-          console.log(a);
         }
       );
       console.log(this.source.getAll());
@@ -130,8 +142,12 @@ export class SmartTableComponent implements OnInit{
         event.newData.native_place,event.newData.birth,event.newData.email,event.newData.head_pic);
       this.service.updatesermessage(usermessage).subscribe(
         a => {
+          if(a.flag===0) {
+            alert("修改用戶失敗！");
+          }else {
+            alert("修改用戶成功！");
+          }
           this.source.update(event.data, event.newData);
-          console.log(a);
         }
       );
       console.log(this.source.getAll());

@@ -24,7 +24,15 @@ export class AddArticleComponent implements OnInit {
   }
 
   addArticle():void {
-    this.service.addArticle(this.data).subscribe();
+    this.service.addArticle(this.data).subscribe(
+      a => {
+        if(a.flag ===0) {
+          alert("新增文章失敗！");
+        }else {
+          alert("新增文章成功！");
+        }
+      }
+    );
   }
 
   imageUploaded(event) {
