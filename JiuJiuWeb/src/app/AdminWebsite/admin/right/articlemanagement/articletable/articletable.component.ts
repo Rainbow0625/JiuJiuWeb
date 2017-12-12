@@ -82,13 +82,17 @@ export class ArticletableComponent implements OnInit {
 
   // delete
   onDeleteConfirm(event): void {
-    if (window.confirm('您确定删除该用户吗?')) {
+    if (window.confirm('您确定删除该文章吗?')) {
       event.confirm.resolve();
       const article = new Article();
       article.setArticleId(event.data.id); // only id not null
       this.service.deleteArticle(article).subscribe(
         a => {
-          console.log(a);
+          if(a.flag===0) {
+            alert("刪除文章失敗！");
+          }else {
+            alert("刪除文章成功！");
+          }
           this.source.remove(event.data);
         }
       );
@@ -100,13 +104,17 @@ export class ArticletableComponent implements OnInit {
 
   // edit
   onEditConfirm(event): void {
-    if (window.confirm('您确定修改该用户信息吗?')) {
+    if (window.confirm('您确定修改该文章吗?')) {
       event.confirm.resolve();
       const article = new Article();
       article.setArticleId(event.newData.id); // only id not null
       this.service.updateArticle(article).subscribe(
         a => {
-          console.log(a);
+          if(a.flag===0) {
+            alert("修改文章失敗！");
+          }else {
+            alert("修改文章成功！");
+          }
           this.source.update(event.data, event.newData);
         }
       );

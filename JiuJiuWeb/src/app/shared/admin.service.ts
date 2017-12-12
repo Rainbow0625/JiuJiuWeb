@@ -15,11 +15,11 @@ export class AdminService {
     return this.httpService.addAdmin(admin);
   }
 
-  updateAdmin(admin:Admin):Observable<Admin>{
+  updateAdmin(admin:Admin):Observable<any> {
     return this.httpService.updateAdmin(admin);
   }
 
-  deleteAdmin(admin:Admin):Observable<Admin>{
+  deleteAdmin(admin:Admin):Observable<any> {
     return this.httpService.deleteAdmin(admin);
   }
 

@@ -77,7 +77,11 @@ export class AdmintableComponent implements OnInit{
       const admin = new Admin(Number(event.data.id),event.data.username,event.data.password);
       this.service.deleteAdmin(admin).subscribe(
         a => {
-          console.log(a);
+          if(a.flag===0) {
+            alert("刪除用戶失敗！");
+          }else {
+            alert("刪除用戶成功！");
+          }
           this.source.remove(event.data);
         }
       );
@@ -94,8 +98,12 @@ export class AdmintableComponent implements OnInit{
       this.currentData = event.newData;
       const admin = new Admin(Number(this.currentData.id),this.currentData.username,"");
       this.service.addAdmin(admin).subscribe(
-        a => {
-          console.log(a);
+        data => {
+          if(data.flag===0) {
+            alert("創建用戶失敗！");
+          }else {
+            alert("創建用戶成功！");
+          }
           this.source.add(admin);}
       );
       console.log(this.source.getAll());
@@ -111,8 +119,12 @@ export class AdmintableComponent implements OnInit{
       this.currentData = event.newData;
       const admin = new Admin(Number(this.currentData.id),this.currentData.username,event.data.password);
       this.service.updateAdmin(admin).subscribe(
-        (a) => {
-          console.log(a);
+        a => {
+          if(a.flag===0) {
+            alert("修改用戶失敗！");
+          }else {
+            alert("修改用戶成功！");
+          }
           this.source.update(event.data, event.newData);}
       );
       console.log(this.source.getAll());

@@ -17,7 +17,7 @@ export class HttpRequestService {
 
   /*ADMIN */
   loadAdmins():Observable<Admin[]> {
-    return this.http.get<Admin[]>('......');
+    return this.http.get<Admin[]>('http://localhost:80/project_blog/public/index.php/admin/admin/lst',{withCredentials:true});
   }
   addAdmin(admin:Admin):Observable<any> {
     return this.http.post<Admin>(
