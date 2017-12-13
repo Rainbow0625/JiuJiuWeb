@@ -28,7 +28,7 @@ export const homeRoutes=[
       path:'signup',
       component:SignupComponent
     },{
-      path:'about',
+      path:'aboutus',
       component:AboutusComponent
     }
 

@@ -2,9 +2,11 @@
   background: green;
   size: 100px;
 }
+
 .program-list .program-list-wrap {
   display: inline-block;
 }
+
 .program-list {
   width: 1200px;
   margin-left: auto;
@@ -12,16 +14,24 @@
   padding-top: 108px;
   text-align: center;
 }
+
 .body-main {
   min-height: 750px;
 }
+
 .xnews .pic {
   width: 230px;
   height: 200px;
   overflow: hidden;
   float: left;
 }
-.xnews .pic img{max-width:230px;width: expression(width>230?"230px":true);border:0px;}
+
+.xnews .pic img {
+  max-width: 230px;
+  width: expression(width>230?"230px":true);
+  border: 0px;
+}
+
 .xnews .dec {
   float: right;
   width: 500px;
@@ -30,11 +40,13 @@
   font-size: 12px;
   line-height: 22px;
 }
+
 .xnews .time {
   font-size: 12px;
   color: #bbb;
   padding-top: 10px;
 }
+
 .xnews {
   width: 750px;
   border-bottom: 1px solid #5e5e5e;
@@ -43,40 +55,76 @@
   padding-bottom: 30px;
   margin-bottom: 30px;
 }
+
 .overall .left {
   float: left;
   width: 750px;
   height: auto;
   overflow: hidden;
 }
+
 .overall {
   width: 1080px;
   margin-top: 20px;
   overflow: hidden;
 }
-.overall .right {
-   width: 300px;
-   float: right;
-   overflow: hidden;
- }
-.scrap .spread .writor{font-size:12px;padding-right:30px; color:#ccc;font-family:"微软雅黑";float:left}
-.scrap .spread .writor a{ color:#ccc;padding: 0 5px;}
-.biaoqian{width:960px;overflow:hidden;padding:15px 0;clear:both;}
-.biaoqian a{height: 24px;line-height: 24px;display: inline-block;margin-right: 7px;color: #999;}
-.biaoqian .spn{height: 24px;line-height: 24px;display: inline-block;margin-right: 7px;color: #333;}
 
-*{
+.overall .right {
+  width: 300px;
+  float: right;
+  overflow: hidden;
+}
+
+.scrap .spread .writor {
+  font-size: 12px;
+  padding-right: 30px;
+  color: #ccc;
+  font-family: "微软雅黑";
+  float: left
+}
+
+.scrap .spread .writor a {
+  color: #ccc;
+  padding: 0 5px;
+}
+
+.biaoqian {
+  width: 960px;
+  overflow: hidden;
+  padding: 15px 0;
+  clear: both;
+}
+
+.biaoqian a {
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: 7px;
+  color: #999;
+}
+
+.biaoqian .spn {
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: 7px;
+  color: #333;
+}
+
+* {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.listbox{
-  width:720px;
+
+.listbox {
+  width: 720px;
   height: 50px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 3px #333;
 }
-.listbox li{
+
+.listbox li {
   width: 100px;
   float: left;
   height: 30px;
@@ -87,13 +135,15 @@
   font-size: 30px;
   color: #ff6464;
   font-family: '楷体';
-  border-radius:15px;
+  border-radius: 15px;
 }
-.listbox li .cour{
+
+.listbox li .cour {
   background: skyblue;
-  color:#fff;
-  text-shadow:2px 1px 1px #333;
+  color: #fff;
+  text-shadow: 2px 1px 1px #333;
 }
+
 body {
   padding: 0px;
   font-style: normal;
@@ -358,8 +408,6 @@ img {
   padding: 0 5px;
 }
 
-
-
 .scrap .spread .tucao a {
   color: #ccc;
 }
@@ -408,8 +456,6 @@ img {
   line-height: 30px;
 }
 
-
-
 .substance a {
   color: #0b3b8c;
   text-decoration: none;
@@ -443,8 +489,6 @@ img {
   float: left;
   margin-top: 20px
 }
-
-
 
 * html .content-page {
   float: left
@@ -514,8 +558,6 @@ img {
   font-style: normal
 }
 
-
-
 .bdsharebuttonbox .bds_tsina {
   background-position: 0 0 !important;
 }
@@ -552,12 +594,6 @@ img {
   padding-bottom: 2px;
   font-weight: normal
 }
-
-
-
-
-
-
 
 .hm-t-container, .hm-t-container * {
   box-sizing: content-box;
@@ -632,8 +668,6 @@ a {
   white-space: normal;
   margin-top: 6px;
 }
-
-
 
 .hm-t-txt {
   white-space: normal;
@@ -834,7 +868,6 @@ a {
   *width: 99.9%
 }
 
-
 .hm-t-img {
   width: 300px;
   height: 100px
@@ -849,7 +882,6 @@ a {
   width: 300px;
   height: 16px;
 }
-
 
 .bdcs-container .bdcs-search-form-submit {
   line-height: 28px;
@@ -881,4 +913,41 @@ a {
   text-align: center;
   vertical-align: top;
   width: 50px;
+}
+
+li a {
+  display: block;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 15px;
+}
+
+li a:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+li a:before, li a:after {
+  opacity: 0;
+  border-top: 1px solid #151515;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: -1;
+  margin: auto;
+  width: 0px;
+}
+li a:before {
+  top: 0px;
+  transform: rotate(120deg) translateY(-50%) translateX(-50%);
+}
+
+li a:after {
+  top: 5px;
+  transform: rotate(-60deg) translateY(-50%) translateX(-50%);
+}
+
+li a:hover:before, li a:hover:after {
+  transition: all 0.3s ease;
+  opacity: 1;
+  width: 20px;
 }

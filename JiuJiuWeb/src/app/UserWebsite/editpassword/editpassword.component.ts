@@ -26,7 +26,7 @@ export class EditpasswordComponent implements OnInit {
             alert("修改失败");
           } else if(a.flag===1) {
             alert("修改成功");
-            this.router.navigate(['usecenter']);
+            this.router.navigate(['usercenter']);
           }
         });
     } else {
