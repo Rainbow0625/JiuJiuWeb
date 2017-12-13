@@ -22,6 +22,7 @@ export class EditpasswordComponent implements OnInit {
       const user = new Usermessage(0,username,formRef.new_password,'', '','','','');
       this.userservice.updateUserpassword(user).subscribe(
         a => {
+          console.log(a.flag);
           if(a.flag===0) {
             alert("修改失败");
           } else if(a.flag===1) {
