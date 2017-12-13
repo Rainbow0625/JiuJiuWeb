@@ -3,6 +3,32 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Usermessage, UsermessageService} from "../../../../../shared/usermessage.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
+
+@Component({
+  selector: 'app-view',
+  template: `
+    {{ renderValue }}
+  `,
+})
+export class ViewComponent implements ViewCell, OnInit {
+  renderValue: string;
+
+  @Input() value: string | number;
+  @Input() rowData: any;
+
+  @Output() save: EventEmitter<any> = new EventEmitter();
+
+  ngOnInit() {
+    this.renderValue = "******";
+    // this.value.toString().toUpperCase();
+  }
+
+  onClick() {
+    this.save.emit(this.rowData);
+  }
+}
+
+
 @Component({
   selector: 'app-smart-table',
   templateUrl: './smart-table.component.html',
@@ -12,11 +38,12 @@ import {HttpErrorResponse} from "@angular/common/http";
     }
   `],
 })
-export class SmartTableComponent implements OnInit{
+export class SmartTableComponent implements OnInit {
   public source: LocalDataSource = new LocalDataSource();
 
   settings = {
     mode:'inline',
+    noDataMessage:'没有用户的数据！',
     add: {
       addButtonContent: '添加',
       createButtonContent: '新建',
@@ -60,8 +87,14 @@ export class SmartTableComponent implements OnInit{
         type: 'string',
       },
       password: {
-      title: '密码',
-      type: 'string',
+        title: '密码',
+        type: 'custom',
+        renderComponent: ViewComponent,
+        onComponentInitFunction(instance) {
+          instance.save.subscribe(row => {
+            alert(`${row.name} saved!`);
+          });
+        }
       }
     },
   };

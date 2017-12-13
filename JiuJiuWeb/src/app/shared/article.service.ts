@@ -40,7 +40,6 @@ export class Article {
   public id: number;
   public title: string;
   public author: string;
-  public isRecommended:string;
   public desc: string;
   public keywords: string;
   public content: string;
@@ -48,17 +47,16 @@ export class Article {
   public click: number;
   public state: number;
   public time: string;
-  public category: string;
+  public cateid: string;
   constructor() {
   }
   setArticle(id: number,title: string,author: string,isRecommended:string,
              desc: string,keywords: string,content: string,pic: string,
-             click: number,state: number,time: string,category: string):Article {
+             click: number,state: number,time: string,cateid: string):Article {
     const arti = new Article();
     arti.id = id;
     arti.title =title;
     arti.author = author;
-    arti.isRecommended =isRecommended;
     arti.desc = desc;
     arti.keywords = keywords;
     arti.content = content;
@@ -66,7 +64,7 @@ export class Article {
     arti.click = click;
     arti.state =state;
     arti.time =time;
-    arti.category =category;
+    arti.cateid =cateid;
     return arti;
   }
 

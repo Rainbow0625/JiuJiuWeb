@@ -18,6 +18,7 @@ export class CatetableComponent implements OnInit {
 
   settings = {
     mode: 'inline',
+    noDataMessage:'没有栏目的数据！',
     add: {
       addButtonContent: '添加',
       createButtonContent: '新建',
@@ -39,7 +40,7 @@ export class CatetableComponent implements OnInit {
         title: 'ID',
         type: 'string',
       },
-      name: {
+      catename: {
         title: '栏目名称',
         type: 'string',
       },
@@ -77,7 +78,10 @@ export class CatetableComponent implements OnInit {
   onDeleteConfirm(event): void {
     if (window.confirm('您确定删除该栏目吗?')) {
       event.confirm.resolve();
-      const cate = new Cate(Number(event.data.id), event.data.name, event.data.desc);
+      console.log(event.data.id);
+      console.log(event.data.catename);
+      console.log(event.data.desc);
+      const cate = new Cate(Number(event.data.id), event.data.catename, event.data.desc);
       this.service.deleteCate(cate).subscribe(
         a => {
           if(a.flag===0) {
@@ -98,7 +102,7 @@ export class CatetableComponent implements OnInit {
   onCreateConfirm(event): void {
     if (window.confirm('您确定创建该栏目吗？')) {
       event.confirm.resolve();
-      const cate = new Cate(Number(event.newData.id), event.newData.name, event.newData.desc);
+      const cate = new Cate(Number(event.newData.id), event.newData.catename, event.newData.desc);
       this.service.addCate(cate).subscribe(
         a => {
           if(a.flag===0) {
@@ -119,7 +123,7 @@ export class CatetableComponent implements OnInit {
   onEditConfirm(event): void {
     if (window.confirm('您确定修改该栏目的相关信息吗？')) {
       event.confirm.resolve();
-      const cate = new Cate(Number(event.newData.id), event.newData.name, event.newData.desc);
+      const cate = new Cate(Number(event.newData.id), event.newData.catename, event.newData.desc);
       this.service.updateCate(cate).subscribe(
         a => {
           if(a.flag===0) {

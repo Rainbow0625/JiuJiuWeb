@@ -37,7 +37,7 @@ export class CateService {
 export class Cate {
   constructor(
     public id:number,
-    public name: string,
+    public catename: string,
     public desc: string,
   ) {
   }

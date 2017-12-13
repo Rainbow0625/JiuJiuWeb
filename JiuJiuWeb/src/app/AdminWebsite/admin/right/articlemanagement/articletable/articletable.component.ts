@@ -18,6 +18,7 @@ export class ArticletableComponent implements OnInit {
 
   settings = {
     mode:'inline',
+    noDataMessage:'没有文章的数据！',
     add: {
       addButtonContent: '',
       createButtonContent: '',
@@ -45,17 +46,17 @@ export class ArticletableComponent implements OnInit {
         title: '文章作者',
         type: 'string',
       },
-      isRecommended: {
+      state: {
         title: '是否推荐',
         type: 'string',
       },
-      pic: {
+      pics: {
         title: '缩略图',
         //  html!!
-        type: 'html',
+        type: 'string',
       },
-      category: {
-        title: '所属栏目',
+      cateid: {
+        title: '所属栏目编号',
         type: 'string',
       },
     },

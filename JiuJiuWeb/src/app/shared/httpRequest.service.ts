@@ -21,7 +21,7 @@ export class HttpRequestService {
   }
   addAdmin(admin:Admin):Observable<any> {
     return this.http.post<Admin>(
-      'http://localhost:80/thinkphp/public/index.php/index/index', admin,
+      'http://localhost:80/project_blog/public/index.php/admin/admin/add', admin,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         // 可设置参数  params: new HttpParams().set('id', '3'),
@@ -31,7 +31,7 @@ export class HttpRequestService {
   }
   updateAdmin(admin:Admin):Observable<any> {
     return this.http.post<Admin>(
-      'http://localhost:80/.......', admin,
+      'http://localhost:80/project_blog/public/index.php/admin/admin/edit', admin,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
@@ -40,7 +40,7 @@ export class HttpRequestService {
   }
   deleteAdmin(admin:Admin):Observable<any> {
     return this.http.post<Admin>(
-      'http://localhost:80/.......', admin,
+      'http://localhost:80/project_blog/public/index.php/admin/admin/del', admin,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
@@ -50,17 +50,17 @@ export class HttpRequestService {
 
   /*ARTICLE */
   loadArticle():Observable<Article[]> {
-    return this.http.get<Article[]>('......');
+    return this.http.get<Article[]>('http://localhost:80/project_blog/public/index.php/admin/article/lst');
   }
   updateArticle(article:Article): Observable<any> {
-    return this.http.post('.....', article,
+    return this.http.post('http://localhost:80/project_blog/public/index.php/admin/article/edit', article,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
       });
   }
   deleteArticle(article:Article): Observable<any> {
-    return this.http.post('.....', article,
+    return this.http.post('http://localhost:80/project_blog/public/index.php/admin/article/del', article,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
@@ -68,7 +68,7 @@ export class HttpRequestService {
   }
   addArticle(article:Article):Observable<any> {
     return this.http.post(
-      '.....', article,
+      'http://localhost:80/project_blog/public/index.php/admin/article/add', article,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
@@ -93,11 +93,11 @@ export class HttpRequestService {
 
   /*CATE*/
   loadCate():Observable<Cate[]> {
-    return this.http.get<Cate[]>('......');
+    return this.http.get<Cate[]>('http://localhost:80/project_blog/public/index.php/admin/cate/lst');
   }
   addCate(cate:Cate):Observable<any> {
     return this.http.post<Cate>(
-      'http://localhost:80/thinkphp/public/index.php/index/index', cate,
+      'http://localhost:80/project_blog/public/index.php/admin/cate/add', cate,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         // 可设置参数  params: new HttpParams().set('id', '3'),
@@ -107,7 +107,7 @@ export class HttpRequestService {
   }
   updateCate(cate:Cate):Observable<any> {
     return this.http.post<Cate>(
-      'http://localhost:80/.......', cate,
+      'http://localhost:80/project_blog/public/index.php/admin/cate/edit', cate,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
@@ -116,7 +116,7 @@ export class HttpRequestService {
   }
   deleteCate(cate:Cate):Observable<any> {
     return this.http.post<Cate>(
-      'http://localhost:80/.......', cate,
+      'http://localhost:80/project_blog/public/index.php/admin/cate/del', cate,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
@@ -126,11 +126,11 @@ export class HttpRequestService {
 
   /*USER*/
   loadUser():Observable<Usermessage[]> {
-    return this.http.get<Usermessage[]>('......');
+    return this.http.get<Usermessage[]>('http://localhost:80/project_blog/public/index.php/admin/user/lst');
   }
   addUser(user:Usermessage):Observable<any> {
     return this.http.post<Usermessage>(
-      'http://localhost:80/project_blog/public/index.php/index/register/add', user,
+      'http://localhost:80/project_blog/public/index.php/admin/user/add', user,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         // 可设置参数  params: new HttpParams().set('id', '3'),
@@ -150,7 +150,7 @@ export class HttpRequestService {
   }
   */
   updateUser(user:Usermessage):Observable<any> {
-    return this.http.put(this.url,user,
+    return this.http.put('http://localhost:80/project_blog/public/index.php/admin/user/edit',user,
       {
         headers: new HttpHeaders({'Content-Type':'application/json'}),
         withCredentials:true
@@ -158,7 +158,7 @@ export class HttpRequestService {
   }
   deleteUser(user:Usermessage):Observable<any> {
     return this.http.post<Usermessage>(
-      'http://localhost:80/.......', user,
+      'http://localhost:80/project_blog/public/index.php/admin/user/del', user,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true

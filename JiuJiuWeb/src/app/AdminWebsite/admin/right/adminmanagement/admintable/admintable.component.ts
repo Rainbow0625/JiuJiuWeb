@@ -1,7 +1,32 @@
-import {LocalDataSource} from 'ng2-smart-table';
-import {Component, OnInit} from '@angular/core';
+import {LocalDataSource, ViewCell} from 'ng2-smart-table';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Admin, AdminService} from "../../../../../shared/admin.service";
 import {HttpErrorResponse} from "@angular/common/http";
+
+@Component({
+  selector: 'app-button-view',
+  template: `
+    {{ renderValue }}
+  `,
+})
+export class ButtonViewComponent implements ViewCell, OnInit {
+  renderValue: string;
+
+  @Input() value: string | number;
+  @Input() rowData: any;
+
+  @Output() save: EventEmitter<any> = new EventEmitter();
+
+  ngOnInit() {
+    this.renderValue = "******";
+    // this.value.toString().toUpperCase();
+  }
+
+  onClick() {
+    this.save.emit(this.rowData);
+  }
+}
+
 
 @Component({
   selector: 'app-admin-table',
@@ -12,7 +37,7 @@ import {HttpErrorResponse} from "@angular/common/http";
     }
   `],
 })
-export class AdmintableComponent implements OnInit{
+export class AdmintableComponent implements OnInit {
 
 
   public source: LocalDataSource = new LocalDataSource();
@@ -20,6 +45,7 @@ export class AdmintableComponent implements OnInit{
 
   settings = {
     mode:'inline',
+    noDataMessage:'没有管理员的数据！',
     add: {
       addButtonContent: '添加',
       createButtonContent: '新建',
@@ -48,7 +74,13 @@ export class AdmintableComponent implements OnInit{
       },
         password: {
         title: '密码',
-        type: 'string',
+          type: 'custom',
+          renderComponent: ButtonViewComponent,
+          onComponentInitFunction(instance) {
+            instance.save.subscribe(row => {
+              alert(`${row.name} saved!`);
+            });
+          }
       }
     },
   };
@@ -74,6 +106,9 @@ export class AdmintableComponent implements OnInit{
   onDeleteConfirm(event): void {
     if (window.confirm('您确定删除该管理员权限吗?')) {
       event.confirm.resolve();
+      console.log(event.data.id);
+      console.log(event.data.username);
+      console.log(event.data.password);
       const admin = new Admin(Number(event.data.id),event.data.username,event.data.password);
       this.service.deleteAdmin(admin).subscribe(
         a => {
@@ -96,7 +131,7 @@ export class AdmintableComponent implements OnInit{
     if (window.confirm('您确定创建该管理员用户吗？')) {
       event.confirm.resolve();
       this.currentData = event.newData;
-      const admin = new Admin(Number(this.currentData.id),this.currentData.username,"");
+      const admin = new Admin(Number(this.currentData.id),this.currentData.username,this.currentData.password);
       this.service.addAdmin(admin).subscribe(
         data => {
           if(data.flag===0) {
@@ -117,7 +152,10 @@ export class AdmintableComponent implements OnInit{
     if (window.confirm('您确定修改该管理员的信息吗？')) {
       event.confirm.resolve();
       this.currentData = event.newData;
-      const admin = new Admin(Number(this.currentData.id),this.currentData.username,event.data.password);
+      const admin = new Admin(Number(this.currentData.id),this.currentData.username,this.currentData.password);
+      console.log(this.currentData.id);
+      console.log(this.currentData.username);
+      console.log(this.currentData.password);
       this.service.updateAdmin(admin).subscribe(
         a => {
           if(a.flag===0) {

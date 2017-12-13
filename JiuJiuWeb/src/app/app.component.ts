@@ -23,6 +23,13 @@ export class AppComponent implements OnInit{
       return true;
     }
   }
+  checkadmin(): boolean {
+    if(localStorage.getItem('admin')==='1') {
+      return false;
+    } else {
+      return true;
+    }
+  }
   exit() {
     localStorage.removeItem('username');
     this.router.navigate(['/login']);

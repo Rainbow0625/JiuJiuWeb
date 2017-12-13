@@ -38,8 +38,10 @@ export class AuthService {
     let url="";
     if(Number(checkadmin)===1) {
       url = `http://localhost:80/project_blog/public/index.php/admin/login/index`;
+      localStorage.setItem('admin','1');
     } else {
       url = `http://localhost:80/project_blog/public/index.php/index/login/index`;
+      localStorage.setItem('admin','0');
     }
     return this.http.post(url,user,{withCredentials:true})
       .toPromise()
