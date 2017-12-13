@@ -21,17 +21,17 @@ export class UserComponent implements OnInit {
   reading: Reading[];
   private keyword: string;
   private titleFilter: FormControl= new FormControl();
-//
-  private searchTerms = new Subject<string>();
-  article$: Observable<Article[]>;
-  //
   constructor(public router: Router,public articleService: ArticleService,public cateService: CateService,
               public httprequestservice: HttpRequestService ) {
     this.titleFilter.valueChanges.debounceTime(500).subscribe(
       value => this.keyword = value);
   }
-  search(term: string): void {
-    this.searchTerms.next(term);
+  search(item:Article): void {
+    this.httprequestservice.searchArticle(item).subscribe(
+      data=> {
+        this.articles=data;
+      }
+    );
   }
   ngOnInit() {
     this.articleService.getArticle().subscribe(
@@ -52,15 +52,13 @@ export class UserComponent implements OnInit {
         console.log(error);
         return Observable.of<Article[]>([]);
     });*/
-    this.article$ = this.searchTerms.pipe(
+   /* this.article$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
       debounceTime(300),
-
       // ignore new term if same as previous term
       distinctUntilChanged(),
-
       // switch to new search observable each time the term changes
       switchMap((term: string) => this.httprequestservice.searchArticle(term)),
-    );
+    );*/
   }
 }

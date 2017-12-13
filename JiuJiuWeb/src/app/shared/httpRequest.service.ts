@@ -82,12 +82,14 @@ export class HttpRequestService {
     return this.https.get(`URL?name=${term}`)
       .map(response => response.json().data as Article[]);
   }*/
-  searchArticle(term: string): Observable<Article[]> {
-    if (!term.trim()) {
-      // if not search term, return empty hero array.
-      return of([]);
-    }
-    return this.http.get<Article[]>(`api/heroes/?name=${term}`);
+  searchArticle(article:Article): Observable<any> {
+    return this.http.post(
+      'http://localhost:80/project_blog/public/index.php/admin/admin/add', article,
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+        withCredentials:true
+      }
+    );
   }
 
 
@@ -158,7 +160,7 @@ export class HttpRequestService {
   }
   deleteUser(user:Usermessage):Observable<any> {
     return this.http.post<Usermessage>(
-      'http://localhost:80/project_blog/public/index.php/admin/user/del', user,
+      'http://localhost:80/project_blog/public/index.php/admin/user/', user,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
