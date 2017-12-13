@@ -19,8 +19,8 @@ const routeConfig: Routes = [
   {path: '', loadChildren: './HomePage/home/home.module#HomeModule'},
   {path: 'admin', loadChildren: './AdminWebsite/admin/admin.module#AdminModule', canActivate:[AdminGuardService]},
   {path: 'user', loadChildren: './UserWebsite/user/user.module#UserModule'},
-  {path:'usercenter', component:UsercenterComponent},
   {path:'editpw',component:EditpasswordComponent},
+  {path:'usercenter', component:UsercenterComponent},
   {path:'**', component:NotFoundPageComponent}
   /*
   {path: 'about', component: AboutusComponent},
