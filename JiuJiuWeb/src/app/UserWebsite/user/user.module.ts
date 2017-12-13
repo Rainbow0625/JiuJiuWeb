@@ -10,6 +10,7 @@ import {CateService} from "../../shared/cate.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FilterPipe } from './filter.pipe';
 import {ImageUploadModule} from "angular2-image-upload";
+import {EditpasswordComponent} from "../editpassword/editpassword.component";
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import {ImageUploadModule} from "angular2-image-upload";
   declarations: [
     UserComponent,
     UsercenterComponent,
-    FilterPipe
+    FilterPipe,
+    EditpasswordComponent
   ],
   providers: [ArticleService,CateService],
 })

@@ -4,7 +4,7 @@
 <div>
   <ul class="listbox">
     <a>
-    <li *ngFor="let item of cates" (click)="search(item.catename)" [ngStyle]="{cour:isclick}">{{item.catename}} </li>
+    <li *ngFor="let item of cates" (click)="search(item)" [ngStyle]="{cour:isclick}">{{item.catename}} </li>
     </a>
   </ul>
 </div>
@@ -76,7 +76,7 @@
 
     <div style="height:15px"></div>
   </div>
-    <div class="left" *ngFor="let item of article$|async">
+    <div class="left" *ngFor="let item of articles|filter:'title':keyword">
     <div class="xnews">
       <div class="pic">
         <a href="">

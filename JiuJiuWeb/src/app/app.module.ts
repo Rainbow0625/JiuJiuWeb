@@ -21,12 +21,14 @@ import {UsermessageService} from "./shared/usermessage.service";
 import {AdminService} from "./shared/admin.service";
 import {CateService} from "./shared/cate.service";
 import {ArticleService} from "./shared/article.service";
+import { EditpasswordComponent } from './UserWebsite/editpassword/editpassword.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundPageComponent,
+    EditpasswordComponent,
   ],
   imports: [
     CKEditorModule,

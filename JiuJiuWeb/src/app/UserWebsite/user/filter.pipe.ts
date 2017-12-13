@@ -9,8 +9,8 @@ export class FilterPipe implements PipeTransform {
     if(!filterField||!keyword) {
       return list;
     }
-    return list.filter(item=>{
-      let fiedValue=item[filterField];
+    return list.filter(item=> {
+      const fiedValue=item[filterField];
       return fiedValue.indexOf(keyword)>=0;
     });
   }

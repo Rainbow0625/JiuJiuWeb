@@ -850,13 +850,6 @@ a {
   height: 16px;
 }
 
-.bdcs-container .bdcs-search-form-submit-magnifier {
-  background: rgba(0, 0, 0, 0) url("http://znsv.baidu.com/static/customer-search/component/search/magnifier-icon.png") no-repeat scroll center center;
-  overflow: hidden;
-  padding: 0;
-  text-indent: -999em;
-  width: 45px;
-}
 
 .bdcs-container .bdcs-search-form-submit {
   line-height: 28px;
