@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {UsercenterComponent} from "./UserWebsite/usercenter/usercenter.component";
 import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 import {EditpasswordComponent} from "./UserWebsite/editpassword/editpassword.component";
-
+import {AdminGuardService} from "./shared/admin-guard.service";
 /*
 const routes: Routes = [
     { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
@@ -17,7 +17,7 @@ const routes: Routes = [
 */
 const routeConfig: Routes = [
   {path: '', loadChildren: './HomePage/home/home.module#HomeModule'},
-  {path: 'admin', loadChildren: './AdminWebsite/admin/admin.module#AdminModule'},
+  {path: 'admin', loadChildren: './AdminWebsite/admin/admin.module#AdminModule', canActivate:[AdminGuardService]},
   {path: 'user', loadChildren: './UserWebsite/user/user.module#UserModule'},
   {path:'usercenter', component:UsercenterComponent},
   {path:'editpw',component:EditpasswordComponent},

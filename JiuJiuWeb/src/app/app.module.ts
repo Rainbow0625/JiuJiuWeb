@@ -21,7 +21,9 @@ import {UsermessageService} from "./shared/usermessage.service";
 import {AdminService} from "./shared/admin.service";
 import {CateService} from "./shared/cate.service";
 import {ArticleService} from "./shared/article.service";
+import {AdminGuardService} from "./shared/admin-guard.service";
 import { EditpasswordComponent } from './UserWebsite/editpassword/editpassword.component';
+
 
 
 @NgModule({
@@ -46,7 +48,7 @@ import { EditpasswordComponent } from './UserWebsite/editpassword/editpassword.c
     NgbDropdownModule.forRoot()
   ],
   exports: [RouterModule],
-  providers: [HttpRequestService,AuthService,AuthGuardService,UsermessageService,AdminService,CateService,ArticleService],
+  providers: [HttpRequestService,AuthService,AuthGuardService,UsermessageService,AdminService,CateService,ArticleService,AdminGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
