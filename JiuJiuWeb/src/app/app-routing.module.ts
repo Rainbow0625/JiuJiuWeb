@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {UsercenterComponent} from "./UserWebsite/usercenter/usercenter.component";
 import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
+import {EditpasswordComponent} from "./UserWebsite/editpassword/editpassword.component";
 
 /*
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routeConfig: Routes = [
   {path: 'admin', loadChildren: './AdminWebsite/admin/admin.module#AdminModule'},
   {path: 'user', loadChildren: './UserWebsite/user/user.module#UserModule'},
   {path:'usercenter', component:UsercenterComponent},
+  {path:'editpw',component:EditpasswordComponent},
   {path:'**', component:NotFoundPageComponent}
   /*
   {path: 'about', component: AboutusComponent},

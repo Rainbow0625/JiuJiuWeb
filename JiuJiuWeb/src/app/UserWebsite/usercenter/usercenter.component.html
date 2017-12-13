@@ -31,31 +31,39 @@
                                 (onRemove)="imageRemoved($event)"></image-upload>
                 </div>
               </div>
+          <div class="wlfg-wrap clearfix">
+            <label class="label-name" for="id" >ID：</label>
+            <div class="rlf-group">
+              <input type="text" readonly="readonly" ngModel name="user_id" id="id" autocomplete="off" class="moco-form-control" placeholder={{myForm.user_id}}/>
+              <p class="rlf-tip-wrap errorHint color-red" ></p>
+            </div>
+          </div>
+
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name" for="nick" >昵称：</label>
                   <div class="rlf-group">
-                    <input type="text" ngModel name="username" id="nick" autocomplete="off" class="moco-form-control" value="Sequin_YF" placeholder="请输入昵称."/>
+                    <input type="text" ngModel name="username" id="nick" autocomplete="off" class="moco-form-control" value=users.username placeholder="请输入昵称."/>
                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                   </div>
                 </div>
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name" for="nick" >电子邮件：</label>
                   <div class="rlf-group">
-                    <input type="text" ngModel name="email" id="email"  autocomplete="off"  class="moco-form-control" value="12345@qq.com" placeholder="请输入邮箱."/>
+                    <input type="text" ngModel name="email" id="email"  autocomplete="off"  class="moco-form-control" value=users.email placeholder="请输入邮箱."/>
                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                   </div>
                 </div>
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name" for="birthday" >出生日期：</label>
                   <div class="rlf-group">
-                    <input type="date" ngModel name="birthday" id="birthday"  autocomplete="off" class="moco-form-control">
+                    <input type="date" ngModel name="birthday" id="birthday"  value=users.birth autocomplete="off" class="moco-form-control">
                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                   </div>
                 </div>
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name" for="province-select">地区：</label>
                   <div class="rlf-group profile-address">
-                    <select id="province-select" ngModel name="province" class='moco-form-control' hidefocus="true">
+                    <select id="province-select" ngModel name="province" value=users.native_place class='moco-form-control' hidefocus="true">
                       <option value="0">选择省份</option>
                       <option value="1">北京</option>
                       <option value="2">天津</option>
@@ -100,16 +108,16 @@
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name h16 lh16">性别：</label>
                   <div class="rlf-group rlf-radio-group">
-                    <label class="lh16"><input ngModel type="radio" hidefocus="true" value="0" name="sex">保密</label>
-                    <label class="lh16"><input ngModel type="radio" hidefocus="true" value="1" name="sex">男</label>
-                    <label class="lh16"><input ngModel type="radio" hidefocus="true" value="2" checked="checked" name="sex">女</label>
+                      <label class="lh16"><input ngModel type="radio" hidefocus="true" value=users.gender name="sex">保密</label>
+                    <label class="lh16"><input ngModel type="radio" hidefocus="true" value=users.gender name="sex">男</label>
+                    <label class="lh16"><input ngModel type="radio" hidefocus="true" value=users.gender name="sex">女</label>
                     <p class="rlf-tip-wrap errorHint color-red"></p>
                   </div>
                 </div>
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name" for="profile-submit"></label>
                   <div class="rlf-group">
-                    <button type="submit" (click)="save(myForm.value)" id="profile-submit"  hidefocus="true"  class="rlf-btn-green btn-block profile-btn" [routerLink]="['/user']">保存</button>
+                    <button type="submit" id="profile-submit"  hidefocus="true"  class="rlf-btn-green btn-block profile-btn" [routerLink]="['/user']">保存</button>
                   </div>
                 </div>
          </form>

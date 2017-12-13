@@ -9,11 +9,6 @@ export const userRoutes=[
   {
     path:'',
     component:UserComponent,
-    children:[
-      {
-        path:'/editpw',
-        component:EditpasswordComponent,
-      },]
         /*
         redirectTo: 'home',
         pathMatch: 'full',

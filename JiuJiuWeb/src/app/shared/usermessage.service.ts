@@ -24,6 +24,12 @@ export class UsermessageService {
   deleteUsermessage(user:Usermessage):Observable<any> {
     return this.httpService.deleteUser(user);
   }
+  updateUserpassword(user: Usermessage):Observable<any> {
+    return this.httpService.updateUserpw(user);
+  }
+  getUsermes(user:Usermessage): Observable<Usermessage> {
+    return this.httpService.getUser(user);
+  }
 
 }
 export class Usermessage {

@@ -158,6 +158,22 @@ export class HttpRequestService {
         withCredentials:true
       });
   }
+  updateUserpw(user:Usermessage):Observable<any> {
+    return this.http.put('http://localhost:80/project_blog/public/index.php/index/user/changepassword',user,
+      {
+        headers: new HttpHeaders({'Content-Type':'application/json'}),
+        withCredentials:true
+      });
+  }
+  // 获取一个用户的个人中心信息
+  getUser(user:Usermessage):Observable<any> {
+    return this.http.post('http://localhost:80',user,
+      {
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        withCredentials: true
+      });
+  }
+
   deleteUser(user:Usermessage):Observable<any> {
     return this.http.post<Usermessage>(
       'http://localhost:80/project_blog/public/index.php/admin/user/', user,

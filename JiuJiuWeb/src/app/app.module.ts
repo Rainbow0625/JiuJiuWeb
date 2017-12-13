@@ -27,8 +27,7 @@ import { EditpasswordComponent } from './UserWebsite/editpassword/editpassword.c
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundPageComponent,
-    EditpasswordComponent,
+    NotFoundPageComponent
   ],
   imports: [
     CKEditorModule,

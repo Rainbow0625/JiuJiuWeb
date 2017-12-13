@@ -25,6 +25,7 @@ export class AuthService {
         if(data.flag===1) {
           auth.hasError = false;
           localStorage.setItem('username',username);
+          localStorage.setItem('password',password);
         } else if(data.flag===2) {
           auth.hasError = true;
           auth.errMsg = '密码不匹配';

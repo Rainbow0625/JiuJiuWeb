@@ -24,16 +24,11 @@ export class SignupComponent implements OnInit {
     });
   }
   onSubmit() {
-    alert("#########");
     console.log(this.formModel.get('username').value);
-    alert("#########");
     console.log(this.formModel.get(['passwordsGroup','password']).value);
-    alert("#########");
     console.log(this.formModel.get('email').value);
-    alert("#########");
     const user = new Usermessage(0,this.formModel.get('username').value,this.formModel.get(['passwordsGroup','password']).value,
       '','','',this.formModel.get('email').value,'');
-    alert("#########");
     this.userService.addUsermessage(user).subscribe(
       data => {
         console.log(data.flag);
