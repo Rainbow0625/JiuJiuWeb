@@ -48,16 +48,16 @@
                   <div class="col-lg-2 col-md-2">
                     <select class="form-control" [(ngModel)]="data.cateid" name="cateid" id="cateid">
                       <!--需要从数据库查！！！-->
-                      <option>美食</option>
-                      <option>运动</option>
+                      <option value="">请选择</option>
+                      <option *ngFor="let cate of displayCates"  [value]='cate.catename'>{{cate.catename}}</option>
                     </select>
                   </div>
-                  <span style="color:red;">*</span>
+                  <span style="color:red; line-height: 10px;">*</span>
                 </div>
                 <div class="form-group" >
                   <label for="toggle-button" class="col-lg-2 col-md-2 control-label" style="margin-left:-30px;" >是否推荐</label>
                   <div class="toggle-button-wrapper" >
-                    <input type="checkbox" id="toggle-button" name="switch">
+                    <input type="checkbox" id="toggle-button" [(ngModel)]="data.state" name="switch" >
                     <label for="toggle-button" class="button-label"  style="margin-left:30px;">
                       <span class="circle"></span>
                       <span class="text on">ON</span>
@@ -74,7 +74,7 @@
                                >
                 </image-upload>
                 <hr>
-                <app-ckeditor></app-ckeditor>
+                <app-ckeditor (content)="getCkeditorHandler($event)"></app-ckeditor>
                 <hr>
                 <div class="form-group">
                   <div style="text-align:center;">
