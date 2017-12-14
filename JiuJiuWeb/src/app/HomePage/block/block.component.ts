@@ -22,5 +22,12 @@ export class BlockComponent implements OnInit {
       }
     );
   }
-
+  hit() {
+    const link=localStorage.getItem('username');
+    if(link!==null) {
+      this.router.navigate(['user'])
+    } else {
+        this.router.navigate(['login']);
+      }
+    }
 }

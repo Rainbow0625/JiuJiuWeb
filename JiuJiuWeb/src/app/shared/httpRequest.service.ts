@@ -82,9 +82,9 @@ export class HttpRequestService {
     return this.https.get(`URL?name=${term}`)
       .map(response => response.json().data as Article[]);
   }*/
-  searchArticle(article:Article): Observable<any> {
-    return this.http.post(
-      'http://localhost:80/project_blog/public/index.php/admin/admin/add', article,
+  searchArticle(cate:Cate): Observable<Article[]> {
+    return this.http.post<Article[]>(
+      'http://localhost:80/project_blog/public/index.php/index/cate/lst', cate,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
@@ -148,7 +148,7 @@ export class HttpRequestService {
       });
   }
   updateUserpw(user:Usermessage):Observable<any> {
-    return this.http.put('http://localhost:80/project_blog/public/index.php/index/user/changepassword',user,
+    return this.http.post('http://localhost:80/project_blog/public/index.php/index/user/changepassword',user,
       {
         headers: new HttpHeaders({'Content-Type':'application/json'}),
         withCredentials:true
@@ -156,16 +156,23 @@ export class HttpRequestService {
   }
   // 获取一个用户的个人中心信息
   getUser(user:Usermessage):Observable<any> {
-    return this.http.post('http://localhost:80',user,
+    return this.http.post('http://localhost:80/project_blog/public/index.php/index/user/lst',user,
       {
         headers: new HttpHeaders({'Content-Type': 'application/json'}),
         withCredentials: true
       });
   }
+  editUser(user:Usermessage):Observable<any> {
+    return this.http.put('http://localhost:80/project_blog/public/index.php/index/user/edit',user,
+      {
+        headers: new HttpHeaders({'Content-Type':'application/json'}),
+        withCredentials:true
+      });
+  }
 
   deleteUser(user:Usermessage):Observable<any> {
     return this.http.post<Usermessage>(
-      'http://localhost:80/project_blog/public/index.php/admin/user/', user,
+      'http://localhost:80/project_blog/public/index.php/admin/user/del', user,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true

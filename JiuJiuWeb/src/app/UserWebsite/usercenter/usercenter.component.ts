@@ -10,40 +10,49 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./usercenter.component.css']
 })
 export class UsercenterComponent implements OnInit {
-  file: Array<Object>;
+
   constructor(private router:Router,private httprequestservice:HttpRequestService,private location:Location,
                 private userservice: UsermessageService) {
-    this.file = [];
   }
-  @Input() user: Usermessage;
-   users = new Usermessage(0,'','','','','','','');
+  male:boolean;
+  female:boolean;
+  user:Usermessage ;
   ngOnInit() {
-    this.userservice.getUsermes(this.users).subscribe(
+    this.user= new Usermessage(0,'','','','','','','');
+    this.user.username=localStorage.getItem('username');
+    this.userservice.getUsermes(this.user).subscribe(
       data=> {
-         this.users=data;
+         this.user=data;
+         console.log(this.user);
+         if(this.user.gender==="male") {
+           this.male=true;
+           this.female=false;
+         } else {
+           this.female=true;
+           this.male=false;
+         }
       }
     );
   }
-
-  imageUploaded(event) {
-    console.log(event);
-    this.file.push(event.file);
-    console.log(this.file);
-  }
-  imageRemoved(event) {
-    console.log(event);
-    const index = this.file.indexOf(event.file);
-    if( index > -1) {
-      this.file.splice(index, 1);
-    }
-    console.log(this.file);
-  }
   onSubmit(formValue:any):void {
-    const user = new Usermessage(0,formValue.username,formValue.password,formValue.gender,
+    let gender='';
+    if(this.male===true) {
+      gender="male";
+    } else {
+      gender="female";
+    }
+    console.log(this.user.user_id);
+    const users = new Usermessage(this.user.user_id,formValue.username,formValue.password,gender,
       formValue.native_place,formValue.birth,formValue.email,'');
-    this.userservice.updatesermessage(user).subscribe(
+     console.log(users);
+      this.httprequestservice.editUser(users).subscribe(
       a => {
-        console.log(a);
+        if(a.flag===0) {
+          alert("修改失败");
+        } else {
+          alert("修改成功");
+          this.router.navigate(['user']);
+        }
       }
     );
   }

@@ -20,7 +20,7 @@
         <div class="contentBox">
         <div class="formBox">
         <div id="setting-profile" class="setting-wrap setting-profile">
-        <form id="profile" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value,myForm.valid)" novalidate>
+        <form id="profile" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
           <div class="wlfg-wrap clearfix ">
                 <label class="label-name">头像：</label>
                 <div style="margin-top: 50px;margin-bottom: 20px">
@@ -32,38 +32,38 @@
                 </div>
               </div>
           <div class="wlfg-wrap clearfix">
-            <label class="label-name" for="id" >ID：</label>
+            <label class="label-name" for="user_id" >ID：</label>
             <div class="rlf-group">
-              <input type="text" readonly="readonly" ngModel name="user_id" id="id" autocomplete="off" class="moco-form-control" placeholder={{myForm.user_id}}/>
+              <input type="text" readonly="readonly"  [(ngModel)]="user.user_id" name="user_id" id="user_id" class="moco-form-control"/>
               <p class="rlf-tip-wrap errorHint color-red" ></p>
             </div>
           </div>
 
                 <div class="wlfg-wrap clearfix">
-                  <label class="label-name" for="nick" >昵称：</label>
+                  <label class="label-name" for="username" >昵称：</label>
                   <div class="rlf-group">
-                    <input type="text" ngModel name="username" id="nick" autocomplete="off" class="moco-form-control" value=users.username placeholder="请输入昵称."/>
+                    <input type="text" [(ngModel)]="user.username" name="username" id="username" class="moco-form-control"/>
                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                   </div>
                 </div>
                 <div class="wlfg-wrap clearfix">
-                  <label class="label-name" for="nick" >电子邮件：</label>
+                  <label class="label-name" for="email" >电子邮件：</label>
                   <div class="rlf-group">
-                    <input type="text" ngModel name="email" id="email"  autocomplete="off"  class="moco-form-control" value=users.email placeholder="请输入邮箱."/>
+                    <input type="text" name="email" id="email" class="moco-form-control" [(ngModel)]="user.email">
                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                   </div>
                 </div>
                 <div class="wlfg-wrap clearfix">
-                  <label class="label-name" for="birthday" >出生日期：</label>
+                  <label class="label-name" for="birth" >出生日期：</label>
                   <div class="rlf-group">
-                    <input type="date" ngModel name="birthday" id="birthday"  value=users.birth autocomplete="off" class="moco-form-control">
+                    <input type="date" name="birth" id="birth"  [(ngModel)]="user.birth" class="moco-form-control">
                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                   </div>
                 </div>
                 <div class="wlfg-wrap clearfix">
-                  <label class="label-name" for="province-select">地区：</label>
+                  <label class="label-name" for="native_place">地区：</label>
                   <div class="rlf-group profile-address">
-                    <select id="province-select" ngModel name="province" value=users.native_place class='moco-form-control' hidefocus="true">
+                    <select id="native_place" [(ngModel)]="user.native_place" name="native_place" id="native_place" class='moco-form-control' hidefocus="true">
                       <option value="0">选择省份</option>
                       <option value="1">北京</option>
                       <option value="2">天津</option>
@@ -108,16 +108,15 @@
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name h16 lh16">性别：</label>
                   <div class="rlf-group rlf-radio-group">
-                      <label class="lh16"><input ngModel type="radio" hidefocus="true" value=users.gender name="sex">保密</label>
-                    <label class="lh16"><input ngModel type="radio" hidefocus="true" value=users.gender name="sex">男</label>
-                    <label class="lh16"><input ngModel type="radio" hidefocus="true" value=users.gender name="sex">女</label>
+                    <label class="lh16"><input [(ngModel)]="male" type="radio" hidefocus="true" name="male">男</label>
+                    <label class="lh16"><input [(ngModel)]="female" type="radio" hidefocus="true" name="female">女</label>
                     <p class="rlf-tip-wrap errorHint color-red"></p>
                   </div>
                 </div>
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name" for="profile-submit"></label>
                   <div class="rlf-group">
-                    <button type="submit" id="profile-submit"  hidefocus="true"  class="rlf-btn-green btn-block profile-btn" [routerLink]="['/user']">保存</button>
+                    <button type="submit" id="profile-submit"  hidefocus="true"  class="rlf-btn-green btn-block profile-btn">保存</button>
                   </div>
                 </div>
          </form>

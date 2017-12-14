@@ -103,13 +103,6 @@ a:active, a:hover {
   margin: 0 20px
 }
 
-#logo a, .logo a {
-  display: block;
-  height: 60px;
-  width: 140px;
-  background: url(/static/img/common/logo.png?t=1) center center no-repeat;
-  overflow: hidden
-}
 
 .logo a {
   transition: background-color .2s
@@ -134,19 +127,6 @@ a:active, a:hover {
   padding: 0 15px
 }
 
-.bindHintBox .closeBindHint {
-  width: 17px;
-  height: 17px;
-  position: relative;
-  top: 4px;
-  left: 20px;
-  cursor: pointer;
-  background: url(/static/img/nlogin.png) no-repeat;
-  transition: transform .2s;
-  -webkit-transition: transform .2s;
-  -moz-transition: transform .2s;
-  -o-transition: transform .2s
-}
 
 .nav-item a, .search-area .search-input {
   -webkit-transition: background-color .3s;
@@ -191,27 +171,7 @@ a:active, a:hover {
   background-color: #363c41
 }
 
-.nav-item a .icn-new {
-  position: relative;
-  display: inline-block;
-  top: -10px;
-  width: 16px;
-  height: 16px;
-  background: url(/static/img/common/new.png) no-repeat
-}
 
-.header-app-icon {
-  display: inline-block;
-  width: 11px;
-  height: 16px;
-  background: url(/static/img/head-app-icon.png) no-repeat;
-  vertical-align: -3px;
-  margin-right: 5px;
-  transition: .3s;
-  -moz-transition: .3s;
-  -webkit-transition: .3s;
-  -o-transition: .3s
-}
 
 .set_btn img, select {
   vertical-align: middle
@@ -578,11 +538,6 @@ a:active, a:hover {
   background-color: #363d40
 }
 
-.set_btn img {
-  border-radius: 50%;
-  display: inline-block;
-  background: url(/static/img/menu_icon.png) no-repeat
-}
 
 #nav_list {
   display: none;
@@ -594,19 +549,6 @@ a:active, a:hover {
   list-style: none
 }
 
-#nav_list li a {
-  border-top: 1px solid #4a5153;
-  height: 39px;
-  line-height: 39px;
-  font-size: 14px;
-  background-image: url(/static/img/menu_icon.png?t=10);
-  background-repeat: no-repeat;
-  display: block;
-  color: #fff;
-  text-align: left;
-  padding: 0 0 0 47px;
-  width: auto
-}
 
 #nav_list a:hover {
   color: #fff;
@@ -646,13 +588,7 @@ a:active, a:hover {
   background-position: 19px -207px
 }
 
-.myspace_remind {
-  width: 10px;
-  height: 10px;
-  background: url(/static/img/space-remind.png) no-repeat;
-  top: 10px;
-  right: 10px
-}
+
 
 #footer {
   background: #000;
@@ -676,14 +612,6 @@ a:active, a:hover {
   line-height: 1.7
 }
 
-.footer_logo {
-  display: none;
-  float: left;
-  background: url(/static/img/common/footer-sprite.png) 0 -230px no-repeat;
-  height: 40px;
-  width: 120px;
-  margin: 0 20px
-}
 
 #footer .des {
   width: 445px
@@ -694,35 +622,13 @@ a:active, a:hover {
   padding-left: 30px
 }
 
-.followus a {
-  float: left;
-  position: relative;
-  width: 32px;
-  height: 32px;
-  background-image: url(/static/img/common/footer-sprite.png);
-  background-repeat: no-repeat;
-  margin: 3px 6px 0;
-  opacity: .5;
-  filter: alpha(opacity=50);
-  -webkit-transition: opacity .2s;
-  -moz-transition: opacity .2s;
-  transition: opacity .2s
-}
+
 
 #footer .followus a:hover {
   opacity: 1;
   filter: alpha(opacity=100)
 }
 
-.flw-weixin-box {
-  position: absolute;
-  display: none;
-  width: 170px;
-  height: 220px;
-  left: -69px;
-  bottom: 35px;
-  background: url(/static/img/common/footer-sprite.png?1) no-repeat
-}
 
 .followus .followus-weixin {
   background-position: 0 -279px
@@ -886,14 +792,6 @@ select:focus {
   outline-offset: -2px
 }
 
-a.btn-add-collection {
-  display: block;
-  background: url(/static/img/course/new_add_collection.png) 46px top no-repeat;
-  height: 32px;
-  color: #909b9e;
-  text-align: center;
-  line-height: 35px
-}
 
 .progress, progress {
   display: inline-block
@@ -998,26 +896,7 @@ progress::-webkit-progress-value {
   border-bottom: none
 }
 
-.elevator .elevator-app-box {
-  position: absolute;
-  width: 172px;
-  height: 194px;
-  bottom: -10px;
-  right: 52px;
-  -webkit-transition: opacity .25s, transform .3s;
-  -moz-transition: opacity .25s, transform .3s;
-  transition: opacity .25s, transform .3s;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  max-width: 0;
-  -webkit-transform: scale(.01);
-  -ms-transform: scale(.01);
-  transform: scale(.01);
-  -webkit-transform-origin: 100% 95%;
-  -ms-transform-origin: 100% 95%;
-  transform-origin: 100% 95%;
-  background: url(/static/img/common/elevator.png) 0 -220px no-repeat
-}
+
 
 .elevator .elevator-app:hover .elevator-app-box {
   display: block;
@@ -1030,26 +909,7 @@ progress::-webkit-progress-value {
   transform: scale(1)
 }
 
-.elevator .elevator-weixin-box {
-  position: absolute;
-  width: 172px;
-  height: 212px;
-  bottom: -10px;
-  right: 52px;
-  -webkit-transition: opacity .25s, transform .3s;
-  -moz-transition: opacity .25s, transform .3s;
-  transition: opacity .25s, transform .3s;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  max-width: 0;
-  -webkit-transform: scale(.01);
-  -ms-transform: scale(.01);
-  transform: scale(.01);
-  -webkit-transform-origin: 100% 95%;
-  -ms-transform-origin: 100% 95%;
-  transform-origin: 100% 95%;
-  background: url(/static/img/common/elevator.png) no-repeat
-}
+
 
 .elevator .elevator-weixin:hover .elevator-weixin-box {
   display: block;
@@ -1087,17 +947,6 @@ input::-moz-focus-inner {
   word-break: break-all
 }
 
-.compatible-contianer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  min-width: 800px;
-  height: 30px;
-  line-height: 30px;
-  background: url(/static/img/iebg.gif) repeat-x;
-  z-index: 999999
-}
 
 .cpt-ct {
   color: #363636;
@@ -1105,13 +954,6 @@ input::-moz-focus-inner {
   text-align: center
 }
 
-.cpt-ct i {
-  width: 12px;
-  height: 14px;
-  vertical-align: -2px;
-  margin-right: 5px;
-  background: url(/static/img/iefixed-sprite.png) no-repeat
-}
 
 .cpt-ct a {
   color: #39b94e
@@ -1151,12 +993,6 @@ input::-moz-focus-inner {
   background-color: #fc8800
 }
 
-.cpt-close i {
-  height: 8px;
-  width: 8px;
-  vertical-align: 1px;
-  background: url(/static/img/iefixed-sprite.png) 0 -24px no-repeat
-}
 
 .cpt-close:hover i {
   background-position: 0 -42px
@@ -1171,14 +1007,6 @@ input::-moz-focus-inner {
   box-shadow: 0 2px 2px #999
 }
 
-.layer-usercard .arrow {
-  position: absolute;
-  left: 65px;
-  top: -11px;
-  width: 19px;
-  height: 11px;
-  background: url(/static/img/dot_usercard.png)
-}
 
 .layer-usercard-header {
   height: 110px;
@@ -2042,13 +1870,6 @@ select[multiple].ipt, textarea.ipt {
   }
 }
 
-@font-face {
-  font-family: icomoon;
-  src: url(/static/fonts/fonts/icomoon.eot?d8491nx);
-  src: url(/static/fonts/fonts/icomoon.eot?d8491nx#iefix) format('embedded-opentype'), url(/static/fonts/fonts/icomoon.ttf?d8491nx) format('truetype'), url(/static/fonts/fonts/icomoon.woff?d8491nx) format('woff'), url(/static/fonts/fonts/icomoon.svg?d8491nx#icomoon) format('svg');
-  font-weight: 400;
-  font-style: normal
-}
 
 [class*=" icon-"], [class^=icon-] {
   font-family: icomoon !important;

@@ -12,20 +12,25 @@ import {HttpRequestService} from "../../shared/httpRequest.service";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  articles:Article[];
-  hot: Hotclick[];
-  cates: Cate[];
-  reading: Reading[];
-  private keyword: string;
-  private titleFilter: FormControl= new FormControl();
+  public cate:Cate;
+  public hot: Hotclick[];
+  public cates: Cate[];
+  public reading: Reading[];
+  public keyword: string;
+  public articles:Article[];
+  public titleFilter: FormControl= new FormControl();
   constructor(public router: Router,public articleService: ArticleService,public cateService: CateService,
               public httprequestservice: HttpRequestService ) {
     this.titleFilter.valueChanges.debounceTime(500).subscribe(
       value => this.keyword = value);
   }
-  search(item:Article): void {
-    this.httprequestservice.searchArticle(item).subscribe(
-      data=> {
+
+  search(item:number): void {
+    console.log(item);
+    this.cate = new Cate(item,'','');
+    console.log(this.cate);
+    this.httprequestservice.searchArticle(this.cate).subscribe(
+      data => {
         this.articles=data;
       }
     );

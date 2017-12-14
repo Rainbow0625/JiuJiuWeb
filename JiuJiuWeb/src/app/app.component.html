@@ -22,6 +22,7 @@
           <ul class="dropdown-menu">
             <li><a *ngIf="checkadmin()" [routerLink]="['/usercenter']">个人中心</a></li>
             <li><a *ngIf="checkadmin()" [routerLink]="['/editpw']">修改密码</a> </li>
+            <li><a *ngIf="!checkadmin()" [routerLink]="['/admin']">管理系统</a> </li>
             <li><a (click)="exit()">退出登录</a></li>
           </ul>
         </li>
