@@ -66,6 +66,10 @@ export class ArticletableComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  loadData() {
     this.service.getArticle().subscribe(
       data => { this.source.load(data); },
       (err: HttpErrorResponse) => {
@@ -93,8 +97,9 @@ export class ArticletableComponent implements OnInit {
             alert("刪除文章失敗！");
           }else {
             alert("刪除文章成功！");
+            this.loadData();
           }
-          this.source.remove(event.data);
+          // this.source.remove(event.data);
         }
       );
       console.log(this.source.getAll());
@@ -115,8 +120,9 @@ export class ArticletableComponent implements OnInit {
             alert("修改文章失敗！");
           }else {
             alert("修改文章成功！");
+            this.loadData();
           }
-          this.source.update(event.data, event.newData);
+          // this.source.update(event.data, event.newData);
         }
       );
       console.log(this.source.getAll());

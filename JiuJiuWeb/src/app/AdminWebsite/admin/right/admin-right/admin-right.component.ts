@@ -10,7 +10,7 @@ export class AdminRightComponent implements OnInit {
   public alerts: Array<any> = [];
 
   constructor() {
-    this.adminName = '小卿';
+    this.adminName = localStorage.getItem('username');
     this.alerts.push(
       {
         id: 1,

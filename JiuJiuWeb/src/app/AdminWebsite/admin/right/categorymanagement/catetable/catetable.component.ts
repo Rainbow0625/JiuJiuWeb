@@ -56,6 +56,10 @@ export class CatetableComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  loadData() {
     this.service.getCate().subscribe(
       data => {
         this.source.load(data);
@@ -88,8 +92,9 @@ export class CatetableComponent implements OnInit {
             alert("刪除栏目失敗！");
           }else {
             alert("刪除栏目成功！");
+            this.loadData();
           }
-          this.source.remove(event.data);
+          // this.source.remove(event.data);
         }
       );
       console.log(this.source.getAll());
@@ -109,8 +114,9 @@ export class CatetableComponent implements OnInit {
             alert("新增栏目失敗！");
           }else {
             alert("新增栏目成功！");
+            this.loadData();
           }
-          this.source.add(event.newData);
+          // this.source.add(event.newData);
         }
       );
       console.log(this.source.getAll());
@@ -130,8 +136,9 @@ export class CatetableComponent implements OnInit {
             alert("修改栏目失敗！");
           }else {
             alert("修改栏目成功！");
+            this.loadData();
           }
-          this.source.update(event.data, event.newData);
+          // this.source.update(event.data, event.newData);
         }
       );
       console.log(this.source.getAll());
