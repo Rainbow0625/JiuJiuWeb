@@ -49,7 +49,7 @@
                     <select class="form-control" [(ngModel)]="data.cateid" name="cateid" id="cateid">
                       <!--需要从数据库查！！！-->
                       <option value="">请选择</option>
-                      <option *ngFor="let cate of displayCates"  [value]='cate.catename'>{{cate.catename}}</option>
+                      <option *ngFor="let cate of displayCates"  [value]='cate.id'>{{cate.catename}}</option>
                     </select>
                   </div>
                   <span style="color:red; line-height: 10px;">*</span>
