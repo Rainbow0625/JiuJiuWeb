@@ -4,12 +4,6 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class ArticleService {
-  private hotclick: Hotclick[]=[
-      new Hotclick("梅园"),
-  ];
-  private  hotReading: Reading[]=[
-    new Reading("菊园"),
-  ];
 
   constructor(private httpService: HttpRequestService) { }
 
@@ -27,11 +21,12 @@ export class ArticleService {
     return this.httpService.addArticle(article);
   }
 
-  getHotclick(): Hotclick[] {
-    return this.hotclick;
+
+  getHotclick(): Observable<Hotclick[]> {
+    return this.httpService.loadHotclick();
   }
-  getHotReading(): Reading[] {
-    return this.hotReading;
+  getHotReading(): Observable<Reading[]> {
+    return this.httpService.loadHotReading();
   }
 
 
