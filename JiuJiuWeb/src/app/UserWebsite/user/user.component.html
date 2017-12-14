@@ -4,9 +4,7 @@
 <div>
   <nav>
     <ul>
-     <!-- <li *ngFor="let item of cates" (click)="search(item)" [ngStyle]="{cour:isclick}">{{item.catename}}</li>
-    -->
-      <li><a class="hhh">首页</a></li>
+     <li *ngFor="let item of cates" (click)="search(item)" >{{item.catename}}</li>
     </ul>
   </nav>
 </div>
@@ -21,9 +19,9 @@
             <div class="hm-t-header">热门点击</div>
             <div class="hm-t-body">
               <ul class="hm-t-list hm-t-list-img">
-                <li *ngFor="let item of hot" class="hm-t-item hm-t-item-img"><a target="_blank"
+                <li *ngFor="let item of hot" class="hm-t-item hm-t-item-img"><p target="_blank"
                                                                                 class="hm-t-img-title"
-                                                                                style="visibility: visible;"><span>{{item.title}}</span></a>
+                                                                                style="visibility: visible;"><span>{{item.title}}</span></p>
                 </li>
 
               </ul>
@@ -43,9 +41,9 @@
             <div class="hm-t-body">
               <ul class="hm-t-list hm-t-list-img">
 
-                <li *ngFor="let item of reading" class="hm-t-item hm-t-item-img"><a target="_blank"
+                <li *ngFor="let item of reading" class="hm-t-item hm-t-item-img"><p target="_blank"
                                                                                     class="hm-t-img-title"
-                                                                                    style="visibility: visible;"><span>{{item.title}}</span></a>
+                                                                                    style="visibility: visible;"><span>{{item.title}}</span></p>
                 </li>
 
               </ul>
