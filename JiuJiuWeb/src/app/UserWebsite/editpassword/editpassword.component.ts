@@ -19,7 +19,9 @@ export class EditpasswordComponent implements OnInit {
     const username=localStorage.getItem('username');
     const password=localStorage.getItem('password');
     if(password===formRef.origin_password) {
-      const user = new Usermessage(0,username,formRef.new_password,'', '','','','');
+      const new_password = formRef.new_password;
+      const user = new Usermessage(0,username,new_password,'', '','','','');
+      console.log(user);
       this.userservice.updateUserpassword(user).subscribe(
         a => {
           console.log(a.flag);

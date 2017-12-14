@@ -1,12 +1,10 @@
 <!--<div class="row carousel-container">
   <app-carousel></app-carousel>
 </div> -->
-<div>
-  <nav>
+<div class="row" style="padding-top: 50px;padding-bottom: 50px;">
     <ul>
-     <li *ngFor="let item of cates" (click)="search(item)" >{{item.catename}}</li>
+      <li ><a class="col-lg-1 col-md-1" *ngFor="let item of cates" (click)="search(item.id)" >{{item.catename}}</a></li>
     </ul>
-  </nav>
 </div>
 
 <div class="overall" style="margin-top: 30px">
