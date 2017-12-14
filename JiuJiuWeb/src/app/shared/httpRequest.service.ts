@@ -166,8 +166,8 @@ export class HttpRequestService {
       });
   }
   // 获取一个用户的个人中心信息
-  getUser(user:Usermessage):Observable<any> {
-    return this.http.post('http://localhost:80/project_blog/public/index.php/index/user/lst',user,
+  getUser(user:Usermessage):Observable<Usermessage> {
+    return this.http.post<Usermessage>('http://localhost:80/project_blog/public/index.php/index/user/lst',user,
       {
         headers: new HttpHeaders({'Content-Type': 'application/json'}),
         withCredentials: true

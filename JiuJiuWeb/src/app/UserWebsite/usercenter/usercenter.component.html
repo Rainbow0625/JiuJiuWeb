@@ -20,7 +20,7 @@
         <div class="contentBox">
         <div class="formBox">
         <div id="setting-profile" class="setting-wrap setting-profile">
-        <form id="profile" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+        <form id="profile" #myForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
           <div class="wlfg-wrap clearfix ">
                 <label class="label-name">头像：</label>
                 <div style="margin-top: 50px;margin-bottom: 20px">
@@ -34,22 +34,22 @@
           <div class="wlfg-wrap clearfix">
             <label class="label-name" for="user_id" >ID：</label>
             <div class="rlf-group">
-              <input type="text" readonly="readonly"  [(ngModel)]="user.user_id" name="user_id" id="user_id" class="moco-form-control"/>
+              <input readonly="readonly"  [(ngModel)]="user.user_id" name="user_id" id="user_id" class="moco-form-control"/>
               <p class="rlf-tip-wrap errorHint color-red" ></p>
             </div>
           </div>
 
-                <div class="wlfg-wrap clearfix">
+                <div class="wlfg-wrap">
                   <label class="label-name" for="username" >昵称：</label>
                   <div class="rlf-group">
-                    <input type="text" [(ngModel)]="user.username" name="username" id="username" class="moco-form-control"/>
+                    <input  [(ngModel)]="user.username" name="username" id="username" class="moco-form-control"/>
                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                   </div>
                 </div>
-                <div class="wlfg-wrap clearfix">
+                <div class="wlfg-wrap">
                   <label class="label-name" for="email" >电子邮件：</label>
                   <div class="rlf-group">
-                    <input type="text" name="email" id="email" class="moco-form-control" [(ngModel)]="user.email">
+                    <input type="text" name="email" id="email" class="moco-form-control" [(ngModel)]="user.email" placeholder="email">
                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                   </div>
                 </div>

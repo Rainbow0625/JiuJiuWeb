@@ -11,6 +11,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FilterPipe } from './filter.pipe';
 import {ImageUploadModule} from "angular2-image-upload";
 import {EditpasswordComponent} from "../editpassword/editpassword.component";
+import {HttpClientModule} from "@angular/common/http";
+import {BrowserModule} from "@angular/platform-browser";
+import {HttpRequestService} from "../../shared/httpRequest.service";
 
 @NgModule({
   imports: [
@@ -20,6 +23,8 @@ import {EditpasswordComponent} from "../editpassword/editpassword.component";
     FormsModule,
     ReactiveFormsModule,
     ImageUploadModule.forRoot(),
+    HttpClientModule,
+    BrowserModule
   ],
   exports: [],
   declarations: [
@@ -28,6 +33,6 @@ import {EditpasswordComponent} from "../editpassword/editpassword.component";
     FilterPipe,
     EditpasswordComponent
   ],
-  providers: [ArticleService,CateService],
+  providers: [ArticleService,CateService,HttpRequestService],
 })
 export class UserModule { }
