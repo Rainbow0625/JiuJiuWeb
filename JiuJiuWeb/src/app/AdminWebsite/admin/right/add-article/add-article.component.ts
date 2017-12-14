@@ -38,19 +38,19 @@ export class AddArticleComponent implements OnInit {
     }else {
       this.data.state =0;
     }
-    console.log(this.data);
+
     this.addArticle();
   }
 
   addArticle():void {
-    console.log("文章的状态"+this.data.state);
+    console.log(this.data);
     this.service.addArticle(this.data).subscribe(
       a => {
         if(a.flag ===0) {
           alert("新增文章失敗！");
         }else {
           alert("新增文章成功！");
-          this.router.navigate(['articlemanagement']);
+          this.router.navigate(['/admin/articlemanagement']);
         }
       }
     );
