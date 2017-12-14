@@ -14,7 +14,6 @@ export class ButtonViewComponent implements ViewCell, OnInit {
 
   @Input() value: string | number;
   @Input() rowData: any;
-
   @Output() save: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
