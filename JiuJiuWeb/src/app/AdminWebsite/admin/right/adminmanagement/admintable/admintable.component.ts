@@ -88,6 +88,10 @@ export class AdmintableComponent implements OnInit {
   constructor(private service: AdminService) {}
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
     this.service.getAdmins().subscribe(
       data => { this.source.load(data); },
       (err: HttpErrorResponse) => {
@@ -100,7 +104,8 @@ export class AdmintableComponent implements OnInit {
           console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
         }
       });
-  }
+}
+
 
   // delete
   onDeleteConfirm(event): void {
@@ -116,8 +121,10 @@ export class AdmintableComponent implements OnInit {
             alert("刪除用戶失敗！");
           }else {
             alert("刪除用戶成功！");
+            // 刷新页面
+            this.loadData();
           }
-          this.source.remove(event.data);
+          // this.source.remove(admin);
         }
       );
       console.log(this.source.getAll());
@@ -138,8 +145,11 @@ export class AdmintableComponent implements OnInit {
             alert("創建用戶失敗！");
           }else {
             alert("創建用戶成功！");
+            // 刷新页面
+            this.loadData();
           }
-          this.source.add(admin);}
+          // this.source.add(admin);
+        }
       );
       console.log(this.source.getAll());
     } else {
@@ -162,8 +172,11 @@ export class AdmintableComponent implements OnInit {
             alert("修改用戶失敗！");
           }else {
             alert("修改用戶成功！");
+            // 刷新页面
+            this.loadData();
           }
-          this.source.update(event.data, event.newData);}
+          // this.source.update(event.data, event.newData);
+        }
       );
       console.log(this.source.getAll());
     } else {

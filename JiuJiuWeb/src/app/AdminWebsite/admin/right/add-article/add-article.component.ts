@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class AddArticleComponent implements OnInit {
 
   private data = new Article();  // xiu gai!!
+  private state:boolean;
   private displayCates:Cate[];
 
   file: Array<Object>;
@@ -33,7 +34,7 @@ export class AddArticleComponent implements OnInit {
 }
 
   onSubmit() {
-    if(this.data.state===1) {
+    if(this.state===true) {
       this.data.state = 1;
     }else {
       this.data.state =0;
