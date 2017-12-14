@@ -4,10 +4,7 @@ import {Router} from "@angular/router";
 import {Article, ArticleService, Hotclick, Reading} from "../../shared/article.service";
 import {Cate, CateService} from "../../shared/cate.service";
 import {FormControl} from "@angular/forms";
-import {Subject} from "rxjs/Subject";
-import {Observable} from "rxjs/Observable";
 import {HttpRequestService} from "../../shared/httpRequest.service";
-import {debounceTime, distinctUntilChanged, switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-user',
@@ -48,8 +45,13 @@ export class UserComponent implements OnInit {
         console.log(data);
       }
     );
-    this.hot= this.articleService.getHotclick();
-    this.reading=this.articleService.getHotReading();
+
+    this.articleService.getHotclick().subscribe(
+      data => { this.hot = data;}
+    );
+    this.articleService.getHotReading().subscribe(
+      data => { this.reading = data;}
+    );
     //
 
   /* this.article=this.searchTerms.debounceTime(300).distinctUntilChanged()

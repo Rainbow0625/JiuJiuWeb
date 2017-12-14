@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Admin} from "./admin.service";
 import {Observable} from "rxjs/Observable";
-import {Article} from "./article.service";
+import {Article, Hotclick, Reading} from "./article.service";
 import 'rxjs/add/operator/map';
 import {Http} from "@angular/http";
 import {Cate} from "./cate.service";
@@ -140,17 +140,6 @@ export class HttpRequestService {
       }
     );
   }
-  /*
-  updateUser(user:Usermessage):Observable<any> {
-    return this.http.post<Usermessage>(
-      'http://localhost:80/.......', user,
-      {
-        headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
-      }
-    );
-  }
-  */
   updateUser(user:Usermessage):Observable<any> {
     return this.http.put('http://localhost:80/project_blog/public/index.php/admin/user/edit',user,
       {
@@ -190,4 +179,15 @@ export class HttpRequestService {
       }
     );
   }
+
+
+  // hot Click and Reading
+  loadHotclick():Observable<Hotclick[]> {
+    return this.http.get<Hotclick[]>('.........');
+  }
+  loadHotReading():Observable<Reading[]> {
+    return this.http.get<Reading[]>('.........');
+  }
+
+
 }
