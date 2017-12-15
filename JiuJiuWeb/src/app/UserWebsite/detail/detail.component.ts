@@ -17,7 +17,6 @@ export class DetailComponent implements OnInit {
     let str=localStorage.getItem('detail');
     let arts = JSON.parse(str);
     this.arts=arts;
-    console.log(arts);
     // this.router.m.subscribe(params => {
     //   this.arts = params['user'];
     // this.articleService.getDetail(this.article).subscribe(

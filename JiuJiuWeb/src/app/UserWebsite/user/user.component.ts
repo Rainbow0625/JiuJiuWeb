@@ -36,9 +36,7 @@ export class UserComponent implements OnInit {
     );
   }
   goDetail(arti:Article) {
-    console.log(arti);
     let str = JSON.stringify(arti);
-    console.log(str);
     localStorage.setItem('detail',str);
   }
   ngOnInit() {
