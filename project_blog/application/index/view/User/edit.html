@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<form action="" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="{$user.user_id}">
+				用户名：<input type="text" name="username" id = "username" value="{$user.username}">
+				电子邮件：<input type="email" name = "email" id="email" value="{$user.email}">
+				性别：<input type="radio" name="gender" value="male" checked >Male <input type="radio" name="gender" value="female">Female
+				<br/>
+				出生地：
+				<select name="native_place">
+				  <option value ="beijing">北京</option>
+				  <option value ="shanghai">上海</option>
+				  <option value="guangzhou">广州</option>
+				  <option value="tianjin">天津</option>
+				</select>
+				出生日期：<input id="birth" type="date" name = "birth" value="2017-12-05"/>
+				<input type="file" name="head_pic" id="head_pic" accept="image/gif, image/jpeg, image/png" />
+				<br/>
+				<input type="submit" value="submit"/>
+				<input type="reset" value="reset"/>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
