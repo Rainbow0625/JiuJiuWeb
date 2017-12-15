@@ -81,7 +81,7 @@
       </div>
       <div class="dec">
         <h3>
-          <a>{{item.title}}</a>
+          <a (click)="goDetail(item.id)" [routerLink]="['/detail']">{{item.title}}</a>
         </h3>
         <p>{{item.author}}</p>
         <p class="time">发布时间：{{item.time}}</p>
