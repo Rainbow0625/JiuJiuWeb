@@ -8,11 +8,10 @@ import {CommonModule} from "@angular/common";
 import {ArticleService} from "../../shared/article.service";
 import {CateService} from "../../shared/cate.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { FilterPipe } from './filter.pipe';
+import {FilterPipe } from './filter.pipe';
 import {ImageUploadModule} from "angular2-image-upload";
 import {EditpasswordComponent} from "../editpassword/editpassword.component";
 import {HttpClientModule} from "@angular/common/http";
-import {BrowserModule} from "@angular/platform-browser";
 import {HttpRequestService} from "../../shared/httpRequest.service";
 
 @NgModule({
@@ -23,8 +22,7 @@ import {HttpRequestService} from "../../shared/httpRequest.service";
     FormsModule,
     ReactiveFormsModule,
     ImageUploadModule.forRoot(),
-    HttpClientModule,
-    BrowserModule
+    HttpClientModule
   ],
   exports: [],
   declarations: [

@@ -47,7 +47,8 @@ export class UserComponent implements OnInit {
     );
 
     this.articleService.getHotclick().subscribe(
-      data => { this.hot = data;}
+      data => { this.hot = data;
+      console.log(this.hot);}
     );
     this.articleService.getHotReading().subscribe(
       data => { this.reading = data;}
