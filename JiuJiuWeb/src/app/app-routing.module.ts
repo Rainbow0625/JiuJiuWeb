@@ -4,6 +4,7 @@ import {UsercenterComponent} from "./UserWebsite/usercenter/usercenter.component
 import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 import {EditpasswordComponent} from "./UserWebsite/editpassword/editpassword.component";
 import {AdminGuardService} from "./shared/admin-guard.service";
+import {DetailComponent} from "./UserWebsite/detail/detail.component";
 /*
 const routes: Routes = [
     { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
@@ -21,7 +22,9 @@ const routeConfig: Routes = [
   {path: 'user', loadChildren: './UserWebsite/user/user.module#UserModule'},
   {path:'editpw',component:EditpasswordComponent},
   {path:'usercenter', component:UsercenterComponent},
+  {path:'detail',component:DetailComponent},
   {path:'**', component:NotFoundPageComponent}
+
   /*
   {path: 'about', component: AboutusComponent},
   {path: 'product', component: ProductComponent},

@@ -1,7 +1,7 @@
-import {Component,OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Router} from "@angular/router";
 
-import {Article, ArticleService, Hotclick, Reading} from "../../shared/article.service";
+import {Article, ArticleService} from "../../shared/article.service";
 import {Cate, CateService} from "../../shared/cate.service";
 import {FormControl} from "@angular/forms";
 import {HttpRequestService} from "../../shared/httpRequest.service";
@@ -13,12 +13,13 @@ import {HttpRequestService} from "../../shared/httpRequest.service";
 })
 export class UserComponent implements OnInit {
   public cate:Cate;
-  public hot: Hotclick[];
+  public hot: Article[];
   public cates: Cate[];
-  public reading: Reading[];
+  public reading: Article[];
   public keyword: string;
   public articles:Article[];
   public titleFilter: FormControl= new FormControl();
+  @Output() id =new EventEmitter<any>();
   constructor(public router: Router,public articleService: ArticleService,public cateService: CateService,
               public httprequestservice: HttpRequestService ) {
     this.titleFilter.valueChanges.debounceTime(500).subscribe(
@@ -28,30 +29,36 @@ export class UserComponent implements OnInit {
   search(item:number): void {
     console.log(item);
     this.cate = new Cate(item,'','');
-    console.log(this.cate);
     this.httprequestservice.searchArticle(this.cate).subscribe(
       data => {
+        console.log(data);
         this.articles=data;
+        console.log(this.articles);
       }
     );
   }
+  goDetail(id:number) {
+    this.id.emit(id);
+    console.log(id);
+  }
   ngOnInit() {
-    this.articleService.getArticle().subscribe(
-      data => {this.articles = data;}
-    );
-    this.cateService.getCate().subscribe(
-      data => {
-        this.cates = data;
-        console.log(data);
+    this.articleService.getHotclick().subscribe(
+      data3 => { console.log(data3);
+        this.hot = data3;
       }
     );
-
-    this.articleService.getHotclick().subscribe(
-      data => { this.hot = data;
-      console.log(this.hot);}
-    );
     this.articleService.getHotReading().subscribe(
-      data => { this.reading = data;}
+      data4 => { console.log(data4);
+        this.reading = data4;}
+    );
+   this.articleService.getArticle().subscribe(
+      data1 => {this.articles = data1;}
+    );
+    this.cateService.getCate().subscribe(
+      data2 => {
+        this.cates = data2;
+        console.log(data2);
+      }
     );
     //
 

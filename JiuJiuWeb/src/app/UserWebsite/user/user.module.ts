@@ -13,6 +13,7 @@ import {ImageUploadModule} from "angular2-image-upload";
 import {EditpasswordComponent} from "../editpassword/editpassword.component";
 import {HttpClientModule} from "@angular/common/http";
 import {HttpRequestService} from "../../shared/httpRequest.service";
+import {DetailComponent} from "../detail/detail.component";
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import {HttpRequestService} from "../../shared/httpRequest.service";
     UserComponent,
     UsercenterComponent,
     FilterPipe,
-    EditpasswordComponent
+    EditpasswordComponent,
+    DetailComponent
   ],
   providers: [ArticleService,CateService,HttpRequestService],
 })

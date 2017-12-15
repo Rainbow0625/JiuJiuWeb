@@ -3,7 +3,7 @@
 </div> -->
 <div class="row" style="padding-top: 50px;padding-bottom: 50px;">
     <ul>
-      <li ><a class="col-lg-1 col-md-1" *ngFor="let item of cates" (click)="search(item.id)" >{{item.catename}}</a></li>
+      <li ><a class="col-lg-1 col-md-1" *ngFor="let item1 of cates" (click)="search(item1.id)" >{{item1.catename}}</a></li>
     </ul>
 </div>
 
@@ -17,9 +17,7 @@
             <div class="hm-t-header">热门点击</div>
             <div class="hm-t-body">
               <ul class="hm-t-list hm-t-list-img">
-                <li *ngFor="let item of hot" class="hm-t-item hm-t-item-img"><p target="_blank"
-                                                                                class="hm-t-img-title"
-                                                                                style="visibility: visible;"><span>{{item.title}}</span></p>
+                <li *ngFor="let item2 of hot" class="hm-t-item hm-t-item-img"><p class="hm-t-img-title" style="visibility: visible;"><span>{{item2.title}}</span></p>
                 </li>
 
               </ul>
@@ -39,7 +37,7 @@
             <div class="hm-t-body">
               <ul class="hm-t-list hm-t-list-img">
 
-                <li *ngFor="let item of reading" class="hm-t-item hm-t-item-img"><p class="hm-t-img-title" style="visibility: visible;"><span>{{item.title}}</span></p>
+                <li *ngFor="let item3 of reading" class="hm-t-item hm-t-item-img"><p class="hm-t-img-title" style="visibility: visible;"><span>{{item3.title}}</span></p>
                 </li>
 
               </ul>
@@ -83,7 +81,7 @@
       </div>
       <div class="dec">
         <h3>
-          <a href="">{{item.title}}</a>
+          <a>{{item.title}}</a>
         </h3>
         <p>{{item.author}}</p>
         <p class="time">发布时间：{{item.time}}</p>
@@ -93,8 +91,6 @@
       </div>
     </div>
   </div>
-
-
 </div>
 
 

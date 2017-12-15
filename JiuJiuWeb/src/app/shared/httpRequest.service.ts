@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Admin} from "./admin.service";
 import {Observable} from "rxjs/Observable";
-import {Article, Hotclick, Reading} from "./article.service";
+import {Article} from "./article.service";
 import 'rxjs/add/operator/map';
 import {Http} from "@angular/http";
 import {Cate} from "./cate.service";
@@ -69,6 +69,14 @@ export class HttpRequestService {
   addArticle(article:Article):Observable<any> {
     return this.http.post(
       'http://localhost:80/project_blog/public/index.php/admin/article/add', article,
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+        withCredentials:true
+      });
+  }
+  getArticltdetail(article:Article):Observable<Article> {
+    return this.http.post<Article>(
+      'http://localhost:80/project_blog/public/index.php/index/article/lst',article,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         withCredentials:true
@@ -182,11 +190,12 @@ export class HttpRequestService {
 
 
   // hot Click and Reading
-  loadHotclick():Observable<Hotclick[]> {
-    return this.http.get<Hotclick[]>('http://localhost:80/project_blog/public/index.php/index/base/right_click');
+  loadHotclick():Observable<Article[]> {
+    return this.http.get<Article[]>(
+      'http://localhost:80/project_blog/public/index.php/index/right/right_click',{withCredentials:true});
   }
-  loadHotReading():Observable<Reading[]> {
-    return this.http.get<Reading[]>('http://localhost:80/project_blog/public/index.php/index/base/right_recommand');
+  loadHotReading():Observable<Article[]> {
+    return this.http.get<Article[]>('http://localhost:80/project_blog/public/index.php/index/right/right_recommand',{withCredentials:true});
   }
 
 

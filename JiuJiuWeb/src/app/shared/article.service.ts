@@ -20,12 +20,15 @@ export class ArticleService {
   addArticle(article:Article):Observable<any> {
     return this.httpService.addArticle(article);
   }
+  getDetail(article:Article):Observable<Article> {
+    return this.httpService.getArticltdetail(article);
+  }
 
 
-  getHotclick(): Observable<Hotclick[]> {
+  getHotclick(): Observable<Article[]> {
     return this.httpService.loadHotclick();
   }
-  getHotReading(): Observable<Reading[]> {
+  getHotReading(): Observable<Article[]> {
     return this.httpService.loadHotReading();
   }
 
@@ -65,17 +68,5 @@ export class Article {
 
   setArticleId(id:number) {
     this.id = id;
-  }
-}
-export class Hotclick {
-  constructor(
-    public title: string,
-  ) {
-  }
-}
-export class Reading {
-  constructor(
-    public title: string,
-  ) {
   }
 }

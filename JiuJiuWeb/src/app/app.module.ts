@@ -23,13 +23,14 @@ import {CateService} from "./shared/cate.service";
 import {ArticleService} from "./shared/article.service";
 import {AdminGuardService} from "./shared/admin-guard.service";
 import { EditpasswordComponent } from './UserWebsite/editpassword/editpassword.component';
+import { DetailComponent } from './UserWebsite/detail/detail.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
   ],
   imports: [
     CKEditorModule,
