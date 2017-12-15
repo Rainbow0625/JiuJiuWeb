@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   public keyword: string;
   public articles:Article[];
   public titleFilter: FormControl= new FormControl();
-  @Output() id =new EventEmitter<any>();
+  @Output() artid:EventEmitter<any> = new EventEmitter();
   constructor(public router: Router,public articleService: ArticleService,public cateService: CateService,
               public httprequestservice: HttpRequestService ) {
     this.titleFilter.valueChanges.debounceTime(500).subscribe(
@@ -38,7 +38,7 @@ export class UserComponent implements OnInit {
     );
   }
   goDetail(id:number) {
-    this.id.emit(id);
+    this.artid.emit(id);
     console.log(id);
   }
   ngOnInit() {
