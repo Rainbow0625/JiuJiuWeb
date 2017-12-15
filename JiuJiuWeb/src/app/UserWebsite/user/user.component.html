@@ -1,7 +1,7 @@
 <!--<div class="row carousel-container">
   <app-carousel></app-carousel>
 </div> -->
-<div class="row" style="padding-top: 50px;padding-bottom: 50px;">
+<div class="row" style="padding-top: 50px;padding-bottom: 50px;" >
     <ul>
       <li ><a class="col-lg-1 col-md-1" *ngFor="let item1 of cates" (click)="search(item1.id)" >{{item1.catename}}</a></li>
     </ul>
@@ -81,7 +81,7 @@
       </div>
       <div class="dec">
         <h3>
-          <a (click)="goDetail(item.id)" [routerLink]="['/detail']">{{item.title}}</a>
+          <a (click)="goDetail(item)" [routerLink]="['/detail']">{{item.title}}</a>
         </h3>
         <p>{{item.author}}</p>
         <p class="time">发布时间：{{item.time}}</p>

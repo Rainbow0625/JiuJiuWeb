@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../assets/profile-less.css" type="text/css" />
   <div id="main">
 
+    <div *ngIf="this.user">
     <div class="page-settings" style="margin-top: 50px">
       <div class="top">
         <div class="w960 mauto top_title">
@@ -20,7 +21,7 @@
         <div class="contentBox">
         <div class="formBox">
         <div id="setting-profile" class="setting-wrap setting-profile">
-        <form id="profile" #myForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <form id="profile" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
           <div class="wlfg-wrap clearfix ">
                 <label class="label-name">头像：</label>
                 <div style="margin-top: 50px;margin-bottom: 20px">
@@ -49,7 +50,7 @@
                 <div class="wlfg-wrap">
                   <label class="label-name" for="email" >电子邮件：</label>
                   <div class="rlf-group">
-                    <input type="text" name="email" id="email" class="moco-form-control" [(ngModel)]="user.email" placeholder="email">
+                    <input type="text" name="email" id="email" class="moco-form-control" [(ngModel)]="this.user.email" placeholder="email">
                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                   </div>
                 </div>
@@ -65,7 +66,7 @@
                   <div class="rlf-group profile-address">
                     <select id="native_place" [(ngModel)]="user.native_place" name="native_place" id="native_place" class='moco-form-control' hidefocus="true">
                       <option value="0">选择省份</option>
-                      <option value="1">北京</option>
+                      <option value="beijing">北京</option>
                       <option value="2">天津</option>
                       <option value="3">河北</option>
                       <option value="4">山西</option>
@@ -108,8 +109,8 @@
                 <div class="wlfg-wrap clearfix">
                   <label class="label-name h16 lh16">性别：</label>
                   <div class="rlf-group rlf-radio-group">
-                    <label class="lh16"><input [(ngModel)]="male" type="radio" hidefocus="true" name="male">男</label>
-                    <label class="lh16"><input [(ngModel)]="female" type="radio" hidefocus="true" name="female">女</label>
+                    <label class="lh16"><input [(ngModel)]="user.gender" type="radio" hidefocus="true" value="male" name="male">男</label>
+                    <label class="lh16"><input [(ngModel)]="user.gender" type="radio" hidefocus="true" value="female" name="female">女</label>
                     <p class="rlf-tip-wrap errorHint color-red"></p>
                   </div>
                 </div>
@@ -130,3 +131,4 @@
 
 </div>
 
+</div>

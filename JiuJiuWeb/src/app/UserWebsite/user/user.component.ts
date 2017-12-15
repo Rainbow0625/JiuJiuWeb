@@ -31,15 +31,15 @@ export class UserComponent implements OnInit {
     this.cate = new Cate(item,'','');
     this.httprequestservice.searchArticle(this.cate).subscribe(
       data => {
-        console.log(data);
         this.articles=data;
-        console.log(this.articles);
       }
     );
   }
-  goDetail(id:number) {
-    this.artid.emit(id);
-    console.log(id);
+  goDetail(arti:Article) {
+    console.log(arti);
+    let str = JSON.stringify(arti);
+    console.log(str);
+    localStorage.setItem('detail',str);
   }
   ngOnInit() {
     this.articleService.getHotclick().subscribe(
@@ -59,20 +59,5 @@ export class UserComponent implements OnInit {
         this.cates = data2;
         console.log(data2);
       });
-    //
-
-  /* this.article=this.searchTerms.debounceTime(300).distinctUntilChanged()
-      .switchMap (term=>term?this.httprequestservice.searchArticle(term):Observable.of<Article[]>([])).catch(error=> {
-        console.log(error);
-        return Observable.of<Article[]>([]);
-    });*/
-   /* this.article$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.httprequestservice.searchArticle(term)),
-    );*/
   }
 }

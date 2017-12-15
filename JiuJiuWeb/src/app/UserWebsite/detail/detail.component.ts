@@ -1,29 +1,30 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Article, ArticleService} from "../../shared/article.service";
-
+// import {ActivateRoute} from '@angular/router';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  article:Article;
-  arts:Article;
-  @Input()
-  artid:number;
-
+  public article:Article;
+  public arts:Article;
   constructor(public router: Router,public articleService: ArticleService) {
   }
 
   ngOnInit() {
-    this.article.id=this.artid;
-    console.log(this.artid);
-    this.articleService.getDetail(this.article).subscribe(
-      data=> {
-          this.arts=data;
-      });
+    let str=localStorage.getItem('detail');
+    let arts = JSON.parse(str);
+    this.arts=arts;
+    console.log(arts);
+    // this.router.m.subscribe(params => {
+    //   this.arts = params['user'];
+    // this.articleService.getDetail(this.article).subscribe(
+    //   data=> {
+    //       this.arts=data;
+    //   });
 
+  // }
   }
-
 }
