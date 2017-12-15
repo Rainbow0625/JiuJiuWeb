@@ -58,8 +58,7 @@ export class UserComponent implements OnInit {
       data2 => {
         this.cates = data2;
         console.log(data2);
-      }
-    );
+      });
     //
 
   /* this.article=this.searchTerms.debounceTime(300).distinctUntilChanged()

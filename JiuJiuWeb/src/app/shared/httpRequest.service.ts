@@ -12,74 +12,83 @@ import {of} from "rxjs/observable/of";
 @Injectable()
 export class HttpRequestService {
 
-  constructor(private http: HttpClient,private https:Http) { }
+  constructor(private http: HttpClient, private https: Http) {
+  }
+
   url;
 
   /*ADMIN */
-  loadAdmins():Observable<Admin[]> {
-    return this.http.get<Admin[]>('http://localhost:80/project_blog/public/index.php/admin/admin/lst',{withCredentials:true});
+  loadAdmins(): Observable<Admin[]> {
+    return this.http.get<Admin[]>('http://localhost:80/project_blog/public/index.php/admin/admin/lst', {withCredentials: true});
   }
-  addAdmin(admin:Admin):Observable<any> {
+
+  addAdmin(admin: Admin): Observable<any> {
     return this.http.post<Admin>(
       'http://localhost:80/project_blog/public/index.php/admin/admin/add', admin,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         // 可设置参数  params: new HttpParams().set('id', '3'),
-        withCredentials:true
+        withCredentials: true
       }
-      );
+    );
   }
-  updateAdmin(admin:Admin):Observable<any> {
+
+  updateAdmin(admin: Admin): Observable<any> {
     return this.http.post<Admin>(
       'http://localhost:80/project_blog/public/index.php/admin/admin/edit', admin,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       }
     );
   }
-  deleteAdmin(admin:Admin):Observable<any> {
+
+  deleteAdmin(admin: Admin): Observable<any> {
     return this.http.post<Admin>(
       'http://localhost:80/project_blog/public/index.php/admin/admin/del', admin,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       }
     );
   }
 
   /*ARTICLE */
-  loadArticle():Observable<Article[]> {
+  loadArticle(): Observable<Article[]> {
     return this.http.get<Article[]>('http://localhost:80/project_blog/public/index.php/admin/article/lst');
   }
-  updateArticle(article:Article): Observable<any> {
+
+  updateArticle(article: Article): Observable<any> {
     return this.http.post('http://localhost:80/project_blog/public/index.php/admin/article/edit', article,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       });
   }
-  deleteArticle(article:Article): Observable<any> {
+
+  deleteArticle(article: Article): Observable<any> {
     return this.http.post('http://localhost:80/project_blog/public/index.php/admin/article/del', article,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       });
   }
-  addArticle(article:Article):Observable<any> {
+
+  addArticle(article: Article): Observable<any> {
     return this.http.post(
       'http://localhost:80/project_blog/public/index.php/admin/article/add', article,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       });
   }
-  getArticltdetail(article:Article):Observable<Article> {
+
+  getArticltdetail(article: Article): Observable<Article> {
     return this.http.post<Article>(
-      'http://localhost:80/project_blog/public/index.php/index/article/lst',article,
+      'http://localhost:80/project_blog/public/index.php/index/article/lst', article,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       });
   }
 
@@ -90,113 +99,122 @@ export class HttpRequestService {
     return this.https.get(`URL?name=${term}`)
       .map(response => response.json().data as Article[]);
   }*/
-  searchArticle(cate:Cate): Observable<Article[]> {
+  searchArticle(cate: Cate): Observable<Article[]> {
     return this.http.post<Article[]>(
       'http://localhost:80/project_blog/public/index.php/index/cate/lst', cate,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       }
     );
   }
 
 
   /*CATE*/
-  loadCate():Observable<Cate[]> {
+  loadCate(): Observable<Cate[]> {
     return this.http.get<Cate[]>('http://localhost:80/project_blog/public/index.php/admin/cate/lst');
   }
-  addCate(cate:Cate):Observable<any> {
+
+  addCate(cate: Cate): Observable<any> {
     return this.http.post<Cate>(
       'http://localhost:80/project_blog/public/index.php/admin/cate/add', cate,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         // 可设置参数  params: new HttpParams().set('id', '3'),
-        withCredentials:true
+        withCredentials: true
       }
     );
   }
-  updateCate(cate:Cate):Observable<any> {
+
+  updateCate(cate: Cate): Observable<any> {
     return this.http.post<Cate>(
       'http://localhost:80/project_blog/public/index.php/admin/cate/edit', cate,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       }
     );
   }
-  deleteCate(cate:Cate):Observable<any> {
+
+  deleteCate(cate: Cate): Observable<any> {
     return this.http.post<Cate>(
       'http://localhost:80/project_blog/public/index.php/admin/cate/del', cate,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       }
     );
   }
 
   /*USER*/
-  loadUser():Observable<Usermessage[]> {
+  loadUser(): Observable<Usermessage[]> {
     return this.http.get<Usermessage[]>('http://localhost:80/project_blog/public/index.php/admin/user/lst');
   }
-  addUser(user:Usermessage):Observable<any> {
+
+  addUser(user: Usermessage): Observable<any> {
     return this.http.post<Usermessage>(
       'http://localhost:80/project_blog/public/index.php/admin/user/add', user,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         // 可设置参数  params: new HttpParams().set('id', '3'),
-        withCredentials:true
+        withCredentials: true
       }
     );
   }
-  updateUser(user:Usermessage):Observable<any> {
-    return this.http.put('http://localhost:80/project_blog/public/index.php/admin/user/edit',user,
-      {
-        headers: new HttpHeaders({'Content-Type':'application/json'}),
-        withCredentials:true
-      });
-  }
-  updateUserpw(user:Usermessage):Observable<any> {
-    return this.http.post('http://localhost:80/project_blog/public/index.php/index/user/changepassword',user,
-      {
-        headers: new HttpHeaders({'Content-Type':'application/json'}),
-        withCredentials:true
-      });
-  }
-  // 获取一个用户的个人中心信息
-  getUser(user:Usermessage):Observable<Usermessage> {
-    return this.http.post<Usermessage>('http://localhost:80/project_blog/public/index.php/index/user/lst',user,
+
+  updateUser(user: Usermessage): Observable<any> {
+    return this.http.put('http://localhost:80/project_blog/public/index.php/admin/user/edit', user,
       {
         headers: new HttpHeaders({'Content-Type': 'application/json'}),
         withCredentials: true
       });
   }
-  editUser(user:Usermessage):Observable<any> {
-    return this.http.put('http://localhost:80/project_blog/public/index.php/index/user/edit',user,
+
+  updateUserpw(user: Usermessage): Observable<any> {
+    return this.http.post('http://localhost:80/project_blog/public/index.php/index/user/changepassword', user,
       {
-        headers: new HttpHeaders({'Content-Type':'application/json'}),
-        withCredentials:true
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        withCredentials: true
       });
   }
 
-  deleteUser(user:Usermessage):Observable<any> {
+  // 获取一个用户的个人中心信息
+  getUser(user: Usermessage): Observable<Usermessage> {
+    return this.http.post<Usermessage>('http://localhost:80/project_blog/public/index.php/index/user/lst', user,
+      {
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        withCredentials: true
+      });
+  }
+
+  editUser(user: Usermessage): Observable<any> {
+    return this.http.put('http://localhost:80/project_blog/public/index.php/index/user/edit', user,
+      {
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        withCredentials: true
+      });
+  }
+
+  deleteUser(user: Usermessage): Observable<any> {
     return this.http.post<Usermessage>(
       'http://localhost:80/project_blog/public/index.php/admin/user/del', user,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials:true
+        withCredentials: true
       }
     );
   }
 
 
   // hot Click and Reading
-  loadHotclick():Observable<Article[]> {
+
+  loadHotclick(): Observable<Article[]> {
     return this.http.get<Article[]>(
-      'http://localhost:80/project_blog/public/index.php/index/right/right_click',{withCredentials:true});
-  }
-  loadHotReading():Observable<Article[]> {
-    return this.http.get<Article[]>('http://localhost:80/project_blog/public/index.php/index/right/right_recommand',{withCredentials:true});
+      'http://localhost:80/project_blog/public/index.php/index/right/right_click', {withCredentials: true});
   }
 
-
+  loadHotReading(): Observable<Article[]> {
+   return this.http.get<Article[]>('http://localhost:80/project_blog/public/index.php/index/right/right_recommand',
+   {withCredentials: true});
+  }
 }
