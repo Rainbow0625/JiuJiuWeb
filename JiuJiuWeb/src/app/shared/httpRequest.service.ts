@@ -183,10 +183,14 @@ export class HttpRequestService {
 
   // hot Click and Reading
   loadHotclick():Observable<Hotclick[]> {
-    return this.http.get<Hotclick[]>('http://localhost:80/project_blog/public/index.php/index/base/right_click');
+    return this.http.get<Hotclick[]>(
+      'http://localhost:80/project_blog/public/index.php/index/base/right_click',
+      {withCredentials:true});
   }
   loadHotReading():Observable<Reading[]> {
-    return this.http.get<Reading[]>('http://localhost:80/project_blog/public/index.php/index/base/right_recommand');
+    return this.http.get<Reading[]>(
+      'http://localhost:80/project_blog/public/index.php/index/base/right_recommand',
+      {withCredentials:true});
   }
 
 
