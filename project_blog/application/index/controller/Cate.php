@@ -1,7 +1,7 @@
 <?php
 namespace app\index\controller;
-use app\index\controller\Base;
-class Cate extends Base
+use think\Controller;
+class Cate extends Controller
 {
     public function lst()
     {
