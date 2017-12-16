@@ -10,10 +10,12 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./usercenter.component.css']
 })
 export class UsercenterComponent implements OnInit {
-  @Input() male:boolean;
-  @Input() female:boolean;
+  // @Input()
+  male:boolean;
+  // @Input()
+  female:boolean;
   userdisplay:Usermessage ;
- @Input() user:Usermessage = null;  // new Usermessage(0,'','','','','','','');
+ @Input() user:Usermessage =  new Usermessage(0,'','','','','','',''); // null
   constructor(private router:Router,private httprequestservice:HttpRequestService,private location:Location,
                 private userservice: UsermessageService) {
   }

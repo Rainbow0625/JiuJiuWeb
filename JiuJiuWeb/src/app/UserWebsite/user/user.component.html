@@ -17,7 +17,7 @@
             <div class="hm-t-header">热门点击</div>
             <div class="hm-t-body">
               <ul class="hm-t-list hm-t-list-img">
-                <li *ngFor="let item2 of hot" class="hm-t-item hm-t-item-img"><p class="hm-t-img-title" style="visibility: visible;"><span>{{item2.title}}</span></p>
+                <li *ngFor="let item2 of hot" (click)="goDetail(item2)" [routerLink]="['/detail']" class="hm-t-item hm-t-item-img"><p class="hm-t-img-title" style="visibility: visible;"><span>{{item2.title}}</span></p>
                 </li>
 
               </ul>
@@ -37,7 +37,7 @@
             <div class="hm-t-body">
               <ul class="hm-t-list hm-t-list-img">
 
-                <li *ngFor="let item3 of reading" class="hm-t-item hm-t-item-img"><p class="hm-t-img-title" style="visibility: visible;"><span>{{item3.title}}</span></p>
+                <li *ngFor="let item3 of reading" (click)="goDetail(item3)" [routerLink]="['/detail']" class="hm-t-item hm-t-item-img"><p class="hm-t-img-title" style="visibility: visible;"><span>{{item3.title}}</span></p>
                 </li>
 
               </ul>
